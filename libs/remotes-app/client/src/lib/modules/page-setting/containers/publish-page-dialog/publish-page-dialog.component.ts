@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'cwp-publish-page-dialog',
   templateUrl: './publish-page-dialog.component.html',
-  styleUrls: ['./publish-page-dialog.component.css'],
+  styleUrls: ['./publish-page-dialog.component.scss'],
 })
 export class PublishPageDialogComponent implements OnInit {
 

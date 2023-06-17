@@ -5,7 +5,7 @@ import { AuthService, PageService } from '@cwp/core/services';
 @Component({
   selector: 'cwp-page-edit-dialog',
   templateUrl: './page-edit-dialog.component.html',
-  styleUrls: ['./page-edit-dialog.component.css'],
+  styleUrls: ['./page-edit-dialog.component.scss'],
 })
 export class PageEditDialogComponent implements OnInit {
 

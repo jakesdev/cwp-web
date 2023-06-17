@@ -6,7 +6,7 @@ import { debounceTime } from 'rxjs';
 @Component({
   selector: 'cwp-page-create-dialog',
   templateUrl: './page-create-dialog.component.html',
-  styleUrls: ['./page-create-dialog.component.css'],
+  styleUrls: ['./page-create-dialog.component.scss'],
 })
 export class PageCreateDialogComponent implements OnInit {
 
