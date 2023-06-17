@@ -19,6 +19,7 @@
       "@cwp/core/constants": ["libs/core/src/lib/constants/index.ts"],
       "@cwp/core/data-access": ["libs/core/src/lib/data-access/index.ts"],
       "@cwp/core/endpoint": ["libs/core/src/lib/environments/endpoint.ts"],
+      "@cwp/core/guard": ["libs/core/src/lib/guard/index.ts"],
       "@cwp/core/interceptor": ["libs/core/src/lib/interceptor/index.ts"],
       "@cwp/core/model/mapper": ["libs/core/src/lib/model/mapper/index.ts"],
       "@cwp/core/model/request": [
@@ -32,22 +33,8 @@
       ],
       "@cwp/core/pipe": ["libs/core/src/lib/pipe/index.ts"],
       "@cwp/core/services": ["libs/core/src/lib/services/index.ts"],
-      "@cwp/remotes-app/account": ["libs/remotes-app/account/src/index.ts"],
       "@cwp/remotes-app/admin": ["libs/remotes-app/admin/src/index.ts"],
-      "@cwp/remotes-app/community": ["libs/remotes-app/community/src/index.ts"],
-      "@cwp/remotes-app/customer-support": [
-        "libs/remotes-app/customer-support/src/index.ts"
-      ],
-      "@cwp/remotes-app/dashboard": ["libs/remotes-app/dashboard/src/index.ts"],
-      "@cwp/remotes-app/design-system": [
-        "libs/remotes-app/design-system/src/index.ts"
-      ],
-      "@cwp/remotes-app/home": ["libs/remotes-app/home/src/index.ts"],
-      "@cwp/remotes-app/marketplace": [
-        "libs/remotes-app/marketplace/src/index.ts"
-      ],
-      "@cwp/remotes-app/page": ["libs/remotes-app/page/src/index.ts"],
-      "@cwp/remotes-app/spinner": ["libs/remotes-app/spinner/src/index.ts"],
+      "@cwp/remotes-app/client": ["libs/remotes-app/client/src/index.ts"],
       "@cwp/remotes-app/webpage": ["libs/remotes-app/webpage/src/index.ts"],
       "@cwp/shared/features": ["libs/shared/features/src/index.ts"],
       "@cwp/shared/layout": ["libs/shared/layout/src/index.ts"],

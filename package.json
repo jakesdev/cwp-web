@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nx serve host",
     "start": "nx run host:serve:production",
+    "design-system" :"nx run design-system:serve --configuration=development",
     "build": "nx build host",
     "up-version": "nx migrate latest",
     "ng": "nx"
@@ -100,4 +101,3 @@
     "typescript": "5.0.4"
   }
 }
-

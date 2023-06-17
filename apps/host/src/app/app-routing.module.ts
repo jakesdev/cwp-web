@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import {
-  AdminGuard, DevelopingGuard, HasLoggedInGuard, HasNotLoggedInGuard, OnBoardingGuard, UserGuard
+  AdminGuard,
+  HasLoggedInGuard, HasNotLoggedInGuard, OnBoardingGuard
 } from '@cwp/core';
 import { AboutUsPageComponent } from './applications/pages/about-us/about-us.component';
 import { ErrorPageComponent } from './applications/pages/error/error.component';
@@ -16,7 +17,7 @@ export const appRoutes: Route[] = [
     path: '',
     pathMatch: 'full',
     loadChildren: () =>
-      import('@cwp/remotes-app/home').then((m) => m.RemotesAppHomeModule),
+      import('@cwp/remotes-app/client').then((m) => m.RemotesAppClientModule),
   },
   {
     path: 'auth',
@@ -25,31 +26,6 @@ export const appRoutes: Route[] = [
       import('./applications/authentication/authentication.module').then(
         (m) => m.AuthenticationModule
       ),
-  },
-  {
-    path: 'page',
-    canActivate: [HasLoggedInGuard, UserGuard],
-    loadChildren: () =>
-      import('@cwp/remotes-app/page').then((m) => m.RemotesAppPageModule),
-  },
-  {
-    path: 'account',
-    canActivate: [HasLoggedInGuard, UserGuard],
-    loadChildren: () =>
-      import('@cwp/remotes-app/account').then((m) => m.RemotesAppAccountModule),
-  },
-  {
-    path: 'marketplace',
-    canActivate: [HasLoggedInGuard, UserGuard],
-    loadChildren: () =>
-      import('@cwp/remotes-app/marketplace').then(
-        (m) => m.RemotesAppMarketplaceModule
-      ),
-  },
-  {
-      path: 'community',
-      canActivate: [DevelopingGuard],
-      loadChildren: () => import('@cwp/remotes-app/community').then(m => m.RemotesAppCommunityModule)
   },
   {
     path: 'features',
@@ -65,14 +41,6 @@ export const appRoutes: Route[] = [
     path: 'release-note',
     canActivate: [],
     component: ReleaseNotePageComponent,
-  },
-  {
-    path: 'customer-support',
-    canActivate: [HasLoggedInGuard, UserGuard],
-    loadChildren: () =>
-      import('@cwp/remotes-app/customer-support').then(
-        (m) => m.RemotesAppCustomerSupportModule
-      ),
   },
   {
     path: 'admin',
@@ -101,11 +69,6 @@ export const appRoutes: Route[] = [
     pathMatch: 'full',
     canActivate: [OnBoardingGuard], // onboarding rồi thì ko cho vào nữa // TODO :linh
     component: OnboardingPageComponent
-  },
-  {
-    path: 'design-system',
-    canActivate: [],
-    loadChildren: () => import('@cwp/remotes-app/design-system').then(m => m.RemotesAppDesignSystemModule)
   },
   {
     path: ':url',
