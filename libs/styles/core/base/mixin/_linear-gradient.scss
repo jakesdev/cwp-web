@@ -1,0 +1,32 @@
+// ----------------------------------------------------------------------
+
+// Linear Gradients
+
+// ----------------------------------------------------------------------
+
+// example: @include linearGradient(#cccccc, #333333, 10%, 45%);
+
+@mixin linearGradient($top, $bottom, $valuetop, $valuebottom) {
+	background: #{$top}; /* Old browsers */
+	background: -moz-linear-gradient(top, #{$top} $valuetop, #{$bottom} $valuebottom); /* FF3.6+ */
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop($valuetop, #{$top}),
+		color-stop($valuebottom, #{$bottom})
+	); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(
+		top,
+		#{$top} $valuetop,
+		#{$bottom} $valuebottom
+	); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(
+		top,
+		#{$top} $valuetop,
+		#{$bottom} $valuebottom
+	); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #{$top} $valuetop, #{$bottom} $valuebottom); /* IE10+ */
+	background: linear-gradient(to bottom, #{$top} $valuetop, #{$bottom} $valuebottom); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$top}', endColorstr='#{$bottom}', GradientType=0 ); /* IE6-9 */
+}

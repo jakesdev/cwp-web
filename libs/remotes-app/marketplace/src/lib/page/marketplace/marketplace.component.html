@@ -1,0 +1,48 @@
+<div class="max-w-7xl mx-auto">
+    <div class="relative mx-auto w-full max-w-container space-y-20 px-4 pt-20 sm:px-6 lg:px-8">
+        <section id="product-marketing"
+                 class="scroll-mt-28">
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-slate-900">Market Place</h1>
+                <p class="mt-3 text-md leading-7 text-slate-500">Everything you need to build beautiful your websites.</p>
+            </div>
+            <div class="mt-10 divide-y divide-slate-100 border-t border-slate-100 lg:mt-12">
+                <section id="product-marketing-elements"
+                         class="grid scroll-mt-12 grid-cols-1 gap-x-8 gap-y-10 py-10 lg:py-12 xl:grid-cols-4">
+                    <h3 class="text-base font-semibold text-slate-900">Widget Component</h3>
+                    <ul class="col-span-3 grid grid-cols-1 gap-y-6 gap-x-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
+                        <li *ngFor="let marketPlace of marketPlace;let i = index">
+                            <div (click)="openDetailMarketPlace(marketPlace._id)"
+                                 class="cursor-pointer group relative before:absolute before:-inset-2.5 before:rounded-[20px] before:bg-gray-50 before:opacity-0 hover:before:opacity-100">
+                                <div class="relative aspect-[2/1] overflow-hidden rounded-lg bg-gray-100 ring-1 ring-gray-900/10">
+                                    <img src="https://tailwindui.com/img/category-thumbnails/marketing/headers.png"
+                                         alt=""
+                                         class="absolute inset-0 h-full w-full">
+                                </div>
+                                <h4 class="mt-4 text-sm font-medium text-slate-900 group-hover:text-indigo-600">
+                                    <div>
+                                        <span class="absolute -inset-2.5 z-10">
+
+                                        </span>
+                                        <span class="relative">{{marketPlace.name}}</span>
+                                    </div>
+                                </h4>
+                                <p class="relative mt-1.5 text-xs font-medium text-slate-500">{{marketPlace.type}}</p>
+
+                                <span *ngIf="marketPlace.price > 0; else freePrice"
+                                      class="absolute top-2 right-2 px-2 py-0.5 text-xs font-medium leading-5 rounded-full bg-indigo-100 text-indigo-800">
+                                    {{marketPlace.price | currency:'USD':true:'1.2-2'}}
+                                </span>
+                                <ng-template #freePrice>
+                                    <span class="absolute top-2 right-2 px-2 py-0.5 text-xs font-medium leading-5 rounded-full bg-green-100 text-green-800">
+                                        Free
+                                    </span>
+                                </ng-template>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+    </div>
+</div>

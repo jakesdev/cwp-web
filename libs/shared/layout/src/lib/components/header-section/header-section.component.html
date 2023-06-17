@@ -1,0 +1,196 @@
+<header class="absolute inset-x-0 top-0 z-50"
+        [ngClass]="{ 'bg-gray-900': bgGray }">
+  <nav class="flex items-center justify-between p-6 lg:px-8"
+       aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a href="#"
+         class="-m-1.5 p-1.5">
+        <span class="sr-only">Your Company</span>
+        <img src="./assets/shared/images/logo_white.png"
+             class="cursor-pointer h-12 w-auto">
+      </a>
+    </div>
+    <div class="flex lg:hidden"
+         (click)="showMenu = true">
+      <button type="button"
+              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400">
+        <span class="sr-only">Open main menu</span>
+        <svg class="h-6 w-6"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke-width="1.5"
+             stroke="currentColor"
+             aria-hidden="true">
+          <path stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+    <div class="hidden lg:flex lg:gap-x-12">
+      <a [routerLink]="['/features']"
+         class="text-sm font-semibold leading-6 text-white">Features</a>
+
+      <a [routerLink]="['/marketplace']"
+         class="text-sm font-semibold leading-6 text-white">Marketplace</a>
+
+      <a [routerLink]="['/community']"
+         class="text-sm font-semibold leading-6 text-white">Community</a>
+
+      <a [routerLink]="['/about-us']"
+         class="text-sm font-semibold leading-6 text-white">About Us</a>
+      <a [routerLink]="['/release-note']"
+         class="text-sm font-semibold leading-6 text-white">Release Note</a>
+
+      <ng-container *ngIf="userProfile">
+        <a [routerLink]="['/page']"
+           class="text-sm font-semibold leading-6 text-white">Page</a>
+      </ng-container>
+    </div>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <div *ngIf="isAuthenticated; else notAuthenticated"
+           class="">
+        <div class="ml-4 flex items-center md:ml-6">
+          <div class="dropdown relative">
+            <button type="button"
+                    id="notification"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+              <span class="sr-only">View notifications</span>
+              <svg class="h-6 w-6"
+                   fill="none"
+                   viewBox="0 0 24 24"
+                   stroke-width="1.5"
+                   stroke="currentColor"
+                   aria-hidden="true">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+              </svg>
+            </button>
+            <div class="absolute text-[10px] bg-red-500 text-white top-0 left-0 border-white border border-2px rounded-full w-[16px] h-[16px] flex justify-center items-center">
+              <!-- 1 -->
+              12
+            </div>
+            <div class="dropdown-menu dropdown-menu-right absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                 aria-labelledby="notification">
+              test notification
+            </div>
+          </div>
+
+          <!-- Profile dropdown -->
+          <!--
+                           Dropdown menu, show/hide based on menu state.
+
+                           Entering: "transition ease-out duration-100"
+                             From: "transform opacity-0 scale-95"
+                             To: "transform opacity-100 scale-100"
+                           Leaving: "transition ease-in duration-75"
+                             From: "transform opacity-100 scale-100"
+                             To: "transform opacity-0 scale-95"
+                         -->
+          <div class="dropdown relative ml-3">
+            <button class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+              <span class="sr-only">Open user menu</span>
+              <ng-container *ngIf="userProfile && userProfile.avatarUrl; else noAvatar">
+                <img class="h-8 w-8 rounded-full"
+                     [src]="userProfile.avatarUrl"
+                     alt="" />
+              </ng-container>
+              <ng-template #noAvatar>
+                <svg class="h-8 w-8 rounded-full"
+                     fill="currentColor"
+                     viewBox="0 0 24 24">
+                  <path d="M12 14c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-3.216 0-9 1.609-9 4v1h18v-1c0-2.391-5.784-4-9-4z" />
+                </svg>
+              </ng-template>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                 aria-labelledby="dropdownMenuButton">
+              <a [routerLink]="['/account']"
+                 class="block px-4 py-2 text-sm text-gray-700"
+                 role="menuitem"
+                 tabindex="-1"
+                 id="user-menu-item-0">Account Setting</a>
+
+              <a class="block px-4 py-2 text-sm text-gray-700 cursor-pointer"
+                 role="menuitem"
+                 tabindex="-1"
+                 id="user-menu-item-2"
+                 (click)="logOut()">Sign out</a>
+            </div>
+          </div>
+          <p class="text-sm font-semibold leading-6 text-white ml-2">
+            {{ userProfile?.email }}
+          </p>
+        </div>
+      </div>
+      <ng-template #notAuthenticated>
+        <a [routerLink]="['/auth/login']"
+           routerLinkActive="router-link-active"
+           class="text-sm font-semibold leading-6 text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+      </ng-template>
+    </div>
+  </nav>
+  <!-- Mobile menu, show/hide based on menu open state. -->
+  <div class="lg:hidden"
+       role="dialog"
+       aria-modal="true"
+       *ngIf="showMenu"
+       (click)="showMenu = false">
+    <!-- Background backdrop, show/hide based on slide-over state. -->
+    <div class="fixed inset-0 z-50"></div>
+    <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+      <div class="flex items-center justify-between">
+        <a href="#"
+           class="-m-1.5 p-1.5">
+          <span class="sr-only">Your Company</span>
+          <img src="/assets/images/logo_dark.png"
+               class="cursor-pointer h-12 w-auto">
+        </a>
+        <button type="button"
+                class="-m-2.5 rounded-md p-2.5 text-gray-400">
+          <span class="sr-only">Close menu</span>
+          <svg class="h-6 w-6"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke-width="1.5"
+               stroke="currentColor"
+               aria-hidden="true">
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-gray-500/25">
+          <div class="space-y-2 py-6">
+            <a routerLink="features"
+               class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-800">Features</a>
+            <a routerLink="marketplace"
+               class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-800">Marketplace</a>
+            <a routerLink="community"
+               class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-800">Community</a>
+
+            <a routerLink="about-us"
+               class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-800">About Us</a>
+            <a routerLink="release-note"
+               class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-800">Release Note</a>
+          </div>
+          <div class="py-6">
+            <a routerLink="auth"
+               class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-800">Log in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

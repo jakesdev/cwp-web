@@ -1,0 +1,21 @@
+<div class="p-2">
+  <div class="flex justify-center mt-2 mb-4">
+    <i class="fa-solid fa-triangle-exclamation text-indigo-600 text-[150px]"></i>
+  </div>
+  <h6 class="mt-4 flex items-center justify-center text-indigo-600 font-bold">
+    {{data.message}}
+  </h6>
+  <div class="mt-4 d-flex justify-content-around"
+       mat-dialog-actions>
+    <button class="bg-indigo-600 text-white active:bg-secondary text-sm font-bold uppercase px-6 py-2 rounded shadow hover:bg-indigo-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            mat-button
+            (click)="onConfirm()">
+      Confirm
+    </button>
+    <button class="bg-white-500 border text-black active:bg-secondary text-sm font-bold uppercase px-6 py-2 rounded shadow hover:bg-slate-50 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            mat-button
+            (click)="onClose()">
+      Cancel
+    </button>
+  </div>
+</div>

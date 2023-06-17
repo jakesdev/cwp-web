@@ -1,0 +1,44 @@
+<div class="relative w-100 h-100">
+  <div class="sticky w-100 h-screen top-0 bottom-0 left-0 right-0 opacity-80 flex items-center justify-center z-999 bg-slate-100">
+    Coming Soon
+  </div>
+  <div class="z-10 top-0 p-4 container">
+
+    <div class="stat-card p-4 shadow z-10">
+      <div class="grid gap-4 xl:grid-cols-4 md:grid-cols-2">
+        <ng-container *ngFor="let item of cardMockData">
+          <cwp-stat-card [iconUrl]="item.iconUrl"
+                         [title]="item.title"
+                         [stat]="item.stat"
+                         [percent]="item.percent"
+                         [isGrowth]="item.isGrowth"></cwp-stat-card>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Line chart -->
+    <div class="mt-4">
+      <h1>User Analytics</h1>
+      <canvas id="lineChart"
+              width="300"
+              height="200"></canvas>
+    </div>
+    <div class="grid grid-cols-2 mt-4">
+      <div class="container">
+        <h1>Purchased Items</h1>
+        <canvas id="barChart"
+                width="300"
+                height="200"></canvas>
+      </div>
+      <div class="container">
+        <h1>User Subcribe</h1>
+        <canvas id="pieChart"
+                width="150"
+                height="150"></canvas>
+      </div>
+
+    </div>
+    <!-- Bar chart -->
+
+  </div>
+</div>

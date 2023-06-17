@@ -1,0 +1,22 @@
+<div class="bg-white shadow sm:rounded-lg">
+  <div class="px-4 py-5 sm:p-6">
+    <h3 class="text-base font-semibold leading-6 text-gray-900">Update video</h3>
+    <div class="mt-2 max-w-xl text-sm text-gray-500">
+      <p>Change the video</p>
+    </div>
+    <div class="mt-2">
+      <input type="video"
+             name="video"
+             id="video"
+             [value]="video"
+             [(ngModel)]="video"
+             class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+             placeholder=" Enter link of video">
+    </div>
+    <button type="button"
+            (click)="onSave()"
+            class="inline-flex items-center px-4 py-2 mt-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:border-indigo-700 active:bg-indigo-700 transition ease-in-out duration-150">
+      Save
+    </button>
+  </div>
+</div>

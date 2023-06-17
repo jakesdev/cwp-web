@@ -1,0 +1,24 @@
+<header [style.background-color]="data.backGroundColor">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+       aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a href="#"
+         [style.pointer-events]="disabledTagA? 'none' : 'auto'"
+         class="-m-1.5 p-1.5">
+        <img class="h-10 w-auto"
+             src="https://lh3.googleusercontent.com/pw/AJFCJaVJSXCrFJWggE7Dn4vXfH5PrD0oG_I_XW2XahGKUNWdyJD58GJHa9le_WJRr1_Ik7Ui8vr6XJPyL4htBwjT2Y0J-7C1Dd9IivimIwDdkyKskB8xMpPgyqXEpT1_PnedPOFMft7tXZ6JtA_jJYBr5M8Xr8G7G7_fdqCNy1UsSbTr8mrbKA7Mr-oooN6PND5007cbihvjJerSY7E7LboNn4eAJ4b9FROe7AKzDX4jiSGRLalPdR4bfp2hW7KGiWMpI7eQFkujeu7cdFPI-M7T6JRkezAQe7m0kYw_2XRrpHEQb5HnvJJhh9AiwxIWY8vX1ktd3CTgkSNXWzCnVADIadlrORYfHRyAJGwrwL6Wy6sKoNW9pFhL2vxr0SYjhqme0PBVarfvHkr_IqHKBfnt8EHtEI3Mk6GaQw4XNxfqe_N2FqTyp1v0g8i7aitnZt7L8FhPGTAdZbSCuhrRLZwKsOPGYvmX_Y1aFjHuQzdyHTHrmypLArZPrJRfQ2M4dkWPvwcTiMVz7uDkmsh7SgSd92WnYr0fpzJqIdZ1tQk4A8NdJsL02LbP8g2GKo27TNm69RQ4OmLgD_bCC8jo8Tv-MpyASuTZp4oTUPghtUC1vnVuJceiYaF3Hq6TVXRYCjCYsWJWK5U3MNAbpZ_aDT6uWrG6QIzYC1PPw_2GJhxqIsgdQYsaYA1cOhscHODiuGXKhtO-E3podetCgQsKWSFxaQblv-ubqHOlb8Rw6-xHJmSa5lFCzBDJSSHMhWGNF0FpHbhpa793Vw3sAevAsYRNq9EPMrEK6IPkwMdvJxpriFOUp8Qhh3VAcw0WXpLheYrjW0VvY020UY4uPw4wxg2cgTTA5qXCTTS-K1hLou5Cz3o1093jIqvb36PGD9Nextizv2iHRox6-j3n8O2nysSnR4hkStrucO8OuxU9q4CCWQLV4i9spKSTKLXIE3_eLijLIq1Wwh9jbH-F03DV5YO_RlksYuc-CiszNYQ=w630-h394-s-no?authuser=0"
+             alt="">
+      </a>
+    </div>
+    <div class="lg:flex lg:gap-x-12">
+      <div *ngFor="let item of data.title; let i = index">
+        <a href="{{data.url[i]}}"
+           [style.pointer-events]="disabledTagA? 'none' : 'auto'"
+           class="text-sm font-semibold leading-6"
+           [style.color]="data.textColor">{{item}}</a>
+      </div>
+    </div>
+    <div class="lg:flex lg:flex-1 lg:justify-end">
+    </div>
+  </nav>
+</header>

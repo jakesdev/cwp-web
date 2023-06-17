@@ -1,0 +1,21 @@
+<div class="">
+  <p-galleria [value]="data.item"
+              [numVisible]="5"
+              [circular]="true"
+              [showItemNavigators]="true"
+              [showThumbnails]="false"
+              [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="item"
+                 let-item
+                 let-i="index">
+      <div class="relative w-full block">
+        <p class="text-3xl text-black font-bold z-50 absolute top-1/4 right-1/2">{{item.title}}</p>
+        <img [src]="item.image"
+             style="width: 100%; display: block;
+            height: 600px;
+            object-fit: cover;
+           " />
+      </div>
+    </ng-template>
+  </p-galleria>
+</div>

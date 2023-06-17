@@ -1,0 +1,96 @@
+// ----------------------------------------------------------------------
+
+// REM Units with PX fallback
+
+// ----------------------------------------------------------------------
+@use 'sass:math';
+
+// example: @include rem(margin, 10, 5, 10, 5);
+// example: @include rem(font-size, 14);
+// example: @include rem(padding, 15 !important)
+
+@mixin rem($property, $values...) {
+	$n: length($values);
+	$i: 1;
+
+	$pxlist: ();
+	$remlist: ();
+
+	@while $i <= $n {
+		$itemVal: (nth($values, $i));
+		@if $itemVal != 'auto' and #{nth($itemVal, length($itemVal))} != '!important' {
+			$pxlist: append($pxlist, $itemVal + px);
+			//$remlist: append($remlist, math.div($itemVal / 10) + rem); // Use this if you've set HTML font size value to 62.5%
+			$remlist: append($remlist, math.div($itemVal, 16) + rem);
+		} @else if #{nth($itemVal, length($itemVal))} == '!important' {
+			$pxlist: append($pxlist, #{nth($itemVal, length($i))} + px !important);
+			$remlist: append(
+				$remlist,
+				math.div(number(#{nth($itemVal, length($i))}), 16) + rem !important
+			);
+		} @else {
+			$pxlist: append($pxlist, auto);
+			$remlist: append($remlist, auto);
+		}
+
+		$i: $i + 1;
+	}
+
+	#{$property}: $pxlist;
+	#{$property}: $remlist;
+}
+
+// function to convert px number to rem
+// example: pxToRem(12);
+@function pxToRem($value, $based: 16) {
+	@if type-of($value) != 'number' {
+		@warn 'Value for `pxToRem` should be a number';
+	}
+	$remValue: math.div($value, $based) + rem;
+	@return $remValue;
+}
+
+// function convert string to number
+// example: number('16') or number(16)
+@function number($value) {
+	@if type-of($value) == 'number' {
+		@return $value;
+	} @else if type-of($value) != 'string' {
+		@warn 'Value for `to-number` should be a number or a string.';
+	}
+
+	$result: 0;
+	$digits: 0;
+	$minus: str-slice($value, 1, 1) == '-';
+	$numbers: (
+		'0': 0,
+		'1': 1,
+		'2': 2,
+		'3': 3,
+		'4': 4,
+		'5': 5,
+		'6': 6,
+		'7': 7,
+		'8': 8,
+		'9': 9,
+	);
+
+	@for $i from if($minus, 2, 1) through str-length($value) {
+		$character: str-slice($value, $i, $i);
+
+		@if not(index(map-keys($numbers), $character) or $character == '.') {
+			@return length(if($minus, -$result, $result), str-slice($value, $i));
+		}
+
+		@if $character == '.' {
+			$digits: 1;
+		} @else if $digits == 0 {
+			$result: $result * 10 + map-get($numbers, $character);
+		} @else {
+			$digits: $digits * 10;
+			$result: $result + math.div(map-get($numbers, $character), $digits);
+		}
+	}
+
+	@return if($minus, -$result, $result);
+}

@@ -1,0 +1,23 @@
+<div class="stat-card p-4 shadow">
+  <div class="d-flex justify-content-center">
+    <img src="{{iconUrl}}"
+         width="40px">
+  </div>
+  <h3 class="text-center mt-2">
+    {{stat}}
+  </h3>
+  <h5 class="text-center text-muted">
+    {{title}}
+  </h5>
+
+  <div class="status p-2 text-center">
+    <span [ngClass]="{'text-success' : isGrowth, 'text-danger' : !isGrowth}">
+      <i class="fa-solid fa-arrow-up"
+         *ngIf="isGrowth"></i>
+      <i class="fa-solid fa-arrow-down"
+         *ngIf="!isGrowth"></i>
+      {{ percent }}</span><span class="text-muted ml-1">
+    </span>
+  </div>
+
+</div>

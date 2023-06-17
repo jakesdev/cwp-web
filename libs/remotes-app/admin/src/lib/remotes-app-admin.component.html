@@ -1,0 +1,382 @@
+<div>
+  <div class="relative z-40 md:hidden"
+       role="dialog"
+       aria-modal="true"
+       *ngIf="sideBar">
+
+    <div class="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
+
+    <div class="fixed inset-0 z-40 flex">
+
+      <div class="relative flex w-full max-w-xs flex-1 flex-col bg-gray-800">
+
+        <div class="absolute top-0 right-0 -mr-12 pt-2">
+          <button type="button"
+                  (click)="toggleSideBar()"
+                  class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <span class="sr-only">Close sidebar</span>
+            <svg class="h-6 w-6 text-white"
+                 xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 aria-hidden="true">
+              <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="h-0 flex-1 overflow-y-auto pt-5 pb-4">
+          <div class="flex flex-shrink-0 items-center px-4">
+            <img class="h-8 w-auto cursor-pointer"
+                 [routerLink]="'/dashboard'"
+                 src="/assets/svg-icons/mp-logo-white.svg"
+                 alt="Your Company">
+          </div>
+          <div class="mt-5 space-y-1 px-2">
+            <div [routerLinkActive]="['bg-gray-900']"
+                 [routerLink]="'analytic'"
+                 class="cursor-pointer text-gray-300 hover:bg-gray-700 focus:bg-gray-900 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                   fill="none"
+                   viewBox="0 0 24 24"
+                   stroke-width="1.5"
+                   stroke="currentColor"
+                   class="text-gray-300 mr-4 flex-shrink-0 h-6 w-6">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+              </svg>
+              Analytics
+            </div>
+            <div class="cursor-pointer text-gray-300 hover:bg-gray-700 focus:bg-gray-900 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <svg class="text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6"
+                   xmlns="http://www.w3.org/2000/svg"
+                   fill="none"
+                   viewBox="0 0 24 24"
+                   stroke-width="1.5"
+                   stroke="currentColor"
+                   aria-hidden="true">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+              </svg>
+              User Management
+            </div>
+            <div class="cursor-pointer text-gray-300 hover:bg-gray-700 focus:bg-gray-900 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                   fill="none"
+                   viewBox="0 0 24 24"
+                   stroke-width="1.5"
+                   stroke="currentColor"
+                   class="text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+              </svg>
+
+              Market Place
+            </div>
+
+            <div class="cursor-pointer text-gray-300 hover:bg-gray-700 focus:bg-gray-900 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+              <!-- Heroicon name: outline/users -->
+              <svg xmlns="http://www.w3.org/2000/svg"
+                   fill="none"
+                   viewBox="0 0 24 24"
+                   stroke-width="1.5"
+                   stroke="currentColor"
+                   class="text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+              </svg>
+
+              Customer Support
+            </div>
+
+            <div [routerLinkActive]="['bg-gray-900']"
+               [routerLink]="'release-note'"
+               class="cursor-pointer text-gray-300 hover:bg-gray-700 focus:bg-gray-900 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6">
+              <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+            </svg>
+
+
+            Release Note
+          </div>
+          </div>
+        </div>
+        <!-- TODO: QUANG EDIT SIDE BAR HEROIC ICON  SVG-->
+
+        <div class="flex flex-shrink-0 bg-gray-700 p-4">
+          <div class="dropdown relative ml-3">
+            <button class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full"
+                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                   alt="">
+              <div class="text-white w-[200px]">Tôm Côk@gmail.com</div>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                 aria-labelledby="dropdownMenuButton">
+              <a [routerLink]="['/account']"
+                 class="block px-4 py-2 text-sm text-gray-700"
+                 role="menuitem"
+                 tabindex="-1"
+                 id="user-menu-item-0">Account Setting</a>
+
+              <!-- <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a> -->
+
+              <a href="#"
+                 class="block px-4 py-2 text-sm text-gray-700"
+                 role="menuitem"
+                 tabindex="-1"
+                 id="user-menu-item-2">Sign out</a>
+            </div>
+          </div>
+          <!-- <button class="bg-red-500 text-white w-100 active:bg-secondary text-sm font-bold uppercase px-6 py-2 rounded shadow hover:bg-red-600 outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                  type="button"
+                  (click)="logOut()">
+            <i class="fa-duotone fa-arrow-right-from-bracket"></i> Log Out
+          </button> -->
+        </div>
+      </div>
+
+      <div class="w-14 flex-shrink-0">
+        <!-- Force sidebar to shrink to fit close icon -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Static sidebar for desktop -->
+  <div class="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
+    <!-- Sidebar component, swap this element with another sidebar if you like -->
+    <div class="flex min-h-0 flex-1 flex-col bg-gray-800">
+      <div class="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
+        <div class="flex flex-shrink-0 items-center px-4">
+          <img class="h-14 w-auto cursor-pointer mx-auto"
+               [routerLink]="'dashboard'"
+               src="/assets/shared/images/logo_dark.png"
+               alt="Your Company">
+
+        </div>
+        <div class="mt-5 flex-1 space-y-1 px-2">
+
+          <div [routerLinkActive]="['bg-gray-900']"
+               [routerLink]="'dashboard'"
+               class="cursor-pointer text-gray-300 hover:bg-gray-700 focus:bg-gray-900 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+            <!--
+                                    Heroicon name: outline/home
+
+                                    Current: "text-gray-300", Default: "text-gray-400 group-hover:text-gray-300"
+                                  -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="text-gray-300 mr-4 flex-shrink-0 h-6 w-6">
+              <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+            </svg>
+            Analytics
+          </div>
+          <div class="cursor-pointer text-gray-300 hover:bg-gray-700 focus:bg-gray-900 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+               [routerLinkActive]="['bg-gray-900']"
+               [routerLink]="'user-management'">
+
+            <svg class="text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6"
+                 xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 aria-hidden="true">
+              <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+            </svg>
+            User Management
+          </div>
+          <div [routerLinkActive]="['bg-gray-900']"
+               [routerLink]="'marketplace'"
+               class="cursor-pointer text-gray-300 hover:bg-gray-700 focus:bg-gray-900 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6">
+              <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+            </svg>
+
+            Market Place
+          </div>
+          <div [routerLinkActive]="['bg-gray-900']"
+               [routerLink]="'customer-support'"
+               class="cursor-pointer text-gray-300 hover:bg-gray-700 focus:bg-gray-900 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+            <!-- Heroicon name: outline/users -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6">
+              <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+            </svg>
+
+            Customer Support
+          </div>
+
+          <div [routerLinkActive]="['bg-gray-900']"
+               [routerLink]="'release-note'"
+               class="cursor-pointer text-gray-300 hover:bg-gray-700 focus:bg-gray-900 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6">
+              <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+            </svg>
+
+
+            Release Note
+          </div>
+        </div>
+      </div>
+      <!-- <div class="flex flex-shrink-0 bg-gray-700 p-4">
+        <button class="bg-red-500 text-white w-100 active:bg-secondary text-sm font-bold uppercase px-6 py-2 rounded shadow hover:bg-red-600 outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                type="button"
+                (click)="logOut()">
+          <i class="fa-duotone fa-arrow-right-from-bracket"></i> Log Out
+        </button>
+      </div> -->
+      <!-- TODO: QUANG EDIT SIDE BAR HEROIC ICON  SVG-->
+    </div>
+  </div>
+  <div class="flex flex-1 flex-col md:pl-64">
+    <div class="sticky top-0 z-10 bg-gray-100 pl-1 pt-1 sm:pl-3 sm:pt-3 md:hidden">
+      <button type="button"
+              (click)="toggleSideBar()"
+              class="-ml-0.5 -mt-0.5 inline-flex h-12 w-12 items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+        <span class="sr-only">Open sidebar</span>
+        <svg class="h-6 w-6"
+             xmlns="http://www.w3.org/2000/svg"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke-width="1.5"
+             stroke="currentColor"
+             aria-hidden="true">
+          <path stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+    <main class="flex-1">
+      <div class="min-h-fit">
+        <nav class="bg-gray-800 hidden md:block">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-end">
+              <div class="hidden md:block">
+                <div class="ml-4 flex items-center md:ml-6">
+                  <div class="dropdown relative">
+                    <button type="button"
+                            id="notification"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                      <span class="sr-only">View notifications</span>
+                      <svg class="h-6 w-6"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke-width="1.5"
+                           stroke="currentColor"
+                           aria-hidden="true">
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                      </svg>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right absolute right-0 z-10 px-4 py-2 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                         aria-labelledby="notification">
+                      notification UI
+                    </div>
+                  </div>
+
+                  <!-- Profile dropdown -->
+                  <!--
+                    Dropdown menu, show/hide based on menu state.
+
+                    Entering: "transition ease-out duration-100"
+                      From: "transform opacity-0 scale-95"
+                      To: "transform opacity-100 scale-100"
+                    Leaving: "transition ease-in duration-75"
+                      From: "transform opacity-100 scale-100"
+                      To: "transform opacity-0 scale-95"
+                  -->
+                  <div class="dropdown relative ml-3">
+                    <button class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            type="button"
+                            id="dropdownMenuButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false">
+                      <span class="sr-only">Open user menu</span>
+                      <img class="h-8 w-8 rounded-full"
+                           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                           alt="">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                         aria-labelledby="dropdownMenuButton">
+                      <a [routerLink]="['/account']"
+                         class="block px-4 py-2 text-sm text-gray-700"
+                         role="menuitem"
+                         tabindex="-1"
+                         id="user-menu-item-0">Account Setting</a>
+
+                      <!-- <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a> -->
+
+                      <a href="#"
+                         class="block px-4 py-2 text-sm text-gray-700"
+                         role="menuitem"
+                         tabindex="-1"
+                         id="user-menu-item-2">Sign out</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+// z-index
+$max-z-index-use: 99999;
+
+@mixin zIndexList {
+	@for $i from 0 through $max-z-index-use {
+		.z-index-#{$i} {
+			z-index: $i;
+		}
+	}
+}
+
+@include zIndexList;

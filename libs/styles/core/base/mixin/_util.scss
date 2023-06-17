@@ -1,0 +1,42 @@
+@mixin unselectable {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+
+@mixin shadow($properties) {
+	-webkit-box-shadow: $properties;
+	-moz-box-shadow: $properties;
+	-o-box-shadow: $properties;
+	box-shadow: $properties;
+}
+
+%animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+%fadeIn {
+	-webkit-animation: fadeIn 0.8s;
+	animation: fadeIn 0.8s;
+}
+
+%fadeOut {
+	-webkit-animation: fadeOut 0.8s;
+	animation: fadeOut 0.8s;
+}
+
+%tada {
+	-webkit-animation-name: tada;
+	animation-name: tada;
+}
+
+%zoomIn {
+	-webkit-animation-name: zoomIn;
+	animation-name: zoomIn;
+}

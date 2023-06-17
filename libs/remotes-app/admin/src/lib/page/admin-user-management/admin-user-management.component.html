@@ -1,0 +1,69 @@
+<div class="p-4">
+  <ng-template mat-tab-label>
+    <img src="https://img.icons8.com/ios-glyphs/24/null/user--v1.png" />
+    <label class="ml-2 cursor-pointer">User Management</label>
+  </ng-template>
+  <div class="rounded user-management-container border shadow md:p-4 sm:p-2">
+    <div>
+      <div class="mt-1 md:flex sm:block rounded-md shadow-sm">
+        <div class="relative flex flex-grow items-stretch focus-within:z-10">
+
+          <input type="searchField"
+                 name="searchField"
+                 id="searchField"
+                 class="block border w-full sm:rounded-none md:rounded-l-md border-gray-300 pl-4 pt-3 pb-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                 placeholder="Search user by email or brand name">
+          <!-- <ng-container *ngIf="searchKey.trim() !== ''">
+            <button type="button"
+                    class="absolute right-0 top-5 button-title-clear mr-2 flex items-center">
+              <i class="fa-duotone fa-circle-xmark"></i>
+            </button>
+          </ng-container> -->
+        </div>
+
+      </div>
+    </div>
+    <div class="table-container relative mt-4">
+      <!-- <mp-loading [position]="'middle'"
+                  *ngIf="$searchLoading"></mp-loading>
+      <mp-skeleton-loading-table *ngIf="$isLoading; else loaded"
+                                 [totalNumberOfRows]="skeletonRow"
+                                 [columns]="userColumnsConfig"></mp-skeleton-loading-table> -->
+      <!-- <ng-template #loaded>
+        <mp-table [columnsConfig]="userColumnsConfig"
+                  [data]="userList"
+                  [editMode]="true"
+                  [isSelection]="true"
+                  [selectedRows]="selectedUsers"
+                  (selectionChange)="onSelectionChanged($event)"
+                  (sortChanged)="onSortChanged($event)"
+                  (clickedRow)="onClickedRow($event)"
+                  (openMessage)="onOpenMessage($event)"
+                  (removed)="openConfirmDialog($event)"
+                  (clickUrl)="onClickUrl($event)"></mp-table>
+      </ng-template>
+      <mp-paginator [pagination]="pagination"
+                    (pageChange)="onChangePagination($event)"></mp-paginator> -->
+      <p-table [value]="products"
+               [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body"
+                     let-product>
+          <tr>
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.quantity }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

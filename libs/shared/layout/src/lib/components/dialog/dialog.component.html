@@ -1,0 +1,42 @@
+<div class="p-2">
+  <ng-container *ngIf="data.message && data.type === 'spotlight';
+   else notAddSpotlight">
+    <div class="flex justify-center">
+      <i class="fa-regular fa-award text-indigo-600 text-[80px]"></i>
+    </div>
+    <h6 class="mt-4">
+      {{data.message}}
+    </h6>
+  </ng-container>
+  <ng-template #notAddSpotlight>
+    <ng-container *ngIf="data.message;else elseBlock">
+      <div class="flex justify-center">
+        <i class="fa-duotone fa-message-check text-indigo-600 text-[80px]"></i>
+      </div>
+      <h6 class="mt-4">
+        {{data.message}}
+      </h6>
+    </ng-container>
+    <ng-template #elseBlock>
+      <div class="flex justify-center mt-2">
+        <i class="fa-solid fa-triangle-exclamation text-indigo-600 text-[80px]"></i>
+      </div>
+      <h6 class="mt-4">
+        {{data}}
+      </h6>
+    </ng-template>
+  </ng-template>
+  <div class="mt-4 d-flex justify-content-around"
+       mat-dialog-actions>
+    <button class="bg-indigo-600 text-white active:bg-secondary text-sm font-bold uppercase px-6 py-2 rounded shadow hover:bg-indigo-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            mat-button
+            (click)="onConfirm()">
+      Confirm
+    </button>
+    <button class="bg-white-500 border text-black active:bg-secondary text-sm font-bold uppercase px-6 py-2 rounded shadow hover:bg-slate-50 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            mat-button
+            (click)="onClose()">
+      Cancel
+    </button>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<p-sidebar [(visible)]="sidebarVisible4"
+           [closeOnEscape]="true"
+           [showCloseIcon]="true"
+           [modal]="false"
+           position="bottom">
+  <div class="flex flex-row">
+    <a [routerLink]="['/marketplace']"
+       class="flex-shrink">
+      <img class="mx-auto w-full"
+           style="width: 60px;"
+           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACBUlEQVR4nO2XMWsUQRTHn0EurXUw1rlrhAT2yIxnBGFPDdxWiY2VVZZYGBDRIgwzW6hgE8SPED9COluxSrASUsZLUgrx3rsigZF358Eh12RvZvcG9gfTLDzm/5t5b2ABKioqKmaHpXQd6mm3tvzGNtJDKw1ZofFKaDwWml6vKXsTZpqlrV9QTy2v+ZW3A4HxJQx+gZAFpCG7qnttmFnqW49ZgsM30qOJAkLjPoTEPU1ykkh5q3f3egbW3hAaT8oPTlYYOsh1C9LQXtnh5WD++g9zCQhNrbLDC0M/uBtyCYCyc9LQackCz/KFH92CoU+lCWjqNpStTSWwmtH9EgVewdQoOyc0nRUfHi/W1O9b0wsM2+hz4b2v8SO4Qmb9B4WGN3gpFd1xJvDvNSry9PfBNUUKtFRvOVwBjV+dhy9SQJjek4AF8CfPmzcB4V2g/9xL+JGA39ah80d7dj5MAU1dkfVjb+EnCUBoyOAFNF6MC0QKb0NICEPf/xu6g1ZGixAKUuML3y8R+IT/jKSmw2AFGKFwwacEFMHgJjLclga/CYN/ghMY0djYqDXjzodm3DmL2slp1O6852/gudYZvGmzndjxxd981zqDT483frqzazd3dodB4uTcd60z+Op5Yw6w+XIYIoqTru9aZ0xug+Sd71pn8NBxkOEQXn+Io5y1FRUVFTAT/AU9ZKkzAk5zoAAAAABJRU5ErkJggg==">
+    </a>
+    <div cdkDropList
+         cdkDropListOrientation="horizontal"
+         class="background-list scroll-container"
+         style="overflow: auto">
+      <div class="flex flex-row"
+           *ngFor="let image of images; let i = index"
+           cdkDrag>
+
+        <div class="background-box"
+             style="width: 60px;">
+          <div [innerHTML]="image | noSanitize"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</p-sidebar>
+<p-button type="button"
+          class="fixed bottom-44 right-0 z-10"
+          (click)="sidebarVisible4 = !sidebarVisible4"
+          icon="pi pi-th-large"></p-button>

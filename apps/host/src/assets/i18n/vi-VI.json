@@ -1,0 +1,77 @@
+{
+  "Login": "Đăng nhập",
+  "signInTitle": "Đăng nhập đi mày {{test}}",
+
+  "Get started": "Bắt đầu ngay",
+  "Learn more": "Tìm hiểu thêm",
+
+  "Hello, have a nice day!": "Xin chào, chúc bạn có một ngày tốt lành!",
+
+
+  "Better way to build your own Website": "Cách tốt nhất để xây dựng trang web của riêng bạn",
+  "Join Creative Widget today and unlock your website's full potential. Start building your online presence with our intuitive platform and unleash your creativity without limitations.": "Hãy tham gia Creative Widget ngay hôm nay và khám phá toàn bộ tiềm năng của trang web. Bắt đầu xây dựng nền tảng trực tuyến của bạn một cách dễ dàng và thể hiện sự sáng tạo mà không gặp bất kỳ hạn chế nào.",
+  "Design faster": "Thiết kế nhanh chóng",
+  "A better workflow": "Làm việc hiệu quả hơn",
+  "Creating a stunning website has never been easier. Creative Widget is a user-friendly platform that empowers you to build your dream website without any coding knowledge. Whether you're a small business owner, an entrepreneur, or a creative individual, we have everything you need to design and launch a professional website in no time.": "Tạo một trang web ấn tượng chưa bao giờ dễ dàng đến vậy. Creative Widget là một nền tảng dễ sử dụng cho phép bạn xây dựng trang web mơ ước của mình mà không cần kiến thức về lập trình. Cho dù bạn là chủ doanh nghiệp nhỏ, doanh nhân hay một cá nhân sáng tạo, chúng tôi có tất cả những gì bạn cần để thiết kế và ra mắt một trang web chuyên nghiệp trong thời gian ngắn.",
+  
+  "Real-time update.": "Cập nhật theo thời gian thực.",
+  "Our platform is designed to provide real-time updates for your website, ensuring that your content is always fresh, engaging, and up-to-date. With our real-time update capabilities, you can deliver dynamic and relevant information to your visitors, creating a dynamic user experience..": "Nền tảng của chúng tôi được thiết kế để cung cấp cập nhật theo thời gian thực cho trang web của bạn, đảm bảo nội dung luôn mới mẻ, hấp dẫn và cập nhật liên tục. Với khả năng cập nhật thời gian thực, bạn có thể cung cấp thông tin linh hoạt và phù hợp cho khách hàng, tạo ra trải nghiệm người dùng tối ưu.",
+  "Responsive Design.": "Thiết kế đáp ứng.",
+  "Rest assured that your website will look amazing on any device. Our platform automatically adapts your website's layout to ensure a seamless user experience across desktops, tablets, and mobile devices.": " Hãy yên tâm rằng trang web của bạn sẽ trông tuyệt vời trên mọi thiết bị. Nền tảng của chúng tôi tự động điều chỉnh bố cục trang web của bạn để đảm bảo trải nghiệm người dùng mượt mà trên máy tính để bàn, máy tính bảng và thiết bị di động.",
+
+  "Database.": "Cơ sở dữ liệu.",
+  "Our platform utilizes a cutting-edge and highly efficient database system to store and manage your website's data. We understand the importance of reliable and secure data storage.": " Nền tảng của chúng tôi sử dụng một hệ thống cơ sở dữ liệu tiên tiến và hiệu quả cao để lưu trữ và quản lý dữ liệu trang web của bạn. Chúng tôi hiểu rằng việc lưu trữ dữ liệu đáng tin cậy và an toàn là một yếu tố rất quan trọng.",
+  
+  "No server? No problem.": "Không có máy chủ? Không thành vấn đề.",
+  "Say goodbye to the hassle of managing servers and focus on what matters most – building your website. With Creative Widget, we eliminate the need for server management, allowing you to concentrate on creating exceptional online experiences.": " Hãy chào tạm quên việc quản lý máy chủ và tập trung vào những điều quan trọng nhất - xây dựng trang web của bạn. Với Creative Widget, chúng tôi loại bỏ yêu cầu phải quản lý máy chủ, cho phép bạn tập trung vào việc tạo ra trải nghiệm trực tuyến tuyệt vời.",
+
+  "Pricing": "Các gói đăng ký",
+  "Pricing plans for teams of all sizes": "Dành cho cá nhân/ nhóm với mọi quy mô",
+  "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.": "Hãy chọn một gói với giá phải chăng đi kèm với những tính năng tốt nhất để thu hút, tạo sự tin tưởng với khách hàng và thúc đẩy doanh số bán hàng.",
+
+  "Individual": "Cá nhân",
+  "The essentials to provide your best work for clients": "Các tính năng cần thiết để cung cấp hiệu quả công việc tốt nhất cho khách hàng.",
+  "/month": "/tháng",
+  "5 pages": "5 trang",
+
+  "Basic analytics": "Thống kê cơ bản",
+  "48-hour support response time": "Thời gian phản hồi hỗ trợ 48 giờ",
+
+  "Startup": "Gói khởi đầu",
+  "Most popular": "Phổ biến nhất",
+  "A plan that scales with your rapidly growing business.": "Gói dịch vụ mở rộng phù hợp với doanh nghiệp đang phát triển nhanh.",
+  "25 pages": "25 trang",
+
+  "Advanced analytics": "Thống kê chuyên sâu",
+  "24-hour support response time": "Thời gian phản hồi hỗ trợ 24 giờ",
+  "Marketing automations": "Tiếp thị tự động",
+
+  "Enterprise": "Gói cao cấp",
+  "Dedicated support and infrastructure for your company.": "Hỗ trợ tận tình và tạo cung cấp sở hạ tầng riêng cho công ty bạn.",
+  "Unlimited pages": "Số trang không giới hạn",
+  "1-hour, dedicated support response time": "Thời gian phản hồi hỗ trợ 1 giờ",
+  "Custom reporting tools": "Công cụ báo cáo tùy chỉnh",
+
+  "Buy plan": "Mua ngay",
+  "Over 11000 current users use our platform to make to better their business.": "Hơn 11000 người dùng hiện tại đang sử dụng nền tảng nhằm nâng cao hoạt động kinh doanh của họ.",
+  
+  "Register": "Đăng ký",
+  "Or": "Hoặc",
+  "Sign in with": "Đăng nhập với",
+  "Or continue with": "Hoặc tiếp tục bằng",
+  "Email address": "Địa chỉ email",
+  "Please input correct email address": "Vui lòng nhập đúng địa chỉ email",
+  "Password": "Mật khẩu",
+  "Please input password": "Vui lòng nhập mật khẩu",
+  "Forgot your password?": "Bạn quên mật khẩu?",
+  "Sign in": "Đăng nhập",
+
+  "Register your account": "Đăng ký tài khoản",
+  "Confirm Password": "Xác nhận mật khẩu",
+  "Already have an account?": "Bạn đã có tài khoản?",
+
+  "Input your registration email address": "Vui lòng điền email đăng ký",
+  "Get validation code" : "Lấy mã xác thực"
+  
+
+}

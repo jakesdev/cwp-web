@@ -1,0 +1,235 @@
+<div class="flex justify-end items-center mt-4 mr-12">
+  <!-- prevỉew button -->
+  <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mr-2 cursor-pointer"
+     (click)="openPreview()">
+    <i class="fa-regular fa-eye mr-2"></i> Preview
+  </a>
+  <!-- public page button -->
+  <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mr-2 cursor-pointer"
+     disabled
+     (click)="openPublicPage()">
+    <i class="fa-regular fa-globe mr-2"></i> Public Page
+  </a>
+</div>
+<div>
+  <div class="container mt-4 mx-auto px-2 sm:px-6 lg:px-8
+  border border-gray-200 rounded-lg shadow-lg p-4">
+    <div cdkDropListGroup>
+      <div cdkDropList
+           class="example-list"
+           [cdkDropListData]="components"
+           (cdkDropListDropped)="drop($event)">
+        <div class="example-box relative"
+             *ngFor="let item of components; let i = index"
+             (mouseenter)="onMouseEnter(item,i)"
+             (mouseleave)="onMouseLeave(item,i)"
+             cdkDrag
+             [cdkDragData]="item">
+          <container-element class="w-full"
+                             [ngSwitch]="item.type">
+            <cwp-header-1-ui *ngSwitchCase="'header-1'"
+                             [disabledTagA]="true"
+                             [data]="item.option"></cwp-header-1-ui>
+            <cwp-front-page-1-ui *ngSwitchCase="'front-page-1'"
+                                 [data]="item.option"></cwp-front-page-1-ui>
+            <cwp-header-2-ui *ngSwitchCase="'header-2'"
+                             [data]="item.option"></cwp-header-2-ui>
+            <cwp-category-1-ui *ngSwitchCase="'category-1'"
+                               [data]="item.option"></cwp-category-1-ui>
+            <cwp-category-2-ui *ngSwitchCase="'category-2'"
+                               [data]="item.option"></cwp-category-2-ui>
+            <cwp-category-3-ui *ngSwitchCase="'category-3'"
+                               [data]="item.option"></cwp-category-3-ui>
+            <cwp-footer-1-ui *ngSwitchCase="'footer-1'"
+                             [data]="item.option"></cwp-footer-1-ui>
+            <cwp-footer-2-ui *ngSwitchCase="'footer-2'"
+                             [data]="item.option"></cwp-footer-2-ui>
+            <cwp-front-page-2-ui *ngSwitchCase="'front-page-2'"
+                                 [data]="item.option"></cwp-front-page-2-ui>
+            <cwp-pricing-section-1-ui *ngSwitchCase="'pricing-section-1'"
+                                      [data]="item.option"></cwp-pricing-section-1-ui>
+            <cwp-video-1-ui *ngSwitchCase="'video-1'"
+                            [data]="item.option"></cwp-video-1-ui>
+            <cwp-gallery-1-ui *ngSwitchCase="'gallery-1'"
+                              [data]="item.option"></cwp-gallery-1-ui>
+            <cwp-gallery-4-ui *ngSwitchCase="'gallery-4'"
+                              [data]="item.option"></cwp-gallery-4-ui>
+            <cwp-accordion-1-ui *ngSwitchCase="'accordion-1'"
+                                [data]="item.option"></cwp-accordion-1-ui>
+            <cwp-timeline-1-ui *ngSwitchCase="'timeline-1'"
+                               [data]="item.option"></cwp-timeline-1-ui>
+            <cwp-timeline-2-ui *ngSwitchCase="'timeline-2'"
+                               [data]="item.option"></cwp-timeline-2-ui>
+          </container-element>
+          <container-element [ngSwitch]="item.type">
+            <button *ngSwitchCase="'header-1'"
+                    class="absolute top-6 right-20 z-50
+                                        bg-gray-200 hover:bg-gray-300
+                                        text-gray-800 font-bold py-2 px-4
+                                        rounded-md
+                                        hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickHeader1(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'footer-1'"
+                    class="absolute top-6 right-20 z-50
+                                                          bg-gray-200 hover:bg-gray-300
+                                                          text-gray-800 font-bold py-2 px-4
+                                                          rounded-md
+                                                          hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickFooter1(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'category-1'"
+                    class="absolute top-6 right-20 z-50
+                                                                  bg-gray-200 hover:bg-gray-300
+                                                                  text-gray-800 font-bold py-2 px-4
+                                                                  rounded-md
+                                                                  hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickCategory1(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'front-page-1'"
+                    class="absolute top-6 right-20 z-50
+                                                                          bg-gray-200 hover:bg-gray-300
+                                                                          text-gray-800 font-bold py-2 px-4
+                                                                          rounded-md
+                                                                          hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickFrontPage1(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'front-page-2'"
+                    class="absolute top-6 right-20 z-50
+                                                                                      bg-gray-200 hover:bg-gray-300
+                                                                                      text-gray-800 font-bold py-2 px-4
+                                                                                      rounded-md
+                                                                                      hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickFrontPage2(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'pricing-section-1'"
+                    class="absolute top-6 right-20 z-50
+                                                                                  bg-gray-200 hover:bg-gray-300
+                                                                                  text-gray-800 font-bold py-2 px-4
+                                                                                  rounded-md
+                                                                                  hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickPricingSection1(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'video-1'"
+                    class="absolute top-6 right-20 z-50
+                                                                                                  bg-gray-200 hover:bg-gray-300
+                                                                                                  text-gray-800 font-bold py-2 px-4
+                                                                                                  rounded-md
+                                                                                                  hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickVideo1(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'category-3'"
+                    class="absolute top-6 right-20 z-50
+                                                                                                  bg-gray-200 hover:bg-gray-300
+                                                                                                  text-gray-800 font-bold py-2 px-4
+                                                                                                  rounded-md
+                                                                                                  hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickCategory3(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'accordion-1'"
+                    class="absolute top-6 right-20 z-50
+                                                                                                  bg-gray-200 hover:bg-gray-300
+                                                                                                  text-gray-800 font-bold py-2 px-4
+                                                                                                  rounded-md
+                                                                                                  hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickAccordion1(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'timeline-1'"
+                    class="absolute top-6 right-20 z-50
+                                                                                                  bg-gray-200 hover:bg-gray-300
+                                                                                                  text-gray-800 font-bold py-2 px-4
+                                                                                                  rounded-md
+                                                                                                  hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickTimeline1(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'timeline-2'"
+                    class="absolute top-6 right-20 z-50
+                                                                                                  bg-gray-200 hover:bg-gray-300
+                                                                                                  text-gray-800 font-bold py-2 px-4
+                                                                                                  rounded-md
+                                                                                                  hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickTimeline2(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'gallery-4'"
+                    class="absolute top-6 right-20 z-50
+                                                                                                  bg-gray-200 hover:bg-gray-300
+                                                                                                  text-gray-800 font-bold py-2 px-4
+                                                                                                  rounded-md
+                                                                                                  hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickGallery4(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <!-- Delete Button -->
+            <button class="absolute top-6 right-0 z-50
+                                                                  bg-gray-200 hover:bg-gray-300
+                                                                  text-white font-bold py-2 px-4
+                                                                  rounded-md
+                                                                  hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickDelete(item,i )">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAm0lEQVR4nO2UMQ7CMBAE5xNY5P8vgSYihCYu8pyNkFwhAnuOQSlylSXf7ti+88ERuwvBVTAKUkCTBA/BxUkeBBJkB1LMc9HcHMBJMBXBLOgCueevABeiWnMHoq3mnyBqZb5SxPyytjstchM1ObkB6FqZp5890buCRv5J2Jz1vRjEaUXVQiJ9rhqI4L5h2A0OoK8c1+NT62qO+F8sGCXYyMwn2sMAAAAASUVORK5CYII="></button>
+          </container-element>
+        </div>
+      </div>
+      <div class="bg-white shadow sm:rounded-lg">
+        <div class="px-4 py-5 sm:p-6">
+          <h3 class="text-base font-semibold leading-6 text-gray-900">Continuous Integration</h3>
+          <div class="mt-2 max-w-xl text-sm text-gray-500">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, totam at reprehenderit maxime aut beatae ad.</p>
+          </div>
+          <div class="mt-3 text-sm leading-6">
+            <a href="#"
+               class="font-semibold text-indigo-600 hover:text-indigo-500">
+              Learn more about our CI features
+              <span aria-hidden="true"> &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p-sidebar [(visible)]="sidebarVisible4"
+                 [closeOnEscape]="true"
+                 [showCloseIcon]="true"
+                 [modal]="false"
+                 position="bottom">
+        <div class="flex flex-row items-center gap-x-4">
+          <div class="w-[240px] h-[140px] flex justify-between items-center border rounded-md">
+            <a [routerLink]="['/marketplace']"
+               class="w-100">
+              <img class="mx-auto w-full"
+                   style="width: 100px;"
+                   src="./assets/shared/images/shopping-cart.png">
+            </a>
+          </div>
+
+          <div cdkDropList
+               cdkDropListOrientation="horizontal"
+               class="background-list scroll-container"
+               style="overflow: auto"
+               [cdkDropListData]="images"
+               cdkDropListSortingDisabled
+               [cdkDropListEnterPredicate]="noReturnPredicate"
+               (cdkDropListDropped)="drop($event)">
+            <div class="flex flex-col"
+                 *ngFor="let image of images; let i = index"
+                 cdkDrag
+                 [cdkDragData]="image">
+              <div class="background-box"
+                   style="width: 240px; height: 100px;">
+                {{image.type}}
+                <div [innerHTML]="image.src | noSanitize"
+                     style="height: 60px !important; overflow: hidden; display: none;"></div>
+                <img [src]="image.preview"
+                     alt="Preview Image"
+                     style="height:100px; max-width: 100%;margin:auto">
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-sidebar>
+      <p-button type="button"
+                class="fixed bottom-56 right-20 z-10"
+                (click)="sidebarVisible4 = !sidebarVisible4"
+                icon="pi pi-th-large"></p-button>
+
+    </div>
+  </div>
+</div>

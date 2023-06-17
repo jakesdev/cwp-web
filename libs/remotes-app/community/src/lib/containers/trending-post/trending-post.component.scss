@@ -1,0 +1,31 @@
+ .spotlight {
+      background-color: #f7fafc;
+    }
+    .spotlight .content {
+      padding: 4rem;
+      text-align: center;
+    }
+    .spotlight .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .spotlight .description {
+      font-size: 1.2rem;
+      color: #666;
+    }
+    .spotlight .item-list {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .spotlight .item {
+      width: 200px;
+      padding: 1rem;
+      margin: 0.5rem;
+      background-color: #edf2f7;
+      border-radius: 0.25rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }

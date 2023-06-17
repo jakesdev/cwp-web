@@ -1,0 +1,14 @@
+// ----------------------------------------------------------------------
+
+// Border Radius
+
+// ----------------------------------------------------------------------
+
+// example: @include border(border, 1, solid, #ddd);
+@import 'rem';
+
+@mixin border($border-property, $width, $style, $color) {
+	@include rem($border-property, $width);
+	border-style: $style;
+	border-color: $color;
+}

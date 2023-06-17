@@ -1,0 +1,38 @@
+<div *ngFor="let item of items; let i = index">
+        <container-element class="w-full"
+                           [ngSwitch]="item.type">
+                <cwp-header-1-ui *ngSwitchCase="'header-1'"
+                                 [disabledTagA]="false"
+                                 [data]="item.option"></cwp-header-1-ui>
+                <cwp-front-page-1-ui *ngSwitchCase="'front-page-1'"
+                                     [data]="item.option"></cwp-front-page-1-ui>
+                <cwp-header-2-ui *ngSwitchCase="'header-2'"
+                                 [data]="item.option"></cwp-header-2-ui>
+                <cwp-category-1-ui *ngSwitchCase="'category-1'"
+                                   [data]="item.option"></cwp-category-1-ui>
+                <cwp-category-2-ui *ngSwitchCase="'category-2'"
+                                   [data]="item.option"></cwp-category-2-ui>
+                <cwp-category-3-ui *ngSwitchCase="'category-3'"
+                                   [data]="item.option"></cwp-category-3-ui>
+                <cwp-footer-1-ui *ngSwitchCase="'footer-1'"
+                                 [data]="item.option"></cwp-footer-1-ui>
+                <cwp-footer-2-ui *ngSwitchCase="'footer-2'"
+                                 [data]="item.option"></cwp-footer-2-ui>
+                <cwp-front-page-2-ui *ngSwitchCase="'front-page-2'"
+                                     [data]="item.option"></cwp-front-page-2-ui>
+                <cwp-pricing-section-1-ui *ngSwitchCase="'pricing-section-1'"
+                                          [data]="item.option"></cwp-pricing-section-1-ui>
+                <cwp-video-1-ui *ngSwitchCase="'video-1'"
+                                [data]="item.option"></cwp-video-1-ui>
+                <cwp-gallery-1-ui *ngSwitchCase="'gallery-1'"
+                                  [data]="item.option"></cwp-gallery-1-ui>
+                <cwp-gallery-4-ui *ngSwitchCase="'gallery-4'"
+                                  [data]="item.option"></cwp-gallery-4-ui>
+                <cwp-accordion-1-ui *ngSwitchCase="'accordion-1'"
+                                    [data]="item.option"></cwp-accordion-1-ui>
+                <cwp-timeline-1-ui *ngSwitchCase="'timeline-1'"
+                                   [data]="item.option"></cwp-timeline-1-ui>
+                <cwp-timeline-2-ui *ngSwitchCase="'timeline-2'"
+                                   [data]="item.option"></cwp-timeline-2-ui>
+        </container-element>
+</div>

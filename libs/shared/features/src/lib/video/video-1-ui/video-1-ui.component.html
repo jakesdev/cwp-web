@@ -1,0 +1,18 @@
+<!-- <div class="rounded-md p-8">
+data:{{data.src}}
+  <iframe height="700"
+          [src]="data.src | safeUrl"
+          frameborder="5"
+          style="width: 100%;"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+</div> -->
+<div
+class="flex justify-center items-center p-4"
+>
+<youtube-player
+  [videoId]="videoId"
+  [height]="500"
+  [width]="900"
+></youtube-player>
+</div>

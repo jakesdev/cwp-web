@@ -1,0 +1,52 @@
+<h2 mat-dialog-title
+    class="text-indigo-600 text-xl font-bold {{ data.title.color }}">
+  {{ data.title.text }}
+</h2>
+
+<div mat-dialog-content>
+  <div class="mb-4">
+    <label for="title"
+           class="block text-base font-medium leading-6 text-gray-900">Title</label>
+    <input id="title"
+           matInput
+           placeholder="Enter a title"
+           required
+           class="w-full p-2 border border-gray-300 rounded px-3 text-gray-500 sm:text-sm"
+           #title />
+  </div>
+
+  <div class="mb-4">
+    <label for="content"
+           class="block text-base font-medium leading-6 text-gray-900">Content</label>
+    <textarea id="content"
+              name="content"
+              placeholder="Enter the content"
+              rows="4"
+              required
+              class="w-full p-2 border border-gray-300 rounded px-3 text-gray-500 sm:text-sm"
+              #content></textarea>
+  </div>
+
+  <p *ngIf="responseStatus !== null"
+     class="text-center">
+    Response Status: {{ responseStatus }}
+  </p>
+</div>
+
+<div mat-dialog-actions
+     class="flex justify-end">
+  <div class="ml-auto">
+    <button mat-button
+            [mat-dialog-close]="true"
+            class="px-4 py-2 text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
+      Cancel
+    </button>
+    <button mat-raised-button
+            color="primary"
+            [disabled]="!title || !content"
+            class="inline-flex justify-center px-4 py-2 ml-3 text-sm font-medium leading-5 text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+            (click)="createTicket(title.value, content.value)">
+      Send
+    </button>
+  </div>
+</div>
