@@ -15,7 +15,7 @@ import { ReleaseNotePageComponent } from './applications/pages/release-note/rele
 export const appRoutes: Route[] = [
   {
     path: '',
-    pathMatch: 'full',
+    pathMatch: 'prefix',
     loadChildren: () =>
       import('@cwp/remotes-app/client').then((m) => m.RemotesAppClientModule),
   },
