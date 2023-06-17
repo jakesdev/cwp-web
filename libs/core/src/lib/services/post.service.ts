@@ -11,6 +11,10 @@ export class PostService {
     return this.apiService.get<any>(`posts?page=${page}`, true);
   }
 
+  getTrendingPosts(page: number) {
+    return this.apiService.get<any>(`posts?page=${page}`, true);
+  }
+
   getPostDetail(id: string) {
     return this.apiService.get<any>(`posts/${id}`, true);
   }
