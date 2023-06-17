@@ -18,8 +18,7 @@ export const DATA_PREVIEW = [
       title: "Lorem ipsum dolor sit amet",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image: "https://picsum.photos/200/300",
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
+      url: "/#"
     },
     src: "<cwp-front-page-1-ui data=[]></cwp-front-page-1-ui>"
   },
@@ -208,11 +207,33 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "category-3",
     option: {
-      title: ["Product", "Features", "MarketPlace", "Company"],
-      url: ["/#", "/#", "/#", "/#"],
-      image: ["https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300"],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
+      item: [
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
+          title: "Title 1",
+          url: "/#"
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
+          title: "Title 2",
+          url: "/#"
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
+          title: "Title 3",
+          url: "/#"
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
+          title: "Title 4",
+          url: "/#"
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
+          title: "Title 5",
+          url: "/#"
+        }
+      ]
     },
     src: "<cwp-category-3-ui data=[]></cwp-category-3-ui>"
   },
@@ -268,14 +289,18 @@ export const DATA_SIDE_BAR = [
         {
           image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
           title: "Title 1",
+          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
           image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
           title: "Title 2",
+          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+
         },
         {
           image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
           title: "Title 3",
+          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
       ]
     },
@@ -308,15 +333,15 @@ export const DATA_SIDE_BAR = [
     option: {
       item: [
         {
-          title: "Title 1",
+          title: new Date(),
           description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
-          title: "Title 2",
+          title: new Date(),
           description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
-          title: "Title 3",
+          title: new Date(),
           description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
       ]

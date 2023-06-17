@@ -274,6 +274,22 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       maxHeight: '90vh',
       data
     });
+    dialogRef.afterClosed().subscribe(result => {
+      this.loaderService.loading$.next(true);
+      this.pageService.updatePage(this.params, {
+        components: this.page.components,
+        url: this.page.url,
+      }).subscribe((res) => {
+        this.pageService.getPage(this.params).subscribe((res) => {
+          this.page = res.data;
+          this.components = res.data.components || [];
+          this.loaderService.loading$.next(false);
+        }
+        );
+      }
+      );
+    }
+    );
   }
 
   onButtonClickFrontPage2(data: any): void {
@@ -322,6 +338,23 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       maxHeight: '90vh',
       data
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.loaderService.loading$.next(true);
+      this.pageService.updatePage(this.params, {
+        components: this.page.components,
+        url: this.page.url,
+      }).subscribe((res) => {
+        this.pageService.getPage(this.params).subscribe((res) => {
+          this.page = res.data;
+          this.components = res.data.components || [];
+          this.loaderService.loading$.next(false);
+        }
+        );
+      }
+      );
+    }
+    );
   }
 
   onButtonClickTimeline1(data: any): void {
@@ -330,6 +363,23 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       maxHeight: '90vh',
       data
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.loaderService.loading$.next(true);
+      this.pageService.updatePage(this.params, {
+        components: this.page.components,
+        url: this.page.url,
+      }).subscribe((res) => {
+        this.pageService.getPage(this.params).subscribe((res) => {
+          this.page = res.data;
+          this.components = res.data.components || [];
+          this.loaderService.loading$.next(false);
+        }
+        );
+      }
+      );
+    }
+    );
   }
 
   onButtonClickTimeline2(data: any): void {
@@ -346,5 +396,22 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       maxHeight: '90vh',
       data
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.loaderService.loading$.next(true);
+      this.pageService.updatePage(this.params, {
+        components: this.page.components,
+        url: this.page.url,
+      }).subscribe((res) => {
+        this.pageService.getPage(this.params).subscribe((res) => {
+          this.page = res.data;
+          this.components = res.data.components || [];
+          this.loaderService.loading$.next(false);
+        }
+        );
+      }
+      );
+    }
+    );
   }
 }

@@ -9,3 +9,4 @@ export * from './notification.service';
 export * from './page.service';
 export * from './post.service';
 export * from './transaction.service';
+export * from './upload.service';
