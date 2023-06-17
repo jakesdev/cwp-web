@@ -8,9 +8,7 @@ import { PostService } from '@cwp/core/services';
 })
 export class RecentPostComponent implements OnInit {
   data: any[] = [];
-  constructor(
-    private postService: PostService,
-  ) {}
+  constructor(private postService: PostService) {}
 
   ngOnInit(): void {
     this.getPosts();
@@ -18,7 +16,16 @@ export class RecentPostComponent implements OnInit {
 
   getPosts() {
     this.postService.getPosts(1).subscribe((res) => {
-      this.data = res.data;
+      this.data = res.data.map((item: any) => {
+        return {
+          ...item,
+          isShowComment: false,
+        };
+      });
     });
+  }
+
+  onShowComment(index: number) {
+    this.data[index].isShowComment = true;
   }
 }

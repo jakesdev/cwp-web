@@ -12,6 +12,8 @@ import { PostComponent } from './page/post/post.component';
 import { RecentPostComponent } from './page/recent-post/recent-post.component';
 import { TrendingPostComponent } from './page/trending-post/trending-post.component';
 import { UserProfileComponent } from './page/user-profile/user-profile.component';
+import { CommentComponent } from './container/comment/comment.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { UserProfileComponent } from './page/user-profile/user-profile.component
     CommunityComponent,
     MyMessageComponent,
     MessageDialoguesComponent,
+    CommentComponent
   ],
   exports: [CommunityComponent],
   imports: [
@@ -30,7 +33,9 @@ import { UserProfileComponent } from './page/user-profile/user-profile.component
     CommonModule,
     AppLayoutModule,
     RouterModule.forChild(remotesAppCommunityRoute),
-    SafePipe
+    SafePipe,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ClientCommunityModule {}
