@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { DevelopingGuard, HasLoggedInGuard, UserGuard } from '@cwp/core/guard';
+import { HasLoggedInGuard, UserGuard } from '@cwp/core/guard';
 import { HomeComponent } from './modules/home/home.component';
 
 export const remotesAppClientRoutes: Route[] = [
@@ -29,7 +29,7 @@ export const remotesAppClientRoutes: Route[] = [
   },
   {
     path: 'community',
-    canActivate: [DevelopingGuard],
+    canActivate: [HasLoggedInGuard, UserGuard],
     loadChildren: () => import('./modules/community/community.module').then(m => m.ClientCommunityModule)
   },
   {

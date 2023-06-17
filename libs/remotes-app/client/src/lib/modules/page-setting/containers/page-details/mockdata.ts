@@ -1,130 +1,3 @@
-export const DATA_PREVIEW = [
-  {
-    preview: 'https://via.placeholder.com/300',
-    type: "header-1",
-    option: {
-      title: ["Product", "Features", "MarketPlace", "Company"],
-      url: ["/#", "/#", "/#", "/#"],
-      backGroundColor: "rgba(244, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
-    },
-    order: 1,
-    src: "<cwp-header-1-ui data=[]></cwp-header-1-ui>"
-  },
-  {
-    preview: 'https://via.placeholder.com/300',
-    type: "front-page-1",
-    option: {
-      title: "Lorem ipsum dolor sit amet",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "https://picsum.photos/200/300",
-      url: "/#"
-    },
-    src: "<cwp-front-page-1-ui data=[]></cwp-front-page-1-ui>"
-  },
-  {
-    preview: 'https://via.placeholder.com/300',
-    type: "category-1",
-    option: {
-      title: ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5", "Category 6"],
-      description: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis"],
-      url: ["/#", "/#", "/#", "/#", "/#", "/#"],
-      images: ["https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300"],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
-    },
-    src: "<cwp-category-1-ui data=[]></cwp-category-1-ui>"
-  },
-  {
-    preview: 'https://via.placeholder.com/300',
-    type: "footer-1",
-    option: {
-      title: ["About", "Contact", "Blog", "Careers", "Support", "Privacy Policy"],
-      social: ["Facebook", "Twitter", "Instagram", "Youtube", "Github"],
-      url: ["/#", "/#", "/#", "/#", "/#", "/#"],
-      iconUrl: ["/#", "/#", "/#", "/#", "/#"],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
-    },
-    src: "<cwp-footer-1-ui data=[]></cwp-footer-1-ui>"
-  },
-  {
-    preview: 'https://via.placeholder.com/300',
-    type: "header-2",
-    option: {
-      title: ["Product", "Features", "MarketPlace", "Company"],
-      url: ["/#", "/#", "/#", "/#"],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
-    },
-    src: "<cwp-header-2-ui data=[]></cwp-header-2-ui>"
-  },
-  {
-    preview: 'https://via.placeholder.com/300',
-    type: "header-1",
-    option: {
-      title: ["Product", "Features", "MarketPlace", "Company"],
-      url: ["/#", "/#", "/#", "/#"],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
-    },
-    src: "<cwp-header-1-ui data=[]></cwp-header-1-ui>"
-  },
-  {
-    preview: 'https://via.placeholder.com/300',
-    type: "category-2",
-    option: {
-      title: ["Product", "Features", "MarketPlace", "Company"],
-      url: ["/#", "/#", "/#", "/#"],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
-    },
-    src: "<cwp-category-2-ui data=[]></cwp-category-2-ui>"
-  },
-  {
-    preview: 'https://via.placeholder.com/300',
-    type: "category-3",
-    option: {
-      title: ["Product", "Features", "MarketPlace", "Company"],
-      url: ["/#", "/#", "/#", "/#"],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
-    },
-    src: "<cwp-category-3-ui data=[]></cwp-category-3-ui>"
-  },
-  {
-    preview: 'https://via.placeholder.com/300',
-    type: "footer-2",
-    option: {
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
-    },
-    src: "<cwp-footer-2-ui data=[]></cwp-footer-2-ui>"
-  },
-  {
-    preview: 'https://via.placeholder.com/300',
-    type: "front-page-2",
-    option: {
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
-    },
-    src: "<cwp-front-page-2-ui data=[]></cwp-front-page-2-ui>"
-  },
-  {
-    preview: 'https://via.placeholder.com/300',
-    type: "pricing-section-1",
-    option: {
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
-    },
-    src: "<cwp-pricing-section-1-ui data=[]></cwp-pricing-section-1-ui>"
-  }
-];
 export const DATA_SIDE_BAR = [
   {
     preview: 'https://via.placeholder.com/300',
@@ -250,8 +123,26 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "front-page-2",
     option: {
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
-      textColor: "rgba(255, 255, 255,1)",
+      title: "Lorem ipsum dolor sit amet",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      image: "https://picsum.photos/200/300",
+      items: [
+        {
+          title: "Lorem ipsum dolor sit amet",
+          url: '/#',
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        },
+        {
+          title: "Lorem ipsum dolor sit amet",
+          url: '/#',
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        },
+        {
+          title: "Lorem ipsum dolor sit amet",
+          url: '/#',
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        }
+      ]
     },
     src: "<cwp-front-page-2-ui data=[]></cwp-front-page-2-ui>"
   },

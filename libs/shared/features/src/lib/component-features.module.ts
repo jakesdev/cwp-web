@@ -19,9 +19,7 @@ import { FrontPage1UiComponent } from './front-page/front-page-1-ui/front-page-1
 import { FrontPage2PopupComponent } from './front-page/front-page-2-popup/front-page-2-popup.component';
 import { FrontPage2UiComponent } from './front-page/front-page-2-ui/front-page-2-ui.component';
 import { GalleryModule } from './gallery/gallery.module';
-import { Header1PopupComponent } from './header/header-1/header-1-popup/header-1-popup.component';
-import { Header1UiComponent } from './header/header-1/header-1-ui/header-1-ui.component';
-import { Header2UiComponent } from './header/header-2/header-2-ui/header-2-ui.component';
+import { HeaderModule } from './header/header.module';
 import { PricingSection1PopupComponent } from './pricing-section/pricing-section-1-popup/pricing-section-1-popup.component';
 import { PricingSection1UiComponent } from './pricing-section/pricing-section-1-ui/pricing-section-1-ui.component';
 import { SelectionComponentComponent } from './selection-component/selection-component.component';
@@ -31,11 +29,8 @@ import { VideoModule } from './video/video.module';
 
 @NgModule({
   declarations: [
-    Header1UiComponent,
-    Header1PopupComponent,
     SelectionComponentComponent,
     EditDialogComponent,
-    Header2UiComponent,
     Footer1UiComponent,
     Footer2UiComponent,
     FrontPage1UiComponent,
@@ -48,16 +43,14 @@ import { VideoModule } from './video/video.module';
     FrontPage2PopupComponent,
   ],
   exports: [
+    HeaderModule,
     AccordionComponentModule,
     GalleryModule,
     CategoryModule,
     VideoModule,
     TimelineModule,
-    Header1UiComponent,
-    Header1PopupComponent,
     SelectionComponentComponent,
     EditDialogComponent,
-    Header2UiComponent,
     Footer1UiComponent,
     Footer2UiComponent,
     FrontPage1UiComponent,
@@ -69,6 +62,7 @@ import { VideoModule } from './video/video.module';
     PricingSection1PopupComponent,
   ],
   imports: [
+    HeaderModule,
     ModelLayoutModule,
     AccordionComponentModule,
     GalleryModule,

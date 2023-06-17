@@ -14,13 +14,13 @@ import { Footer1PopupComponent } from '../../../../../../../../shared/features/s
 import { FrontPage1PopupComponent } from '../../../../../../../../shared/features/src/lib/front-page/front-page-1-popup/front-page-1-popup.component';
 import { FrontPage2PopupComponent } from '../../../../../../../../shared/features/src/lib/front-page/front-page-2-popup/front-page-2-popup.component';
 import { Gallery4PopupComponent } from '../../../../../../../../shared/features/src/lib/gallery/gallery-4-popup/gallery-4-popup.component';
-import { Header1PopupComponent } from '../../../../../../../../shared/features/src/lib/header/header-1/header-1-popup/header-1-popup.component';
+import { Header1PopupComponent } from '../../../../../../../../shared/features/src/lib/header/header-1-popup/header-1-popup.component';
 import { PricingSection1PopupComponent } from '../../../../../../../../shared/features/src/lib/pricing-section/pricing-section-1-popup/pricing-section-1-popup.component';
 import { Timeline1PopupComponent } from '../../../../../../../../shared/features/src/lib/timeline/timeline-1-popup/timeline-1-popup.component';
 import { Timeline2PopupComponent } from '../../../../../../../../shared/features/src/lib/timeline/timeline-2-popup/timeline-2-popup.component';
 import { Video1PopupComponent } from '../../../../../../../../shared/features/src/lib/video/video-1-popup/video-1-popup.component';
 import { PublishPageDialogComponent } from '../publish-page-dialog/publish-page-dialog.component';
-import { DATA_PREVIEW, DATA_SIDE_BAR } from './mockdata';
+import { DATA_SIDE_BAR } from './mockdata';
 @Component({
   selector: 'cwp-page-details',
   templateUrl: './page-details.component.html',
@@ -35,9 +35,6 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
   showButton: string | null = null;
 
   sidebarVisible4!: boolean;
-
-  items: any[] = DATA_PREVIEW;
-
   images: any[] = DATA_SIDE_BAR;
 
   integrationComponents: any[] = [];
@@ -219,6 +216,21 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       width: '1000px',
       data
     });
+    dialogRef.afterClosed().subscribe(result => {
+      this.loaderService.loading$.next(true);
+      this.pageService.updatePage(this.params, {
+        components: this.page.components,
+        url: this.page.url,
+      }).subscribe((res) => {
+        this.pageService.getPage(this.params).subscribe((res) => {
+          this.page = res.data;
+          this.components = res.data.components || [];
+          this.loaderService.loading$.next(false);
+        }
+        );
+      }
+      );
+    });
   }
 
   onButtonClickCategory1(data: any): void {
@@ -298,6 +310,22 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       maxHeight: '90vh',
       data
     });
+    dialogRef.afterClosed().subscribe(result => {
+      this.loaderService.loading$.next(true);
+      this.pageService.updatePage(this.params, {
+        components: this.page.components,
+        url: this.page.url,
+      }).subscribe((res) => {
+        this.pageService.getPage(this.params).subscribe((res) => {
+          this.page = res.data;
+          this.components = res.data.components || [];
+          this.loaderService.loading$.next(false);
+        }
+        );
+      }
+      );
+    }
+    );
   }
 
   onButtonClickPricingSection1(data: any): void {
@@ -388,6 +416,22 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       maxHeight: '90vh',
       data
     });
+    dialogRef.afterClosed().subscribe(result => {
+      this.loaderService.loading$.next(true);
+      this.pageService.updatePage(this.params, {
+        components: this.page.components,
+        url: this.page.url,
+      }).subscribe((res) => {
+        this.pageService.getPage(this.params).subscribe((res) => {
+          this.page = res.data;
+          this.components = res.data.components || [];
+          this.loaderService.loading$.next(false);
+        }
+        );
+      }
+      );
+    }
+    );
   }
 
   onButtonClickGallery4(data: any): void {

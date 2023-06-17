@@ -14,8 +14,11 @@
 <div>
   <div class="container mt-4 mx-auto px-2 sm:px-6 lg:px-8
   border border-gray-200 rounded-lg shadow-lg p-4">
+    <p class="text-md font-bold text-gray-900 mb-2">Page Setting</p>
+    <p class="text-gray-700 text-sm mb-2">Drop components to build your page</p>
     <div cdkDropListGroup>
       <div cdkDropList
+           style="min-height:300px;"
            class="example-list"
            [cdkDropListData]="components"
            (cdkDropListDropped)="drop($event)">
@@ -214,12 +217,12 @@
                  [cdkDragData]="image">
               <div class="background-box"
                    style="width: 240px; height: 100px;">
-                {{image.type}}
+                <p class="text-center text-sm font-semibold">{{image.type}}</p>
                 <div [innerHTML]="image.src | noSanitize"
-                     style="height: 60px !important; overflow: hidden; display: none;"></div>
+                     style="overflow: hidden; display: none;"></div>
                 <img [src]="image.preview"
                      alt="Preview Image"
-                     style="height:100px; max-width: 100%;margin:auto">
+                     style="height:80px; max-width: 100%;margin:auto">
               </div>
             </div>
           </div>
