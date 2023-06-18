@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './text.component.html',
-  styleUrls: ['./text.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextComponent {}

@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './html-editor.component.html',
-  styleUrls: ['./html-editor.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HtmlEditorComponent {}

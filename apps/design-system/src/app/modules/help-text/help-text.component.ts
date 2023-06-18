@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './help-text.component.html',
-  styleUrls: ['./help-text.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HelpTextComponent {}

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogComponent } from '../../../../../remotes-app/design-system/src/lib/page/dialog/dialog.component';
+import { DialogComponent } from '@cwp/shared/layout';
 
 @Component({
   selector: 'cwp-confirm-popup',

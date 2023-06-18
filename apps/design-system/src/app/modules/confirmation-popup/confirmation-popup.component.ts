@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './confirmation-popup.component.html',
-  styleUrls: ['./confirmation-popup.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfirmationPopupComponent {}

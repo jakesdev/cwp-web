@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationComponent {}

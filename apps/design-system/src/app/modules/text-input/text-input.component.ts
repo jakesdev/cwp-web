@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './text-input.component.html',
-  styleUrls: ['./text-input.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextInputComponent {}

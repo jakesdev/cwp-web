@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './introducing.component.html',
-  styleUrls: ['./introducing.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IntroducingComponent {}
