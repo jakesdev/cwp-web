@@ -1,4 +1,4 @@
-# Cleeksy global styles
+# CWP global styles
 
 This library was generated with [Nx](https://nx.dev).
 
