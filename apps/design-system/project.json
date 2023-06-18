@@ -21,10 +21,20 @@
         "tsConfig": "apps/design-system/tsconfig.app.json",
         "assets": [
           "apps/design-system/src/favicon.ico",
-          "apps/design-system/src/assets"
+          "apps/design-system/src/assets",
+          {
+            "input": "libs/shared/assets",
+            "glob": "**/*",
+            "output": "assets/shared"
+          }
         ],
         "styles": [
-          "apps/design-system/src/styles.css"
+          "apps/design-system/src/styles.scss",
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "libs/styles/global.scss",
+          "node_modules/primeicons/primeicons.css",
+          "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+          "node_modules/primeng/resources/primeng.min.css"
         ],
         "scripts": []
       },
