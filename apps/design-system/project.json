@@ -29,7 +29,6 @@
           }
         ],
         "styles": [
-          "apps/design-system/src/styles.scss",
           "@angular/material/prebuilt-themes/indigo-pink.css",
           "libs/styles/global.scss",
           "node_modules/primeicons/primeicons.css",
