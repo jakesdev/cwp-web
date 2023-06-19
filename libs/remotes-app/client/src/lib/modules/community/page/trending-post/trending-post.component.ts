@@ -16,7 +16,7 @@ export class TrendingPostComponent implements OnInit {
   }
 
   getPosts() {
-    this.postService.getTrendingPosts(1).subscribe((res) => {
+    this.postService.getTrendingPosts().subscribe((res) => {
       this.posts = res.data;
     });
   }

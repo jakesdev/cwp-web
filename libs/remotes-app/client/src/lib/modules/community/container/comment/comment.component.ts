@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { UserProfileModel } from '@cwp/core/model/response';
-import { AuthService } from '@cwp/core/services';
+import { AuthService, PostService } from '@cwp/core/services';
 
 @Component({
   selector: 'cwp-comment',
@@ -16,12 +16,17 @@ export class CommentComponent {
     return this._comments;
   }
 
+  @Input() postId!: string;
+
   @Output() commentAdded = new EventEmitter<string>();
 
   content = '';
   currentUser!: UserProfileModel;
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private postService: PostService
+  ) {
     this.authService.currentUserSubject.subscribe({
       next: (res) => {
         this.currentUser = res.user;
@@ -39,14 +44,16 @@ export class CommentComponent {
     }
 
     this.comments.push({
-      userId: this.currentUser.id,
+      userEmail: this.currentUser.email,
       text: this.content,
       author: this.currentUser,
       createdAt: new Date(),
+      userAvatarUrl: this.currentUser.avatarUrl,
     });
 
-    console.log(this.content);
-    // TODO: call api comment
+    this.postService.comment(this.postId, this.content).subscribe((res: any) => {
+      console.log(res);
+    });
 
     this.commentAdded.emit(this.content);
     this.content = '';

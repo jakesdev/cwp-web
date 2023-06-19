@@ -1,6 +1,8 @@
 export class UserProfileModel {
 
   id?: string;
+
+  _id?: string;
   email!: string;
   role!: string;
 

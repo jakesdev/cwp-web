@@ -74,6 +74,7 @@ export class AuthService {
         expiresIn: 0,
       },
       user: {
+        id: '',
         email: '',
         role: '',
         isFinishedTutorial: false,
@@ -98,6 +99,7 @@ export class AuthService {
               expiresIn: 3600,
             },
             user: {
+              id: this.currentUserValue.user?._id!,
               email: this.currentUserValue.user?.email!,
               role: this.currentUserValue.user?.role!,
               isFinishedTutorial: this.currentUserValue.user?.isFinishedTutorial!,
@@ -128,6 +130,7 @@ export class AuthService {
               expiresIn: 3600,
             },
             user: {
+              id: this.currentUserValue.user?._id!,
               email: this.currentUserValue.user?.email!,
               role: this.currentUserValue.user?.role!,
               isFinishedTutorial: this.currentUserValue.user?.isFinishedTutorial!,
@@ -173,6 +176,16 @@ export class AuthService {
         this.currentUserValue.user = auth.data;
         this.currentUserSubject.next(this.currentUserValue);
         localStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
+        return auth.data;
+      }
+      return null;
+    })
+    );
+  }
+
+  getUserProfile(id: string) {
+    return this.apiServices.get<any>(`users/${id}`, true).pipe(map((auth) => {
+      if (auth.data) {
         return auth.data;
       }
       return null;
