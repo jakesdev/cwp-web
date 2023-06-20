@@ -27,15 +27,44 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "category-1",
     option: {
-      title: ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5", "Category 6"],
-      description: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis"],
-      url: ["/#", "/#", "/#", "/#", "/#", "/#"],
-      images: ["https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300"],
+      item:[
+        {
+          title: "Lorem ipsum dolor sit amet",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
+        {
+          title: "Lorem ipsum dolor sit amet",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
+         {
+          title: "Lorem ipsum dolor sit amet",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
+        {
+          title: "Lorem ipsum dolor sit amet",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
+        {
+          title: "Lorem ipsum dolor sit amet",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
+        {
+          title: "Lorem ipsum dolor sit amet",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
+      ],
       backGroundColor: "rgba(0, 1, 0, 0.5)",
       textColor: "rgba(255, 255, 255,1)",
     },
@@ -245,13 +274,16 @@ export const DATA_SIDE_BAR = [
     option: {
       item: [
         {
-          title: "Title 1",
+          title: new Date(),
+          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
-          title: "Title 2",
+          title: new Date(),
+          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
-          title: "Title 3",
+          title: new Date(),
+          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
       ]
     },

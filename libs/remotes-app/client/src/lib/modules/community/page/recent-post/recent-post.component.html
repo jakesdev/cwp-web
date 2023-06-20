@@ -122,7 +122,7 @@
                         }}</a>
                       </p>
                       <p class="text-sm text-gray-500">
-                        <a href="#"
+                        <a [routerLink]="['/community/post', item._id]"
                            class="hover:underline">
                           <time datetime="2020-12-09T11:43:00">{{
                             item.createdAt | date : 'medium'
@@ -247,36 +247,6 @@
                         </svg>
                         <span class="font-medium text-gray-900">{{item.comments.length}}</span>
                         <span class="sr-only">comment</span>
-                      </button>
-                    </span>
-                    <span class="inline-flex items-center text-sm">
-                      <button type="button"
-                              class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                        <svg class="h-5 w-5"
-                             viewBox="0 0 20 20"
-                             fill="currentColor"
-                             aria-hidden="true">
-                          <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
-                          <path fill-rule="evenodd"
-                                d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <span class="font-medium text-gray-900">2.7k</span>
-                        <span class="sr-only">views</span>
-                      </button>
-                    </span>
-                  </div>
-                  <div class="flex text-sm">
-                    <span class="inline-flex items-center text-sm">
-                      <button type="button"
-                              class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                        <svg class="h-5 w-5"
-                             viewBox="0 0 20 20"
-                             fill="currentColor"
-                             aria-hidden="true">
-                          <path d="M13 4.5a2.5 2.5 0 11.702 1.737L6.97 9.604a2.518 2.518 0 010 .792l6.733 3.367a2.5 2.5 0 11-.671 1.341l-6.733-3.367a2.5 2.5 0 110-3.475l6.733-3.366A2.52 2.52 0 0113 4.5z" />
-                        </svg>
-                        <span class="font-medium text-gray-900">Share</span>
                       </button>
                     </span>
                   </div>

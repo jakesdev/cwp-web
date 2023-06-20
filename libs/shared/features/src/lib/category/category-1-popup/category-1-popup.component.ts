@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { UploadService } from '@cwp/core/services';
 
 @Component({
   selector: 'cwp-category-1-popup',
@@ -9,23 +10,40 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class Category1PopupComponent {
 
+  fileImage: any[] = [];
   categoryForm!: FormGroup;
+
+  imageUrl: any;
 
   constructor(
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<Category1PopupComponent>,) {}
+    public dialogRef: MatDialogRef<Category1PopupComponent>,
+
+    private uploadService: UploadService
+    ) {}
 
   ngOnInit() {
-    this.categoryForm = this.fb.group({
-      newArrivalsImage: ['https://tailwindui.com/img/ecommerce-images/home-page-03-featured-category.jpg'],
-      newArrivalsLink: ['#'],
-      accessoriesImage: ['https://tailwindui.com/img/ecommerce-images/home-page-03-category-01.jpg'],
-      accessoriesLink: ['#'],
-      workspaceImage: ['https://tailwindui.com/img/ecommerce-images/home-page-03-category-02.jpg'],
-      workspaceLink: ['#']
-    });
+    this.fileImage = Array(this.data.item.length).fill('');
   }
+
+  handleFileInput(e: any, index: number): void {
+    const formData = new FormData();
+    formData.append('file', e.target.files[0]);
+    formData.append('oldImage', this.data.item[index].image);
+
+    this.uploadService.uploadFile(formData).subscribe((res) => {
+      console.log(res);
+      this.data.item[index].image = res.data;
+    });
+    this.fileImage[index] = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+    };
+    reader.readAsDataURL(this.fileImage[index]);
+  }
+
 
   onChangeTitle(e: any, i: number): void {
     this.data.title[i] = e.target.value;
