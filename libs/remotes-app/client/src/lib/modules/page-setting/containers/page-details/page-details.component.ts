@@ -16,6 +16,7 @@ import { FrontPage1PopupComponent } from '../../../../../../../../shared/feature
 import { FrontPage2PopupComponent } from '../../../../../../../../shared/features/src/lib/front-page/front-page-2-popup/front-page-2-popup.component';
 import { Gallery4PopupComponent } from '../../../../../../../../shared/features/src/lib/gallery/gallery-4-popup/gallery-4-popup.component';
 import { Header1PopupComponent } from '../../../../../../../../shared/features/src/lib/header/header-1-popup/header-1-popup.component';
+import { Header2PopupComponent } from '../../../../../../../../shared/features/src/lib/header/header-2-popup/header-2-popup.component';
 import { PricingSection1PopupComponent } from '../../../../../../../../shared/features/src/lib/pricing-section/pricing-section-1-popup/pricing-section-1-popup.component';
 import { Timeline1PopupComponent } from '../../../../../../../../shared/features/src/lib/timeline/timeline-1-popup/timeline-1-popup.component';
 import { Timeline2PopupComponent } from '../../../../../../../../shared/features/src/lib/timeline/timeline-2-popup/timeline-2-popup.component';
@@ -199,6 +200,21 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
 
   onButtonClickHeader1(data: any): void {
     const dialogRef = this.dialog.open(Header1PopupComponent, {
+      width: '1000px',
+      data
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.pageService.updatePage(this.params, {
+        components: this.page.components,
+        url: this.page.url,
+      }).subscribe((res) => {
+      }
+      );
+    });
+  }
+
+  onButtonClickHeader2(data: any): void {
+    const dialogRef = this.dialog.open(Header2PopupComponent, {
       width: '1000px',
       data
     });

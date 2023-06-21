@@ -4,8 +4,7 @@
     <div class="mt-2 max-w-xl text-sm text-gray-500">
       <p>Change the details of category</p>
     </div>
-    <form class="mt-2"
-          [formGroup]="categoryForm">
+    <form class="mt-2">
       <div class="overflow-hidden">
         <ul role="list"
             *ngFor="let item of data.item; let i = index">
@@ -27,9 +26,9 @@
                             stroke-linejoin="round" />
                     </svg>
                     <div class="flex text-sm text-gray-600">
-                      <label for="file-upload"
+                      <label for="file-upload{{i}}"
                              class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
-                        <input id="file-upload"
+                        <input id="file-upload{{i}}"
                                name="file-upload"
                                type="file"
                                #Image
@@ -41,7 +40,7 @@
                              style="height: 300px"
                              class="image-dialog image-preview">
                         <img *ngIf="fileImage[i]"
-                             [src]="fileImage[i]"
+                             [src]="imageUrl"
                              style="height: 300px"
                              class="image-dialog image-preview">
                       </label>

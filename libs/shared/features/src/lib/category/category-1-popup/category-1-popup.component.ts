@@ -1,5 +1,4 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UploadService } from '@cwp/core/services';
 
@@ -11,17 +10,15 @@ import { UploadService } from '@cwp/core/services';
 export class Category1PopupComponent {
 
   fileImage: any[] = [];
-  categoryForm!: FormGroup;
 
   imageUrl: any;
 
   constructor(
-    private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<Category1PopupComponent>,
 
     private uploadService: UploadService
-    ) {}
+  ) {}
 
   ngOnInit() {
     this.fileImage = Array(this.data.item.length).fill('');
@@ -46,15 +43,16 @@ export class Category1PopupComponent {
 
 
   onChangeTitle(e: any, i: number): void {
-    this.data.title[i] = e.target.value;
+    this.data.item[i].title = e.target.value;
   }
 
   onChangeUrl(e: any, i: number): void {
-    this.data.url[i] = e.target.value;
+    this.data.item[i].url = e.target.value;
   }
 
+
   onChangeDescription(e: any, i: number): void {
-    this.data.description[i] = e.target.value;
+    this.data.item[i].description = e.target.value;
   }
 
   onSave(): void {

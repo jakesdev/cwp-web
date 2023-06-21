@@ -7,4 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class Header2UiComponent {
   @Input() data: any;
+
+  @Input() disabledTagA!: boolean;
 }

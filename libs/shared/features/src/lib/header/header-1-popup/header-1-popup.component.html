@@ -8,18 +8,18 @@
           [formGroup]="editHeaderForm">
       <div class="overflow-hidden">
         <ul role="list"
-            *ngFor="let item of data.title; let i = index">
+            *ngFor="let item of data.item; let i = index">
           <div>
             <label class="block text-sm font-medium leading-6 text-gray-900">Title {{i+1}}</label>
             <div class="mt-2">
               <div class="flex flex-row justify-between gap-2">
                 <input type="text"
                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                       value="{{item}}"
+                       value="{{item.title}}"
                        (change)="onChangeTitle($event, i)">
                 <input type="text"
                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                       value="{{data.url[i]}}"
+                       value="{{item.url}}"
                        (change)="onChangeUrl($event, i)">
                 <div (click)="deleteItem(i)"
                      class="ml-4 flow-root flex-shrink-0 cursor-pointer hover:bg-gray-100 rounded-md p-1.5">

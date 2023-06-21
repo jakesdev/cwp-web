@@ -44,11 +44,11 @@ export class Category3PopupComponent {
   }
 
   onChangeTitle(e: any, i: number): void {
-    this.data.title[i] = e.target.value;
+    this.data.item[i].title = e.target.value;
   }
 
   onChangeUrl(e: any, i: number): void {
-    this.data.url[i] = e.target.value;
+    this.data.item[i].url = e.target.value;
   }
 
   onChangeDescription(e: any, i: number): void {
@@ -56,6 +56,7 @@ export class Category3PopupComponent {
   }
 
   onSave(): void {
+    console.log(this.data);
     this.dialogRef.close(this.data);
   }
 }

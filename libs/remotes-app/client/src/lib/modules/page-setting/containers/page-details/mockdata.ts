@@ -3,8 +3,24 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "header-1",
     option: {
-      title: ["Product", "Features", "MarketPlace", "Company"],
-      url: ["/#", "/#", "/#", "/#"],
+      item: [
+        {
+          title: "Product",
+          url: "/#",
+        },
+        {
+          title: "Features",
+          url: "/#",
+        },
+        {
+          title: "MarketPlace",
+          url: "/#",
+        },
+        {
+          title: "Company",
+          url: "/#",
+        }
+      ],
       backGroundColor: "rgba(244, 1, 0, 0.5)",
       textColor: "rgba(255, 255, 255,1)",
     },
@@ -27,7 +43,7 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "category-1",
     option: {
-      item:[
+      item: [
         {
           title: "Lorem ipsum dolor sit amet",
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -40,7 +56,7 @@ export const DATA_SIDE_BAR = [
           image: "https://picsum.photos/200/300",
           url: "/#",
         },
-         {
+        {
           title: "Lorem ipsum dolor sit amet",
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           image: "https://picsum.photos/200/300",
@@ -87,8 +103,24 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "header-2",
     option: {
-      title: ["Product", "Features", "MarketPlace", "Company"],
-      url: ["/#", "/#", "/#", "/#"],
+      item: [
+        {
+          title: "Product",
+          url: "/#",
+        },
+        {
+          title: "Features",
+          url: "/#",
+        },
+        {
+          title: "MarketPlace",
+          url: "/#",
+        },
+        {
+          title: "Company",
+          url: "/#",
+        }
+      ],
       backGroundColor: "rgba(0, 1, 0, 0.5)",
       textColor: "rgba(255, 255, 255,1)",
     },
@@ -98,8 +130,26 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "category-2",
     option: {
-      title: ["Product", "Features", "MarketPlace", "Company"],
-      url: ["/#", "/#", "/#", "/#"],
+      item: [
+        {
+          title: "Lorem ipsum dolor sit amet",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
+        {
+          title: "Lorem ipsum dolor sit amet",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
+        {
+          title: "Lorem ipsum dolor sit amet",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
+      ],
       backGroundColor: "rgba(0, 1, 0, 0.5)",
       textColor: "rgba(255, 255, 255,1)",
     },
@@ -225,6 +275,51 @@ export const DATA_SIDE_BAR = [
       ]
     },
     src: "<cwp-gallery-4-ui data=[]></cwp-gallery-4-ui>"
+  },
+  {
+    preview: 'https://via.placeholder.com/300',
+    type: "gallery-1",
+    option: {
+      item: [
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
+        },
+        {
+          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
+        }
+      ]
+    },
+    src: "<cwp-gallery-1-ui data=[]></cwp-gallery-1-ui>"
   },
   {
     preview: 'https://via.placeholder.com/300',
