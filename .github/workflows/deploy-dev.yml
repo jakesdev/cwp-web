@@ -1,0 +1,59 @@
+name: deploy-dev
+env:
+  S3_BUCKET_NAME: "s3://creative-widget-web"
+  AWS_REGION_NAME: "ap-southeast-1"
+  CLOUDFRONT_DISTRIBUTION_ID: "E27GVIMDOJQOA0"
+
+on:
+  workflow_dispatch:
+    branches:
+      - develop
+  push:
+    branches:
+      - develop
+    paths-ignore:
+      - "package.json"
+      - "CHANGELOG.md"
+      - "documentation"
+
+jobs:
+  build-and-deploy:
+    name: build & deploy creative-widget-web
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: use node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          always-auth: true
+          node-version: ${{ matrix.node-version }}
+
+      - name: install dependencies
+        run: npm install
+
+      - name: build application
+        run: npm run build
+
+      - name: list dir
+        run: ls ./dist
+
+      - name: configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION_NAME }}
+
+      # Copy the files from build folder to the S3 bucket
+      - name: deploy build to S3
+        run: aws s3 sync ./dist ${{ env.S3_BUCKET_NAME }} --delete
+
+      - name: invalidate cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID}} --paths "/index.html"
