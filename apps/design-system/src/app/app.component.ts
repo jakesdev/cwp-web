@@ -43,8 +43,8 @@ export class AppComponent {
     },
     {
       index: 4,
-      url: '/text-input',
-      title: 'Loanding Component',
+      url: '/app-loading',
+      title: 'Loading Component',
     },
     // {
     //   url: '/accordion',

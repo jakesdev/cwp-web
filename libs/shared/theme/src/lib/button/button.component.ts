@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 
 @Component({
@@ -12,7 +12,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ButtonComponent {
   @Input() text = '';
-  @Input() type: 'primary' | 'primary-outline' | 'cancel'  = 'primary';
+  @Input() type: 'primary' | 'primary-outline' | 'secondary' | 'danger' | 'danger-outline'  = 'primary';
+  @Input() leftIcon: any;
+  @Input() rightIcon: any;
 
   @Output() buttonClick = new EventEmitter<void>;
 
