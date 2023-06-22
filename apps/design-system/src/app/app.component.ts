@@ -10,8 +10,8 @@ export class AppComponent {
   menu = [
     {
       title: 'Introducing',
-      icons :'',
-      url :''
+      icons: '',
+      url: '',
     },
     // {
     //   title: 'Theme',
@@ -23,36 +23,44 @@ export class AppComponent {
     //   icons :'',
     //   url :'/color-pallete'
     // }
-  ]
+  ];
 
   components = [
     {
+      index: 1,
       url: '/button',
-      title: 'ButtonComponent',
+      title: 'Button Component',
     },
     {
+      index: 2,
       url: '/badge',
-      title: 'BadgeComponent',
+      title: 'Badge Component',
     },
     {
-      url: '/accordion',
-      title: 'AccordionComponent',
-    },
-    {
-      url: '/carousel',
-      title: 'CarouselComponent',
-    },
-    {
-      url: '/help-text',
-      title: 'HelpTextComponent',
-    },
-    {
-      url: '/html-editor',
-      title: 'HtmlEditorComponent',
-    },
-    {
+      index: 3,
       url: '/text-input',
-      title: 'TextInputComponent',
+      title: 'Text Input Component',
     },
-  ]
+    {
+      index: 4,
+      url: '/text-input',
+      title: 'Loanding Component',
+    },
+    // {
+    //   url: '/accordion',
+    //   title: 'AccordionComponent',
+    // },
+    // {
+    //   url: '/carousel',
+    //   title: 'CarouselComponent',
+    // },
+    // {
+    //   url: '/help-text',
+    //   title: 'HelpTextComponent',
+    // },
+    // {
+    //   url: '/html-editor',
+    //   title: 'HtmlEditorComponent',
+    // },
+  ];
 }
