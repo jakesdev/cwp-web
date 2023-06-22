@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { LoaderService, NotificationService, PageService, PostService, TransactionService } from '@cwp/core/services';
 import remove from 'lodash-es/remove';
+import { finalize } from 'rxjs';
 
 import { environment } from '../../../../../../../../core/src/lib/environments/environment';
 import { Accordion1PopupComponent } from '../../../../../../../../shared/features/src/lib/accordion/accordion-1-popup/accordion-1-popup.component';
@@ -38,7 +39,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
   showButton: string | null = null;
 
   sidebarVisible4!: boolean;
-  images: any[] = DATA_SIDE_BAR;
+  items: any[] = DATA_SIDE_BAR;
 
   integrationComponents: any[] = [];
 
@@ -69,23 +70,40 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       this.components = res.data.components || [];
     }
     );
-    this.transactionService.getTransactionList().subscribe((res) => {
+    this.getTransactionList();
+  }
+
+  getTransactionList() {
+    this.transactionService.getTransactionList().pipe(
+      finalize(() => {
+        this.loaderService.loading$.next(false);
+      })
+    ).subscribe((res) => {
+      this.loaderService.loading$.next(true);
       this.integrationComponents = res.data;
       this.integrationComponents = this.integrationComponents.map((item) => {
         return {
           type: item.type,
+          previewImage: item.preview
         };
       });
 
-
-      // this.images = this.images.filter((item) => {
-      //   return this.integrationComponents.find((item2) => {
-      //     return item2.type === item.type;
-      //   });
-      // }
-      // );
-    }
-    );
+      this.items = this.items.filter((item) => {
+        return this.integrationComponents.some((component) => {
+          return component.type === item.type;
+        });
+      }
+      ).map((item) => {
+        return {
+          ...item,
+          name: item.type.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
+          previewImage: this.integrationComponents.find((component) => {
+            return component.type === item.type;
+          })?.previewImage
+        };
+      }
+      );
+    });
   }
 
   ngAfterViewChecked() {

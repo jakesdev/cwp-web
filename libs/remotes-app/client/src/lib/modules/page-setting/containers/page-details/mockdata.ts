@@ -21,7 +21,7 @@ export const DATA_SIDE_BAR = [
           url: "/#",
         }
       ],
-      backGroundColor: "rgba(244, 1, 0, 0.5)",
+      backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
     order: 1,
@@ -34,7 +34,7 @@ export const DATA_SIDE_BAR = [
       title: "Lorem ipsum dolor sit amet",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image: "https://picsum.photos/200/300",
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
+      backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
     src: "<cwp-front-page-1-ui data=[]></cwp-front-page-1-ui>"
@@ -81,7 +81,7 @@ export const DATA_SIDE_BAR = [
           url: "/#",
         },
       ],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
+      backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
     src: "<cwp-category-1-ui data=[]></cwp-category-1-ui>"
@@ -94,7 +94,7 @@ export const DATA_SIDE_BAR = [
       social: ["Facebook", "Twitter", "Instagram", "Youtube", "Github"],
       url: ["/#", "/#", "/#", "/#", "/#", "/#"],
       iconUrl: ["/#", "/#", "/#", "/#", "/#"],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
+      backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
     src: "<cwp-footer-1-ui data=[]></cwp-footer-1-ui>"
@@ -121,7 +121,7 @@ export const DATA_SIDE_BAR = [
           url: "/#",
         }
       ],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
+      backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
     src: "<cwp-header-2-ui data=[]></cwp-header-2-ui>"
@@ -150,7 +150,7 @@ export const DATA_SIDE_BAR = [
           url: "/#",
         },
       ],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
+      backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
     src: "<cwp-category-2-ui data=[]></cwp-category-2-ui>"
@@ -193,7 +193,7 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "footer-2",
     option: {
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
+      backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
     src: "<cwp-footer-2-ui data=[]></cwp-footer-2-ui>"
@@ -229,7 +229,7 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "pricing-section-1",
     option: {
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
+      backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
     src: "<cwp-pricing-section-1-ui data=[]></cwp-pricing-section-1-ui>"

@@ -15,11 +15,11 @@
   <div class="container mt-4 mx-auto px-2 sm:px-6 lg:px-8
   border border-gray-200 rounded-lg shadow-lg p-4">
     <p class="text-md font-bold text-gray-900 mb-2">Page Setting</p>
-    <p class="text-gray-700 text-sm mb-2">Drop components to build your page</p>
+    <p class="text-gray-700 text-sm mb-2">Drop components <span class="text-red-500 font-bold">here</span> to build your page</p>
     <div cdkDropListGroup>
       <div cdkDropList
            style="min-height:300px;"
-           class="example-list"
+           class="example-list bg-gray-300"
            [cdkDropListData]="components"
            (cdkDropListDropped)="drop($event)">
         <div class="example-box relative"
@@ -233,20 +233,20 @@
                cdkDropListOrientation="horizontal"
                class="background-list scroll-container"
                style="overflow: auto"
-               [cdkDropListData]="images"
+               [cdkDropListData]="items"
                cdkDropListSortingDisabled
                [cdkDropListEnterPredicate]="noReturnPredicate"
                (cdkDropListDropped)="drop($event)">
             <div class="flex flex-col"
-                 *ngFor="let image of images; let i = index"
+                 *ngFor="let item of items; let i = index"
                  cdkDrag
-                 [cdkDragData]="image">
+                 [cdkDragData]="item">
               <div class="background-box"
                    style="width: 240px; height: 100px;">
-                <p class="text-center text-sm font-semibold">{{image.type}}</p>
-                <div [innerHTML]="image.src | noSanitize"
+                <p class="text-center text-sm font-semibold">{{item.name}}</p>
+                <div [innerHTML]="item.src | noSanitize"
                      style="overflow: hidden; display: none;"></div>
-                <img [src]="image.preview"
+                <img [src]="item.previewImage"
                      alt="Preview Image"
                      style="height:80px; max-width: 100%;margin:auto">
               </div>
