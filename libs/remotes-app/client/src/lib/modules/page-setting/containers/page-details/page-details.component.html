@@ -63,6 +63,8 @@
                                [data]="item.option"></cwp-timeline-1-ui>
             <cwp-timeline-2-ui *ngSwitchCase="'timeline-2'"
                                [data]="item.option"></cwp-timeline-2-ui>
+            <cwp-blog-1-ui *ngSwitchCase="'blog-1'"
+                           [data]="item.option"></cwp-blog-1-ui>
           </container-element>
           <container-element [ngSwitch]="item.type">
             <button *ngSwitchCase="'header-1'"
@@ -176,6 +178,14 @@
                                                                                                   rounded-md
                                                                                                   hover:-translate-y-1 duration-300"
                     (click)="onButtonClickGallery4(item.option)">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
+            <button *ngSwitchCase="'blog-1'"
+                    class="absolute top-6 right-20 z-50
+                                                                                                              bg-gray-200 hover:bg-gray-300
+                                                                                                              text-gray-800 font-bold py-2 px-4
+                                                                                                              rounded-md
+                                                                                                              hover:-translate-y-1 duration-300"
+                    (click)="onButtonClickBlog1(item.option)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <!-- Delete Button -->
             <button class="absolute top-6 right-0 z-50

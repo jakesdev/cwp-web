@@ -383,6 +383,22 @@ export const DATA_SIDE_BAR = [
       ]
     },
     src: "<cwp-timeline-2-ui data=[]></cwp-timeline-2-ui>"
+  },
+  {
+    preview: 'https://via.placeholder.com/300',
+    type: "blog-1",
+    option: {
+      text: `
+      <h1>Blog Title</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <ul>
+        <li>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+      </ul>
+      `
+    },
+    src: "<cwp-blog-1-ui data=[]></cwp-blog-1-ui>"
   }
 
   // fake data

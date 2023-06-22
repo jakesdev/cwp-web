@@ -8,10 +8,13 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
+
 html,
 body {
     height: 100%;
     scroll-behavior: smooth;
+    --ck-z-default: 9999 !important;
+    --ck-z-modal: calc(var(--ck-z-default) + 999);
 }
 
 body {

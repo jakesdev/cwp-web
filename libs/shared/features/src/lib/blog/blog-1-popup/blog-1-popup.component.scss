@@ -1,0 +1,31 @@
+:host ::ng-deep {
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding: 0 0 0 1.5rem;
+  }
+
+  ol {
+    list-style-type: decimal;
+    padding: 0 0 0 1.5rem;
+  }
+
+  .ck-body-wrapper {
+    z-index: 1300 !important;
+  }
+
+  .ck.ck-balloon-panel {
+    z-index: 10054 !important;
+  }
+}
