@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cwp-text-input',
@@ -9,4 +9,12 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./text-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TextInputComponent {}
+export class TextInputComponent {
+  @Input() text = '';
+  @Input() type:
+    | 'primary'
+    | 'primary-outline'
+    | 'secondary'
+    | 'danger'
+    | 'danger-outline' = 'primary';
+}

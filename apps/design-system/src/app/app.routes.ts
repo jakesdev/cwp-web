@@ -1,5 +1,14 @@
 import { Route } from '@angular/router';
-import { AccordionComponent, BadgeComponent, DesignSystemButtonComponent, CarouselComponent, HelpTextComponent, HtmlEditorComponent, IntroducingComponent, TextInputComponent } from './modules';
+import {
+  AccordionComponent,
+  BadgeComponent,
+  DesignSystemButtonComponent,
+  CarouselComponent,
+  HelpTextComponent,
+  HtmlEditorComponent,
+  IntroducingComponent,
+  DesignSystemTextInputComponent,
+} from './modules';
 
 export const appRoutes: Route[] = [
   {
@@ -32,6 +41,6 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'text-input',
-    component: TextInputComponent,
+    component: DesignSystemTextInputComponent,
   },
 ];

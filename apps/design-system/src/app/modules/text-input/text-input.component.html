@@ -1,15 +1,52 @@
-<h1>Typography H1</h1>
-<h2>Typography H2</h2>
-<h3>Typography H3</h3>
-<h4>Typography H4</h4>
-<h5>Typography H5</h5>
-<h6>Typography H6</h6>
-<p>P tag</p>
-<div class="form-wrapper">
-  <div class="box-properties">
-    <div class="field-label"></div>
-    <div class="field-description"></div>
+<!-- <cwp-text-input [type]="'primary'">Hi</cwp-text-input> -->
+<div class="flex flex-col mx-5">
+  <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 mb-2">
+    Input Groups
+  </h1>
+  <div class="mx-5">
+    <h1 class="truncate text-base font-medium leading-7 text-slate-900">
+      Fonts
+    </h1>
+    <div
+      class="w-fit overflow-hidden rounded-lg ring-1 ring-slate-900/10 py-4 px-4 font-sans"
+    >
+      <h1 class="text-6xl">Typography H1</h1>
+      <h2 class="text-5xl">Typography H2</h2>
+      <h3 class="text-3xl">Typography H3</h3>
+      <h4 class="text-xl">Typography H4</h4>
+      <h5 class="text-base">Typography H5</h5>
+      <h6 class="text-sm">Typography H6</h6>
+
+      <div class="form-wrapper">
+        <div class="box-properties">
+          <div class="field-label"></div>
+          <div class="field-description"></div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5">
+      <h1 class="truncate text-base font-medium leading-7 text-slate-900">
+        Input with label
+      </h1>
+      <div
+        class="w-fit overflow-hidden rounded-lg ring-1 ring-slate-900/10 py-4 px-4 font-sans"
+      >
+        <div>
+          <label class="block text-sm font-medium leading-6 text-gray-900"
+            >Input Label</label
+          >
+          <div class="mt-2">
+            <input
+              type="text"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              placeholder="Input empty content"
+            />
+          </div>
+          <p class="mt-2 text-sm text-gray-500" id="email-description">
+            We'll only use this for spam.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="">adsasd</div>
-<span>asdasdas</span>
