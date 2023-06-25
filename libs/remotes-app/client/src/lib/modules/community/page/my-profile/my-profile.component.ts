@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '@cwp/core/endpoint';
 import { UserProfileModel } from '@cwp/core/model/response';
 import { AuthService, PostService } from '@cwp/core/services';
+import { ConfirmPopupComponent } from '@cwp/shared/theme';
 
 @Component({
   selector: 'cwp-my-profile',
@@ -24,12 +26,13 @@ export class MyProfileComponent {
     private router: ActivatedRoute,
     private postService: PostService,
 
-    private authService: AuthService
+    private authService: AuthService,
+    public dialog: MatDialog,
+
   ) {}
 
   ngOnInit(): void {
     this.getUserProfile();
-    console.log(this.userProfile);
     this.getPosts(this.userProfile._id || '');
   }
 
@@ -49,5 +52,20 @@ export class MyProfileComponent {
 
   openPreview(url: string): void {
     window.open(environment.webView + url, '_blank');
+  }
+
+
+  deletePost(id: string) {
+    this.dialog.open(ConfirmPopupComponent, {
+      width: '400px',
+      data: {
+        message: 'Are you sure you want to delete this post?',
+        onConfirm: () => {
+          this.postService.deletePost(id).subscribe((res) => {
+            this.getPosts(this.userProfile._id || '');
+          });
+        }
+      }
+    });
   }
 }

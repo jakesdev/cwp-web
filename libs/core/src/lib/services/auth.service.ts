@@ -99,6 +99,7 @@ export class AuthService {
               expiresIn: 3600,
             },
             user: {
+              _id: this.currentUserValue.user?._id!,
               id: this.currentUserValue.user?._id!,
               email: this.currentUserValue.user?.email!,
               role: this.currentUserValue.user?.role!,
@@ -130,6 +131,7 @@ export class AuthService {
               expiresIn: 3600,
             },
             user: {
+              _id: this.currentUserValue.user?._id!,
               id: this.currentUserValue.user?._id!,
               email: this.currentUserValue.user?.email!,
               role: this.currentUserValue.user?.role!,
@@ -199,6 +201,26 @@ export class AuthService {
         this.currentUserValue.user = res.data;
         this.currentUserSubject.next(this.currentUserValue);
         localStorage.setItem('currentUser', JSON.stringify(this.currentUserValue));
+        return res.data;
+      }
+      return null;
+    })
+    );
+  }
+
+  followUser(id: string) {
+    return this.apiServices.update<any>(`users/${id}/follow`, null, true).pipe(map((auth) => {
+      if (auth.data) {
+        return auth.data;
+      }
+      return null;
+    })
+    );
+  }
+
+  changePassword(data: any) {
+    return this.apiServices.update<any>('users/change-password', data, true).pipe(map((res) => {
+      if (res) {
         return res.data;
       }
       return null;

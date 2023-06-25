@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { environment } from '@cwp/core/endpoint';
 import { UserProfileModel } from '@cwp/core/model/response';
 import { AuthService, LoaderService, PostService } from '@cwp/core/services';
-import { ConfirmPopupComponent } from '@cwp/shared/theme';
 
 @Component({
   selector: 'cwp-recent-post',
@@ -60,17 +60,15 @@ export class RecentPostComponent implements OnInit {
       this.getPosts();
     });
   }
-  deletePost(id: string) {
-    this.dialog.open(ConfirmPopupComponent, {
-      width: '400px',
-      data: {
-        message: 'Are you sure you want to delete this post?',
-        onConfirm: () => {
-          this.postService.deletePost(id).subscribe((res) => {
-            this.getPosts();
-          });
-        }
-      }
+
+  addFavorite(id: string) {
+    this.postService.addFavorite(id).subscribe((res: any) => {
+      this.getPosts();
     });
   }
+
+
+  openPreview(url: string): void {
+    window.open(environment.webView + url, '_blank');
+  };
 }

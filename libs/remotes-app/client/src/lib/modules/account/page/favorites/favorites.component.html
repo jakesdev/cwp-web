@@ -1,14 +1,6 @@
 <div class="spotlight">
-  <!-- Back button -->
-  <button class="ml-20 z-10 flex items-center justify-center w-10 h-10 text-gray-900 hover:text-gray-600"
-          (click)="goBack()">
-    <i class="fas fa-arrow-left"></i>
-    <span class="ml-2">Back</span>
-  </button>
+  <h2 class="text-center font-bold text-xl">Favorites</h2>
   <div class="content">
-    <h1 class="title">Welcome to the Spotlight Page</h1>
-    <p class="description">Discover the latest trends and innovations!</p>
-
     <div class="item-list">
       <ng-container *ngIf="posts && posts.length > 0; else emptyTemplate">
         <div class="mx-auto mt-4 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">

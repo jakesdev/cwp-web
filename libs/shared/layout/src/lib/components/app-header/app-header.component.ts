@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
+import { authAction, AuthState } from '@cwp/core/data-access';
 import { UserProfileModel } from '@cwp/core/model/response';
 import { AuthService } from '@cwp/core/services';
 import { Store } from '@ngrx/store';
-import {
-  authAction,
-  AuthState,
-} from '../../../../../../core/src/lib/data-access';
 
 @Component({
   selector: 'cwp-app-header',
@@ -15,6 +12,8 @@ import {
 export class AppHeaderComponent {
   user!: UserProfileModel;
 
+  isAuthenticated = false;
+
   constructor(
     private authService: AuthService,
     private store: Store<AuthState>
@@ -22,6 +21,7 @@ export class AppHeaderComponent {
     this.authService.currentUserSubject.subscribe({
       next: (res) => {
         this.user = res.user;
+        this.isAuthenticated = !!this.user;
       },
     });
   }

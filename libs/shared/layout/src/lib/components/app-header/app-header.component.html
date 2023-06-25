@@ -83,7 +83,7 @@
                       aria-expanded="false">
                 <span class="sr-only">Open user menu</span>
                 <img class="h-8 w-8 rounded-full"
-                     src="{{user.avatarUrl}}"
+                     src="{{user.avatarUrl || 'https://via.placeholder.com/150'}}"
                      alt="">
                 <h2 class="ml-2 text-white text-sm font-medium truncate">{{user.email}}</h2>
               </button>
@@ -95,9 +95,13 @@
                    tabindex="-1"
                    id="user-menu-item-0">Account Setting</a>
 
-                <!-- <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a> -->
+                <a [routerLink]="['community/profile']"
+                   class="block px-4 py-2 text-sm text-gray-700"
+                   role="menuitem"
+                   tabindex="-1"
+                   id="user-menu-item-1">My Profile</a>
 
-                <a href="#"
+                <a (click)="logOut()"
                    class="block px-4 py-2 text-sm text-gray-700"
                    role="menuitem"
                    tabindex="-1"
@@ -197,7 +201,8 @@
              [routerLinkActive]="'bg-gray-900 text-gray-300'"
              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Account Setting</a>
 
-          <!-- <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a> -->
+          <a [routerLink]="['community/profile']"
+             class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">My Profile</a>
 
           <a (click)="logOut()"
              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign out</a>

@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { environment } from '@cwp/core/endpoint';
 import { PostService } from '@cwp/core/services';
 
 @Component({
-  selector: 'cwp-trending-post',
-  templateUrl: './trending-post.component.html',
-  styleUrls: ['./trending-post.component.scss'],
+  selector: 'cwp-favorites',
+  templateUrl: './favorites.component.html',
+  styleUrls: ['./favorites.component.scss'],
 })
-export class TrendingPostComponent implements OnInit {
+export class FavoritesComponent {
   posts: any[] = [];
   constructor(private postService: PostService) {}
 
@@ -16,16 +16,12 @@ export class TrendingPostComponent implements OnInit {
   }
 
   getPosts() {
-    this.postService.getTrendingPosts().subscribe((res) => {
+    this.postService.getFavorites().subscribe((res) => {
       this.posts = res.data;
     });
   }
 
   openPreview(url: string): void {
     window.open(environment.webView + url, '_blank');
-  }
-
-  goBack() {
-    window.history.back();
   }
 }

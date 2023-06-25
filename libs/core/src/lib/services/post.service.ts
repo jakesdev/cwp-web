@@ -35,6 +35,14 @@ export class PostService {
     return this.apiService.post<any>(`posts/${id}/like`, {}, true);
   }
 
+  addFavorite(id: string) {
+    return this.apiService.post<any>(`posts/${id}/favorite`, {}, true);
+  }
+
+  getFavorites() {
+    return this.apiService.get<any>(`posts/favorites`, true);
+  }
+
   comment(id: string, data: any) {
     return this.apiService.post<any>(`posts/${id}/comment`, {
       content: data
