@@ -90,10 +90,50 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "footer-1",
     option: {
-      title: ["About", "Contact", "Blog", "Careers", "Support", "Privacy Policy"],
-      social: ["Facebook", "Twitter", "Instagram", "Youtube", "Github"],
-      url: ["/#", "/#", "/#", "/#", "/#", "/#"],
-      iconUrl: ["/#", "/#", "/#", "/#", "/#"],
+      itemTitle: [
+        {
+          title: "Product",
+          url: "/#",
+        },
+        {
+          title: "Features",
+          url: "/#",
+        },
+        {
+          title: "MarketPlace",
+          url: "/#",
+        },
+        {
+          title: "Company",
+          url: "/#",
+        },
+        {
+          title: "Support",
+          url: "/#",
+        }
+      ],
+      itemSocial: [
+        {
+          title: "Facebook",
+          url: "/#",
+        },
+        {
+          title: "Twitter",
+          url: "/#",
+        },
+        {
+          title: "Instagram",
+          url: "/#",
+        },
+        {
+          title: "Linkedin",
+          url: "/#",
+        },
+        {
+          title: "Youtube",
+          url: "/#",
+        }
+      ],
       backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
@@ -193,8 +233,28 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "footer-2",
     option: {
-      backGroundColor: "rgba(129, 140, 248, 1)",
-      textColor: "rgba(255, 255, 255,1)",
+      itemSocial: [
+        {
+          title: "Facebook",
+          url: "/#",
+        },
+        {
+          title: "Twitter",
+          url: "/#",
+        },
+        {
+          title: "Instagram",
+          url: "/#",
+        },
+        {
+          title: "Linkedin",
+          url: "/#",
+        },
+        {
+          title: "Youtube",
+          url: "/#",
+        }
+      ],
     },
     src: "<cwp-footer-2-ui data=[]></cwp-footer-2-ui>"
   },

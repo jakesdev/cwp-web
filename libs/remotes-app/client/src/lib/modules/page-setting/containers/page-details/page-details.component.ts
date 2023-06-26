@@ -14,6 +14,7 @@ import { Category1PopupComponent } from '../../../../../../../../shared/features
 import { Category2PopupComponent } from '../../../../../../../../shared/features/src/lib/category/category-2-popup/category-2-popup.component';
 import { Category3PopupComponent } from '../../../../../../../../shared/features/src/lib/category/category-3-popup/category-3-popup.component';
 import { Footer1PopupComponent } from '../../../../../../../../shared/features/src/lib/footer/footer-1-popup/footer-1-popup.component';
+import { Footer2PopupComponent } from '../../../../../../../../shared/features/src/lib/footer/footer-2-popup/footer-2-popup.component';
 import { FrontPage1PopupComponent } from '../../../../../../../../shared/features/src/lib/front-page/front-page-1-popup/front-page-1-popup.component';
 import { FrontPage2PopupComponent } from '../../../../../../../../shared/features/src/lib/front-page/front-page-2-popup/front-page-2-popup.component';
 import { Gallery4PopupComponent } from '../../../../../../../../shared/features/src/lib/gallery/gallery-4-popup/gallery-4-popup.component';
@@ -249,6 +250,27 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
 
   onButtonClickFooter1(data: any): void {
     const dialogRef = this.dialog.open(Footer1PopupComponent, {
+      width: '1000px',
+      data
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.loaderService.loading$.next(true);
+      this.pageService.updatePage(this.params, {
+        components: this.page.components,
+        url: this.page.url,
+      }).subscribe((res) => {
+        this.pageService.getPage(this.params).subscribe((res) => {
+          this.page = res.data;
+          this.components = res.data.components || [];
+          this.loaderService.loading$.next(false);
+        }
+        );
+      }
+      );
+    });
+  }
+  onButtonClickFooter2(data: any): void {
+    const dialogRef = this.dialog.open(Footer2PopupComponent, {
       width: '1000px',
       data
     });

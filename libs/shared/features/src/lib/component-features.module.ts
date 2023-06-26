@@ -11,10 +11,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { AccordionComponentModule } from './accordion/accordion.module';
 import { BlogModule } from './blog/blog.module';
 import { CategoryModule } from './category/category.module';
-import { Footer1PopupComponent } from './footer/footer-1-popup/footer-1-popup.component';
-import { Footer1UiComponent } from './footer/footer-1-ui/footer-1-ui.component';
-import { Footer2PopupComponent } from './footer/footer-2-popup/footer-2-popup.component';
-import { Footer2UiComponent } from './footer/footer-2-ui/footer-2-ui.component';
+import { FooterModule } from './footer/footer.module';
 import { FrontPageModule } from './front-page/front-page.module';
 import { GalleryModule } from './gallery/gallery.module';
 import { HeaderModule } from './header/header.module';
@@ -29,14 +26,11 @@ import { VideoModule } from './video/video.module';
   declarations: [
     SelectionComponentComponent,
     EditDialogComponent,
-    Footer1UiComponent,
-    Footer2UiComponent,
-    Footer1PopupComponent,
-    Footer2PopupComponent,
     PricingSection1UiComponent,
     PricingSection1PopupComponent,
   ],
   exports: [
+    FooterModule,
     BlogModule,
     HeaderModule,
     AccordionComponentModule,
@@ -47,14 +41,11 @@ import { VideoModule } from './video/video.module';
     FrontPageModule,
     SelectionComponentComponent,
     EditDialogComponent,
-    Footer1UiComponent,
-    Footer2UiComponent,
-    Footer1PopupComponent,
-    Footer2PopupComponent,
     PricingSection1UiComponent,
     PricingSection1PopupComponent,
   ],
   imports: [
+    FooterModule,
     FrontPageModule,
     BlogModule,
     HeaderModule,
