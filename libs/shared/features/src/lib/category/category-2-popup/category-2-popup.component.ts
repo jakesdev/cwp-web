@@ -56,4 +56,8 @@ export class Category2PopupComponent {
   onSave(): void {
     this.dialogRef.close(this.data);
   }
+
+  onCancel(): void {
+    this.dialogRef.close();
+  }
 }

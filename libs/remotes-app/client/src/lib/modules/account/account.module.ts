@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { SafePipe } from '@cwp/core/pipe';
 import { AppLayoutModule } from '@cwp/shared/layout';
@@ -34,6 +35,7 @@ const COMPONENT = [
   ],
   exports: [ClientAccountComponent],
   imports: [
+    MatIconModule,
     CommonModule,
     AppLayoutModule,
     ReactiveFormsModule,

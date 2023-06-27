@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoaderService, TransactionService } from '@cwp/core/services';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'cwp-client-account-integration-components-page',
@@ -16,14 +17,21 @@ export class IntegrationComponentsPageComponent implements OnInit {
 
     private loaderService: LoaderService,
   ) {
-
   }
   ngOnInit(): void {
+    this.getTransactionList();
+  }
+
+  getTransactionList() {
     this.loaderService.loading$.next(true);
-    this.transactionService.getTransactionList().subscribe({
+    this.transactionService.getTransactionList().pipe(
+      finalize(() => {
+        this.loaderService.loading$.next(false);
+      }
+      )
+    ).subscribe({
       next: (res) => {
         this.products = res.data;
-        this.loaderService.loading$.next(false);
       }
     });
   }

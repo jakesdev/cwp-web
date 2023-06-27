@@ -199,6 +199,7 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "category-3",
     option: {
+      heading: "Lorem ipsum dolor sit amet",
       item: [
         {
           image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",

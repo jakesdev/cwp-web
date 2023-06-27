@@ -55,6 +55,21 @@ export class Category3PopupComponent {
     this.data.description[i] = e.target.value;
   }
 
+  onRemoveItem(i: number): void {
+    this.data.item.splice(i, 1);
+  }
+
+  addItem(): void {
+    this.data.item.push({
+      title: '',
+      url: '',
+      image: '',
+    });
+  }
+
+  onCancel(): void {
+    this.dialogRef.close();
+  }
   onSave(): void {
     console.log(this.data);
     this.dialogRef.close(this.data);
