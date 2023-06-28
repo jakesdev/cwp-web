@@ -10,14 +10,14 @@
         <p class="text-base leading-6 text-gray-400">Number of Pages: {{ posts.length}}</p>
       </div>
 
-      <div>
+      <div class="flex items-center gap-2">
+        <ng-container *ngTemplateOutlet="followerInfo"></ng-container>
         <button type="button"
-                (click)="followUser(userProfile._id||'')"
-                [class.bg-gray-800]="!isFollowing"
-                [class.bg-gray-500]="isFollowing"
-                class="text-white flex gap-2 items-center hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
-          <span *ngIf="!isFollowing">Follow</span>
-          <span *ngIf="isFollowing">Unfollow</span>
+                [class.bg-blue-700]="isFollowing"
+                [class.bg-gray-700]="!isFollowing"
+                class="text-white flex gap-2 items-center  focus:outline-none rounded-lg text-sm px-5 py-2"
+                (click)="followUser(userProfile._id||'')">
+          <span>{{isFollowing ? "Unfollow" : "Follow" }}</span>
         </button>
       </div>
     </div>
@@ -71,3 +71,69 @@
     </p>
   </main>
 </ng-template>
+
+<ng-template #followerInfo>
+  <div class="flex gap-2 justify-center">
+    <p [class]="
+          'text-sm leading-6 text-gray-400 p-2 rounded-md cursor-pointer ' +
+          (selectedFollowTab === FollowList.Followers
+            ? 'border-b-2 rounded-none border-indigo-600 bg-transparent'
+            : 'bg-white')
+        "
+       (click)="viewDetailFollow(FollowList.Followers)">
+      {{ followers?.length || 0 }} Followers
+    </p>
+    <p [class]="
+          'text-sm leading-6 text-gray-400 p-2  rounded-md cursor-pointer ' +
+          (selectedFollowTab === FollowList.Following
+            ? 'border-b-2 rounded-none border-indigo-600 bg-transparent'
+            : 'bg-white')
+        "
+       (click)="viewDetailFollow(FollowList.Following)">
+      {{ following?.length || 0 }} Following
+    </p>
+  </div>
+</ng-template>
+
+
+<cwp-model-layout *ngIf="detailFollowVisible">
+  <div class="p-4">
+    <div class="h-full p-4">
+      <ng-container *ngTemplateOutlet="followerInfo"></ng-container>
+      <ul role="list"
+          class="mt-4 divide-y divide-gray-200 border-b border-t border-gray-200">
+        <li *ngFor="let user of followList"
+            class="flex items-center justify-between space-x-3 py-4">
+          <div class="flex min-w-0 flex-1 items-center space-x-3">
+            <div class="flex-shrink-0">
+              <img *ngIf="user?.avatarUrl"
+                   class="h-10 w-10 rounded-full"
+                   [src]="user?.avatarUrl" />
+              <div *ngIf="!user?.avatarUrl"
+                   class="h-10 w-10 rounded-full flex items-center justify-center font-bold uppercase bg-slate-200">
+                {{ user?.email.length > 0 ? (user?.email)[0] : "U" }}
+              </div>
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="truncate text-sm font-medium text-gray-900">
+                {{ user?.email }}
+              </p>
+            </div>
+          </div>
+          <div class="flex-shrink-0">
+            <button type="submit"
+                    (click)="followUser(user.id)"
+                    [class]="
+                    'inline-flex items-center gap-x-1.5 text-sm font-medium' +
+                    (user.isFollowed
+                      ? ' text-gray-800 cursor-default'
+                      : ' text-red-800 hover:text-red-900 cursor-pointer')
+                  ">
+              {{ user.isFollowed ? "Followed" : "Unfollow" }}
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</cwp-model-layout>

@@ -10,6 +10,8 @@ import { finalize } from 'rxjs';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
 })
+
+
 export class UserProfileComponent implements OnInit {
   posts: any[] = [];
   userId!: string;
@@ -22,6 +24,19 @@ export class UserProfileComponent implements OnInit {
     role: '',
     isFinishedTutorial: false
   };
+
+  selectedFollowTab = null;
+
+  FollowList = {
+    Followers: 0,
+    Following: 1,
+  };
+
+  followers: any[] = [];
+  following: any[] = [];
+
+  followList: any[] = [];
+  detailFollowVisible = false;
 
   constructor(
     private router: ActivatedRoute,
@@ -52,9 +67,11 @@ export class UserProfileComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.loaderService.loading$.next(true);
-        this.userProfile = res;
-        this.isFollowing = res.followers.includes(this.authService.currentUserValue.user._id);
+        this.userProfile = res.user;
+        this.isFollowing = res.user.followers.includes(this.authService.currentUserValue.user._id);
         this.loaderService.loading$.next(false);
+        this.followers = res.user.followers;
+        this.following = res.following;
       },
     });
   }
@@ -76,4 +93,12 @@ export class UserProfileComponent implements OnInit {
   openPreview(url: string): void {
     window.open(environment.webView + url, '_blank');
   }
+
+  viewDetailFollow(followTab: any) {
+
+    this.selectedFollowTab = followTab;
+    this.detailFollowVisible = true;
+    this.followList = followTab === this.FollowList.Followers ? this.followers : this.following;
+  }
+
 }
