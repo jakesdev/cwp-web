@@ -78,18 +78,18 @@
                     </div>
                     <div class="min-w-0 flex-1">
                       <p class="text-sm font-medium text-gray-900">
-                        <a [routerLink]="user._id === item.userId ? ['/community/profile'] : ['/community/profile', item.userId]"
+                        <a [routerLink]="['/community/profile', item.userId]"
                            class="hover:underline">{{
                           item.userEmail
                         }}</a>
                       </p>
                       <p class="text-sm text-gray-500">
-                        <a [routerLink]="['/community/post', item._id]"
+                        <span
                            class="hover:underline">
                           <time datetime="2020-12-09T11:43:00">{{
                             item.createdAt | date : 'medium'
                           }}</time>
-                        </a>
+                        </span>
                       </p>
                     </div>
                     <div class="flex flex-shrink-0 self-center">

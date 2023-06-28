@@ -1,0 +1,60 @@
+<cwp-model-layout *ngIf="data.detailFollowVisible">
+  <div class="p-4">
+    <div class="h-full p-4">
+      <h2 class="text-lg font-medium text-gray-900 flex justify-center">
+      {{data.followTab === 0 ? 'Followers' : 'Following'}}
+      </h2>
+      <ng-container *ngTemplateOutlet="data.followerInfo"></ng-container>
+      <ul role="list"
+          *ngIf="data.followList.length > 0;else notFollow"
+          class="mt-4 divide-y divide-gray-200 border-b border-t border-gray-200">
+        <li *ngFor="let user of data.followList;"
+            class="flex items-center justify-between space-x-3 py-4">
+          <div class="flex min-w-0 flex-1 items-center space-x-3">
+            <div class="flex-shrink-0">
+              <img *ngIf="user?.avatarUrl"
+                   class="h-10 w-10 rounded-full"
+                   [src]="user?.avatarUrl" />
+              <div *ngIf="!user?.avatarUrl"
+                   class="h-10 w-10 rounded-full flex items-center justify-center font-bold uppercase bg-slate-200">
+                {{ user?.email.length > 0 ? (user?.email)[0] : "U" }}
+              </div>
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="truncate text-sm font-medium text-gray-900">
+                {{ user?.email }}
+              </p>
+            </div>
+          </div>
+          <div class="flex-shrink-0">
+            <button type="submit"
+            *ngIf="userProfile?._id !== user._id"
+                    (click)="followUser(user._id)"
+                    [class]="
+                    'inline-flex items-center gap-x-1.5 text-sm font-medium' +
+                    (data.followList.includes(user._id) ? ' text-gray-500' : ' text-slate-600 hover:text-slate-700')">
+              <svg *ngIf="data.followList.includes(user._id)"
+                    class="h-5 w-5 text-gray-400"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true">
+                  <path fill-rule="evenodd"
+                        d="M10 3a7 7 0 100 14 7 7 0 000-14zM5.707 8.293a1 1 0 011.414-1.414L10 8.586l2.879-2.88a1 1 0 111.414 1.414L11.414 10l2.88 2.879a1 1 0 01-1.414 1.414L10 11.414l-2.879 2.88a1 1 0 01-1.414-1.414L8.586 10 5.707 7.121z"
+                        clip-rule="evenodd" />
+                </svg>
+                {{ data.followList.includes(user._id) ? 'Following' : 'Follow' }}
+            </button>
+          </div>
+        </li>
+      </ul>
+        <ng-template #notFollow>
+          <div class="mt-4 flex flex-col items-center justify-center">
+            <p class="text-gray-500 text-sm font-medium">
+              No {{data.followTab === 0 ? 'followers' : 'following'}} yet
+            </p>
+          </div>
+        </ng-template>
+    </div>
+  </div>
+</cwp-model-layout>

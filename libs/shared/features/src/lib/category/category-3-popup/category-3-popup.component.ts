@@ -63,7 +63,7 @@ export class Category3PopupComponent {
     this.data.item.push({
       title: '',
       url: '',
-      image: '',
+      image: 'https://via.placeholder.com/150',
     });
   }
 

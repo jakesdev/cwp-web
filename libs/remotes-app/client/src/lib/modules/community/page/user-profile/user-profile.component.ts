@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '@cwp/core/endpoint';
 import { UserProfileModel } from '@cwp/core/model/response';
 import { AuthService, LoaderService, PostService } from '@cwp/core/services';
 import { finalize } from 'rxjs';
+import { FollowDetailDialogComponent } from '../../container/follow-detail-dialog/follow-detail-dialog.component';
 
 @Component({
   selector: 'cwp-user-profile',
@@ -44,7 +46,10 @@ export class UserProfileComponent implements OnInit {
 
     private loaderService: LoaderService,
 
-    private authService: AuthService
+    private authService: AuthService,
+
+    public dialog: MatDialog,
+
   ) {}
 
   ngOnInit(): void {
@@ -70,8 +75,8 @@ export class UserProfileComponent implements OnInit {
         this.userProfile = res.user;
         this.isFollowing = res.user.followers.includes(this.authService.currentUserValue.user._id);
         this.loaderService.loading$.next(false);
-        this.followers = res.user.followers;
-        this.following = res.following;
+        this.followers = res.user.userFollower || [];
+        this.following = res.following || [];
       },
     });
   }
@@ -95,10 +100,18 @@ export class UserProfileComponent implements OnInit {
   }
 
   viewDetailFollow(followTab: any) {
-
     this.selectedFollowTab = followTab;
     this.detailFollowVisible = true;
     this.followList = followTab === this.FollowList.Followers ? this.followers : this.following;
+
+    this.dialog.open(FollowDetailDialogComponent, {
+      width: '700px',
+      data: {
+        followTab: this.selectedFollowTab,
+        followList: this.followList,
+        detailFollowVisible: this.detailFollowVisible,
+      },
+    });
   }
 
 }
