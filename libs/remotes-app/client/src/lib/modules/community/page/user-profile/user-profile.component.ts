@@ -75,8 +75,8 @@ export class UserProfileComponent implements OnInit {
         this.userProfile = res.user;
         this.isFollowing = res.user.followers.includes(this.authService.currentUserValue.user._id);
         this.loaderService.loading$.next(false);
-        this.followers = res.user.userFollower || [];
-        this.following = res.following || [];
+        this.followers = res.userFollowers || [];
+        this.following = res.userFollowing || [];
       },
     });
   }
@@ -107,6 +107,8 @@ export class UserProfileComponent implements OnInit {
     this.dialog.open(FollowDetailDialogComponent, {
       width: '700px',
       data: {
+        followers: this.followers.map((item) => item._id),
+        following: this.following.map((item) => item._id),
         followTab: this.selectedFollowTab,
         followList: this.followList,
         detailFollowVisible: this.detailFollowVisible,

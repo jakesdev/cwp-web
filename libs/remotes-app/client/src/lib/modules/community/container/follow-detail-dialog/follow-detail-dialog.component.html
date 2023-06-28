@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="flex-shrink-0">
-            <button type="submit"
+            <!-- <button type="submit"
             *ngIf="userProfile?._id !== user._id"
                     (click)="followUser(user._id)"
                     [class]="
@@ -44,7 +44,43 @@
                         clip-rule="evenodd" />
                 </svg>
                 {{ data.followList.includes(user._id) ? 'Following' : 'Follow' }}
-            </button>
+            </button> -->
+            <button type="submit"
+            *ngIf="data.followTab === 0 && userProfile?._id !== user._id"
+                    (click)="followUser(user._id)"
+                    [class]="
+                    'inline-flex items-center gap-x-1.5 text-sm font-medium' +
+                    (data.following.includes(user._id) ? ' text-gray-500' : ' text-slate-600 hover:text-slate-700')">
+              <svg *ngIf="data.following.includes(user._id)"
+                    class="h-5 w-5 text-gray-400"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true">
+                  <path fill-rule="evenodd"
+                        d="M10 3a7 7 0 100 14 7 7 0 000-14zM5.707 8.293a1 1 0 011.414-1.414L10 8.586l2.879-2.88a1 1 0 111.414 1.414L11.414 10l2.88 2.879a1 1 0 01-1.414 1.414L10 11.414l-2.879 2.88a1 1 0 01-1.414-1.414L8.586 10 5.707 7.121z"
+                        clip-rule="evenodd" />
+                </svg>
+                {{ data.following.includes(user._id) ? 'Following' : 'Follow' }}
+                </button>
+              <button type="submit"
+                      *ngIf="data.followTab === 1 && userProfile?._id !== user._id"
+                      (click)="followUser(user._id)"
+                      [class]="
+                                  'inline-flex items-center gap-x-1.5 text-sm font-medium' +
+                                  (data.followers.includes(user._id) ? ' text-gray-500' : ' text-slate-600 hover:text-slate-700')">
+                <svg *ngIf="data.followers.includes(user._id)"
+                     class="h-5 w-5 text-gray-400"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 20 20"
+                     fill="currentColor"
+                     aria-hidden="true">
+                  <path fill-rule="evenodd"
+                        d="M10 3a7 7 0 100 14 7 7 0 000-14zM5.707 8.293a1 1 0 011.414-1.414L10 8.586l2.879-2.88a1 1 0 111.414 1.414L11.414 10l2.88 2.879a1 1 0 01-1.414 1.414L10 11.414l-2.879 2.88a1 1 0 01-1.414-1.414L8.586 10 5.707 7.121z"
+                        clip-rule="evenodd" />
+                </svg>
+                {{ data.followers.includes(user._id) ? 'Following' : 'Follow' }}
+              </button>
           </div>
         </li>
       </ul>

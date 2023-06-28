@@ -47,9 +47,18 @@ export class OnboardingPageComponent {
       'maintenance',
       'onboarding',
       'design-system',
+      'login',
+      'register',
+      'forgot-password',
+      'reset-password',
+      'community',
     ];
 
     if (url) {
+      if (!url.match(/^[a-zA-Z0-9_-]*$/)) {
+        this.notificationService.error('URL is invalid');
+        return;
+      }
       if (blackListUrl.includes(url)) {
         this.isValidUrl = false;
         return;

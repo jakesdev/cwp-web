@@ -67,6 +67,13 @@ export class RecentPostComponent implements OnInit {
     });
   }
 
+  onFollow(id: string) {
+    this.authService.followUser(id).subscribe((res: any) => {
+      this.loaderService.loading$.next(true);
+      this.getRandomUsers();
+      this.loaderService.loading$.next(false);
+    });
+  }
 
   openPreview(url: string): void {
     window.open(environment.webView + url, '_blank');

@@ -105,11 +105,9 @@
                      alt="" />
               </ng-container>
               <ng-template #noAvatar>
-                <svg class="h-8 w-8 rounded-full"
-                     fill="currentColor"
-                     viewBox="0 0 24 24">
-                  <path d="M12 14c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-3.216 0-9 1.609-9 4v1h18v-1c0-2.391-5.784-4-9-4z" />
-                </svg>
+                <img class="h-8 w-8 rounded-full"
+                     [src]="'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y'"
+                     alt="" />
               </ng-template>
             </button>
             <div class="dropdown-menu dropdown-menu-right absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"

@@ -27,8 +27,21 @@
                    required
                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
+          <p *ngIf="
+          registerForm.controls.email.touched &&
+          registerForm.controls.email.errors && registerForm.controls.email.errors['required']"
+             class="mt-2 text-sm text-red-600"
+             translate>
+            Email is required
+          </p>
+          <p *ngIf="
+          registerForm.controls.email.touched &&
+          registerForm.controls.email.errors && registerForm.controls.email.errors['email']"
+             class="mt-2 text-sm text-red-600"
+             translate>
+            Email is invalid
+            </p>
         </div>
-
         <div>
           <label for="password"
                  class="block text-sm font-medium leading-6 text-gray-900">{{"Password" | translate}}</label>
@@ -41,6 +54,23 @@
                    required
                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
+
+          <p *ngIf="
+          registerForm.controls.password.touched &&
+          registerForm.controls.password.errors && registerForm.controls.password.errors['required']"
+             class="mt-2 text-sm text-red-600"
+             translate>
+            Password is required
+          </p>
+
+          <p *ngIf="
+          registerForm.controls.password.touched &&
+          registerForm.controls.password.errors && registerForm.controls.password.errors['minlength']"
+             class="mt-2 text-sm text-red-600"
+             translate>
+            Password must be at least 8 characters
+          </p>
+
         </div>
 
         <div>
@@ -55,6 +85,30 @@
                    required
                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
+
+          <p *ngIf="
+          registerForm.controls.confirmPassword.touched &&
+          registerForm.controls.confirmPassword.errors && registerForm.controls.confirmPassword.errors['required']"
+             class="mt-2 text-sm text-red-600"
+             translate>
+            Confirm Password is required
+          </p>
+
+          <p *ngIf="
+          registerForm.controls.confirmPassword.touched &&
+          registerForm.controls.confirmPassword.errors && registerForm.controls.confirmPassword.errors['minlength']"
+             class="mt-2 text-sm text-red-600"
+             translate>
+            Confirm Password must be at least 8 characters
+          </p>
+
+          <p *ngIf="!registerForm.controls.confirmPassword.errors && registerForm.controls.confirmPassword.touched && registerForm.controls.password.value !== registerForm.controls.confirmPassword.value"
+             class="mt-2 text-sm text-red-600"
+             translate>
+            Confirm Password must be same as Password
+
+          </p>
+
         </div>
 
         <div class="flex items-center justify-between">
