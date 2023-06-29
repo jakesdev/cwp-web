@@ -307,8 +307,25 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "gallery-1",
     option: {
-      images: ["https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300", "https://via.placeholder.com/300"],
-      title: ["Title 1", "Title 2", "Title 3", "Title 4"],
+      // random 16 pics sneaker
+      images: [
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+        "https://picsum.photos/200/300",
+      ]
     },
     src: "<cwp-gallery-1-ui data=[]></cwp-gallery-1-ui>"
   },
