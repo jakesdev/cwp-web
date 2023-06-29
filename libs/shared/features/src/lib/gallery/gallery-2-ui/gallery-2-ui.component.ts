@@ -3,6 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'cwp-gallery-2-ui',
   templateUrl: './gallery-2-ui.component.html',
-  styleUrls: ['./gallery-2-ui.component.css'],
+  styleUrls: ['./gallery-2-ui.component.scss'],
 })
 export class Gallery2UiComponent {}

@@ -1,1 +1,12 @@
-<p>gallery-3-ui works!</p>
+<p-galleria (value)="data.images"
+            [showIndicators]="true"
+            [showThumbnails]="false"
+            [changeItemOnIndicatorHover]="true"
+            [responsiveOptions]="responsiveOptions"
+            [containerStyle]="{ 'max-width': '640px' }">
+  <ng-template pTemplate="item"
+               let-item>
+    <img [src]="item.itemImageSrc"
+         style="width: 100%; display: block;" />
+  </ng-template>
+</p-galleria>
