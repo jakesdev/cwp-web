@@ -1,22 +1,7 @@
-<div class="grid grid-cols-2 gap-2">
-  <div>
-    <img class="h-auto max-w-full rounded-lg"
-         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-         alt="">
-  </div>
-  <div>
-    <img class="h-auto max-w-full rounded-lg"
-         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-         alt="">
-  </div>
-  <div>
-    <img class="h-auto max-w-full rounded-lg"
-         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-         alt="">
-  </div>
-  <div>
-    <img class="h-auto max-w-full rounded-lg"
-         src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
+<div class="grid grid-cols-2 gap-2 p-4">
+  <div *ngFor="let image of data.images;let i =index">
+    <img class="h-auto max-w-full rounded-lg object-contain m-auto"
+         [src]="image"
          alt="">
   </div>
 </div>

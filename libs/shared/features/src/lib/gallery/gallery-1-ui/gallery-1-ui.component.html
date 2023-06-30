@@ -2,7 +2,7 @@
   <ng-container *ngFor="let grid of [0, 1, 2, 3]">
     <div class="grid gap-4">
       <div *ngFor="let image of data.images.slice(grid * 3, (grid + 1) * 3)">
-        <img class="h-auto max-w-full rounded-lg"
+        <img class="h-auto max-w-full rounded-lg m-auto"
              [src]="image"
              alt="">
       </div>

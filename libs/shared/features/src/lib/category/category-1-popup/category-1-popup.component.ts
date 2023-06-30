@@ -58,4 +58,20 @@ export class Category1PopupComponent {
   onSave(): void {
     this.dialogRef.close(this.data);
   }
+
+  onCancel(): void {
+    this.dialogRef.close();
+  }
+
+  onRemoveItem(i: number): void {
+    this.data.item.splice(i, 1);
+  }
+
+  onAddItem(): void {
+    this.data.item.push({
+      title: 'Title',
+      url: 'Url',
+      description: 'Description',
+    });
+  }
 }

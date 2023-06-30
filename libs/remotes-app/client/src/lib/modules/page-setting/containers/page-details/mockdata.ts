@@ -352,48 +352,24 @@ export const DATA_SIDE_BAR = [
   },
   {
     preview: 'https://via.placeholder.com/300',
-    type: "gallery-1",
+    type: "gallery-2",
     option: {
-      item: [
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
-        }
+      images: [
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg",
+        "https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg",
       ]
     },
-    src: "<cwp-gallery-1-ui data=[]></cwp-gallery-1-ui>"
+    src: "<cwp-gallery-2-ui data=[]></cwp-gallery-2-ui>"
   },
   {
     preview: 'https://via.placeholder.com/300',

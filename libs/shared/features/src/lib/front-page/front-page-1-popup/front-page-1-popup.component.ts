@@ -27,6 +27,10 @@ export class FrontPage1PopupComponent implements OnInit {
     this.dialogRef.close(this.data);
   }
 
+  onCancel(): void {
+    this.dialogRef.close();
+  }
+
 
   handleFileInput(e: any): void {
 

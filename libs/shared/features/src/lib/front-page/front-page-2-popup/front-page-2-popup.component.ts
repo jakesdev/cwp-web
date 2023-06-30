@@ -21,10 +21,14 @@ export class FrontPage2PopupComponent {
     this.dialogRef.close(this.data);
   }
 
+  onCancel(): void {
+    this.dialogRef.close();
+  }
+
   onAddItem(): void {
-    this.data.item.push({
-      title: '',
-      description: '',
+    this.data.items.push({
+      title: 'Title',
+      description: 'Description',
     });
   }
 

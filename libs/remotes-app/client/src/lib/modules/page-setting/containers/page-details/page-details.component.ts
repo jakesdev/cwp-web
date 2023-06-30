@@ -18,6 +18,7 @@ import { Footer2PopupComponent } from '../../../../../../../../shared/features/s
 import { FrontPage1PopupComponent } from '../../../../../../../../shared/features/src/lib/front-page/front-page-1-popup/front-page-1-popup.component';
 import { FrontPage2PopupComponent } from '../../../../../../../../shared/features/src/lib/front-page/front-page-2-popup/front-page-2-popup.component';
 import { Gallery1PopupComponent } from '../../../../../../../../shared/features/src/lib/gallery/gallery-1-popup/gallery-1-popup.component';
+import { Gallery2PopupComponent } from '../../../../../../../../shared/features/src/lib/gallery/gallery-2-popup/gallery-2-popup.component';
 import { Gallery4PopupComponent } from '../../../../../../../../shared/features/src/lib/gallery/gallery-4-popup/gallery-4-popup.component';
 import { Header1PopupComponent } from '../../../../../../../../shared/features/src/lib/header/header-1-popup/header-1-popup.component';
 import { Header2PopupComponent } from '../../../../../../../../shared/features/src/lib/header/header-2-popup/header-2-popup.component';
@@ -91,16 +92,16 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       });
 
       this.items = this.items.
-      map((item) => {
-        return {
-          ...item,
-          name: item.type.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
-          previewImage: this.integrationComponents.find((component) => {
-            return component.type === item.type;
-          })?.previewImage
-        };
-      }
-      );
+        map((item) => {
+          return {
+            ...item,
+            name: item.type.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
+            previewImage: this.integrationComponents.find((component) => {
+              return component.type === item.type;
+            })?.previewImage
+          };
+        }
+        );
     });
   }
 
@@ -126,9 +127,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
         }
         )
       ).subscribe({
-        next: () => {
-          this.notificationService.success('Update successfully');
-        }
+        next: () => {}
       });
     }
     // If the item was dropped from a different list
@@ -589,6 +588,36 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
 
   onButtonClickGallery1(data: any): void {
     const dialogRef = this.dialog.open(Gallery1PopupComponent, {
+      width: '1000px',
+      maxHeight: '90vh',
+      data
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.loaderService.loading$.next(true);
+      this.pageService.updatePage(this.params, {
+        components: this.page.components,
+        url: this.page.url,
+      }).pipe(
+        finalize(() => {
+          this.loaderService.loading$.next(false);
+        }
+        )
+      ).subscribe((res) => {
+        this.pageService.getPage(this.params).subscribe((res) => {
+          this.page = res.data;
+          this.components = res.data.components || [];
+          this.loaderService.loading$.next(false);
+        }
+        );
+      }
+      );
+    }
+    );
+  }
+
+  onButtonClickGallery2(data: any): void {
+    const dialogRef = this.dialog.open(Gallery2PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
       data

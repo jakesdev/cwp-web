@@ -60,4 +60,17 @@ export class Category2PopupComponent {
   onCancel(): void {
     this.dialogRef.close();
   }
+  onRemoveItem(i: number): void {
+    this.data.item.splice(i, 1);
+  }
+
+  onAddItem(): void {
+    this.data.item.push({
+      image: 'https://via.placeholder.com/200/300',
+      title: 'Title',
+      url: '/#',
+      description: 'Description',
+    });
+    this.fileImage.push('');
+  }
 }

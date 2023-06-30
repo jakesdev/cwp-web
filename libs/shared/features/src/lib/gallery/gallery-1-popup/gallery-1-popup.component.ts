@@ -26,11 +26,14 @@ export class Gallery1PopupComponent implements OnInit {
   }
 
 
-  addItem(): void {
-    this.data.item.push({
-      title: 'New Item',
-      image: 'https://via.placeholder.com/150',
-    });
+  addItem(grid: number): void {
+    this.data.images.splice(
+      this.data.images.length,
+      0
+      , 'https://via.placeholder.com/150');
+    this.fileImage.splice(this.data.images.length,
+      0
+      , '');
   }
   onSave(): void {
     this.dialogRef.close(this.data);
@@ -39,6 +42,12 @@ export class Gallery1PopupComponent implements OnInit {
   onCancel(): void {
     this.dialogRef.close();
   }
+
+  onDelete(index: number, grid: number): void {
+    this.data.images.splice(grid * 3 + index, 1);
+    this.fileImage.splice(grid * 3 + index, 1);
+  }
+
 
   handleFileInput(e: any, index: number, grid: number): void {
     const formData = new FormData();

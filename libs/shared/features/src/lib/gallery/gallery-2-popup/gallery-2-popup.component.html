@@ -1,1 +1,71 @@
-<p>gallery-2-popup works!</p>
+<div class="p-4">
+  <h2 class="text-2xl font-bold">Update gallery</h2>
+  <div style="height: 60vh"
+       class="overflow-y-auto">
+    <div class="grid grid-cols-2 gap-2 p-4">
+      <ng-container *ngFor="let grid of [0, 1]">
+        <div class="grid gap-4 h-fit">
+          <div *ngFor="let image of data.images.slice(grid * 2, (grid + 1) * 2); let i = index">
+            <div class="mt-1 flex justify-center rounded-md">
+              <div class="space-y-1 text-center">
+                <svg *ngIf="!image"
+                     class="mx-auto h-12 w-12 text-gray-400"
+                     stroke="currentColor"
+                     fill="none"
+                     viewBox="0 0 48 48"
+                     aria-hidden="true">
+                  <!-- SVG path data -->
+                </svg>
+                <div class="flex text-sm text-gray-600">
+                  <label for="file-upload{{grid*2 + i}}"
+                         class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
+                    <input id="file-upload{{grid*2 + i}}"
+                           name="file-upload"
+                           type="file"
+                           #Image
+                           name="file-upload"
+                           (change)="handleFileInput($event,i,grid)"
+                           class="sr-only">
+                    <img *ngIf="image && !fileImage[grid*2 + i]"
+                         [src]="image"
+                         class="h-auto max-w-full rounded-lg">
+                    <img *ngIf="fileImage[grid*2 + i]"
+                         [src]="imageUrl"
+                         class="h-auto max-w-full rounded-lg">
+                  </label>
+                </div>
+                <!-- click to image to change photo -->
+                <p class="text-xs text-gray-500">
+                  Click to image to change photo
+                </p>
+              </div>
+            </div>
+            <!-- delete button -->
+            <div class="flex justify-center">
+              <button type="button"
+                      (click)="onDelete(i,grid)"
+                      class="mt-3 inline-flex w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 sm:ml-3 sm:mt-0 sm:w-auto">Delete</button>
+            </div>
+          </div>
+          <!-- add item button -->
+          <div class="flex justify-center flex-col">
+            <button type="button"
+                    *ngIf="data.images.slice(grid * 2, (grid + 1) * 2).length < 10"
+                    (click)="addItem(grid)"
+                    class="mt-2 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white">Add item</button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <!-- button -->
+  <div class="flex justify-end mt-2">
+    <!-- cancel -->
+    <button type="button"
+            (click)="onCancel()"
+            class="mt-3 inline-flex w-full items-center justify-center rounded-md bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 sm:ml-3 sm:mt-0 sm:w-auto">Cancel</button>
+    <button type="button"
+            (click)="onSave()"
+            class="mt-3 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:ml-3 sm:mt-0 sm:w-auto">Save</button>
+  </div>
+</div>
