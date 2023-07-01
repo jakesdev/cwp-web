@@ -90,6 +90,11 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
           previewImage: item.preview
         };
       });
+      this.items = this.items.filter((item) => {
+        return this.integrationComponents.some((component) => {
+          return component.type === item.type;
+        });
+      });
 
       this.items = this.items.
         map((item) => {
