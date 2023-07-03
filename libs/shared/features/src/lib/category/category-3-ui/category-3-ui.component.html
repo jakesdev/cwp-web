@@ -10,6 +10,7 @@
           <div class="min-w-screen-xl absolute flex space-x-8 px-4 sm:px-6 lg:px-8 xl:relative justify-between w-full">
             <ng-container *ngFor="let item of data.item;let i=index">
               <a href="{{item.url}}"
+                 [style.pointer-events]="disabledTagA? 'none' : 'auto'"
                  class="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75">
                 <span aria-hidden="true"
                       class="absolute inset-0">

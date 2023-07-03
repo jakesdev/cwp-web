@@ -10,6 +10,7 @@
         <h2 class="text-lg font-medium text-white text-opacity-75">{{item.title}}</h2>
         <p class="mt-1 text-2xl font-medium text-white">{{item.description}}</p>
         <a href="{{item.url}}"
+           [style.pointer-events]="disabledTagA? 'none' : 'auto'"
            class="mt-4 rounded-md bg-white px-4 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-50">Shop now</a>
       </div>
     </div>

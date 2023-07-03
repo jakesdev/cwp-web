@@ -8,4 +8,7 @@ import { Component, Input } from '@angular/core';
 export class Category3UiComponent {
 
   @Input() data: any;
+
+  @Input() disabledTagA = false;
+
 }

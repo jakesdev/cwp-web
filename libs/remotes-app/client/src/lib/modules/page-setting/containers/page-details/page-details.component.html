@@ -34,24 +34,31 @@
                              [disabledTagA]="true"
                              [data]="item.option"></cwp-header-1-ui>
             <cwp-front-page-1-ui *ngSwitchCase="'front-page-1'"
+                                 [disabledTagA]="true"
                                  [data]="item.option"></cwp-front-page-1-ui>
             <cwp-header-2-ui *ngSwitchCase="'header-2'"
                              [data]="item.option"></cwp-header-2-ui>
             <cwp-category-1-ui *ngSwitchCase="'category-1'"
+                               [disabledTagA]="true"
                                [data]="item.option"></cwp-category-1-ui>
             <cwp-category-2-ui *ngSwitchCase="'category-2'"
+                               [disabledTagA]="true"
                                [data]="item.option"></cwp-category-2-ui>
             <cwp-category-3-ui *ngSwitchCase="'category-3'"
+                               [disabledTagA]="true"
                                [data]="item.option"></cwp-category-3-ui>
             <cwp-footer-1-ui *ngSwitchCase="'footer-1'"
+                             [disabledTagA]="true"
                              [data]="item.option"></cwp-footer-1-ui>
             <cwp-footer-2-ui *ngSwitchCase="'footer-2'"
+                             [disabledTagA]="true"
                              [data]="item.option"></cwp-footer-2-ui>
             <cwp-front-page-2-ui *ngSwitchCase="'front-page-2'"
                                  [data]="item.option"></cwp-front-page-2-ui>
             <cwp-pricing-section-1-ui *ngSwitchCase="'pricing-section-1'"
                                       [data]="item.option"></cwp-pricing-section-1-ui>
             <cwp-video-1-ui *ngSwitchCase="'video-1'"
+                            [disabledTagA]="true"
                             [data]="item.option"></cwp-video-1-ui>
             <cwp-gallery-1-ui *ngSwitchCase="'gallery-1'"
                               [data]="item.option"></cwp-gallery-1-ui>
@@ -75,7 +82,7 @@
                                         text-gray-800 font-bold py-2 px-4
                                         rounded-md
                                         hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickHeader1(item.option)">
+                    (click)="onButtonClickHeader1(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'header-2'"
                     class="absolute top-6 right-20 z-50
@@ -83,7 +90,7 @@
                                                     text-gray-800 font-bold py-2 px-4
                                                     rounded-md
                                                     hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickHeader2(item.option)">
+                    (click)="onButtonClickHeader2(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'footer-1'"
                     class="absolute top-6 right-20 z-50
@@ -91,7 +98,7 @@
                                                           text-gray-800 font-bold py-2 px-4
                                                           rounded-md
                                                           hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickFooter1(item.option)">
+                    (click)="onButtonClickFooter1(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'category-1'"
                     class="absolute top-6 right-20 z-50
@@ -99,7 +106,7 @@
                                                                   text-gray-800 font-bold py-2 px-4
                                                                   rounded-md
                                                                   hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickCategory1(item.option)">
+                    (click)="onButtonClickCategory1(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'front-page-1'"
                     class="absolute top-6 right-20 z-50
@@ -107,7 +114,7 @@
                                                                           text-gray-800 font-bold py-2 px-4
                                                                           rounded-md
                                                                           hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickFrontPage1(item.option)">
+                    (click)="onButtonClickFrontPage1(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'front-page-2'"
                     class="absolute top-6 right-20 z-50
@@ -115,7 +122,7 @@
                                                                                       text-gray-800 font-bold py-2 px-4
                                                                                       rounded-md
                                                                                       hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickFrontPage2(item.option)">
+                    (click)="onButtonClickFrontPage2(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'pricing-section-1'"
                     class="absolute top-6 right-20 z-50
@@ -123,7 +130,7 @@
                                                                                   text-gray-800 font-bold py-2 px-4
                                                                                   rounded-md
                                                                                   hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickPricingSection1(item.option)">
+                    (click)="onButtonClickPricingSection1(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'video-1'"
                     class="absolute top-6 right-20 z-50
@@ -131,7 +138,7 @@
                                                                                                   text-gray-800 font-bold py-2 px-4
                                                                                                   rounded-md
                                                                                                   hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickVideo1(item.option)">
+                    (click)="onButtonClickVideo1(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'category-2'"
                     class="absolute top-6 right-20 z-50
@@ -139,7 +146,7 @@
                                                                                                               text-gray-800 font-bold py-2 px-4
                                                                                                               rounded-md
                                                                                                               hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickCategory2(item.option)">
+                    (click)="onButtonClickCategory2(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'category-3'"
                     class="absolute top-6 right-20 z-50
@@ -147,7 +154,7 @@
                                                                                                   text-gray-800 font-bold py-2 px-4
                                                                                                   rounded-md
                                                                                                   hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickCategory3(item.option)">
+                    (click)="onButtonClickCategory3(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'accordion-1'"
                     class="absolute top-6 right-20 z-50
@@ -155,7 +162,7 @@
                                                                                                   text-gray-800 font-bold py-2 px-4
                                                                                                   rounded-md
                                                                                                   hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickAccordion1(item.option)">
+                    (click)="onButtonClickAccordion1(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'timeline-1'"
                     class="absolute top-6 right-20 z-50
@@ -163,7 +170,7 @@
                                                                                                   text-gray-800 font-bold py-2 px-4
                                                                                                   rounded-md
                                                                                                   hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickTimeline1(item.option)">
+                    (click)="onButtonClickTimeline1(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'timeline-2'"
                     class="absolute top-6 right-20 z-50
@@ -171,7 +178,7 @@
                                                                                                   text-gray-800 font-bold py-2 px-4
                                                                                                   rounded-md
                                                                                                   hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickTimeline2(item.option)">
+                    (click)="onButtonClickTimeline2(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'gallery-1'"
                     class="absolute top-6 right-20 z-50
@@ -179,7 +186,7 @@
                                                                                                               text-gray-800 font-bold py-2 px-4
                                                                                                               rounded-md
                                                                                                               hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickGallery1(item.option)">
+                    (click)="onButtonClickGallery1(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'gallery-2'"
                     class="absolute top-6 right-20 z-50
@@ -187,7 +194,7 @@
                                                                                                                           text-gray-800 font-bold py-2 px-4
                                                                                                                           rounded-md
                                                                                                                           hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickGallery2(item.option)">
+                    (click)="onButtonClickGallery2(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'gallery-4'"
                     class="absolute top-6 right-20 z-50
@@ -195,7 +202,7 @@
                                                                                                   text-gray-800 font-bold py-2 px-4
                                                                                                   rounded-md
                                                                                                   hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickGallery4(item.option)">
+                    (click)="onButtonClickGallery4(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'blog-1'"
                     class="absolute top-6 right-20 z-50
@@ -203,7 +210,7 @@
                                                                                                               text-gray-800 font-bold py-2 px-4
                                                                                                               rounded-md
                                                                                                               hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickBlog1(item.option)">
+                    (click)="onButtonClickBlog1(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <button *ngSwitchCase="'footer-2'"
                     class="absolute top-6 right-20 z-50
@@ -211,7 +218,7 @@
                                                                                                                           text-gray-800 font-bold py-2 px-4
                                                                                                                           rounded-md
                                                                                                                           hover:-translate-y-1 duration-300"
-                    (click)="onButtonClickFooter2(item.option)">
+                    (click)="onButtonClickFooter2(item.option,i)">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVR4nO2UPUsDQRCGT6P4UfkFYq2NjeiP2UrldOb2xSABrSwPrC2s7EVEbKwVeytLQVAEmzRicjPRfuVIhAje3l0CFpIXppv3eWabDYJB/iJx7IYJekLQe+bmSuYisyyxlTuy2vwxkIcgcEO/dYxxlbRHkCOGuvZulgB6S5GsF73cGFch6DlBG7STrHUkl5mFdDEtlYEz1LUv1wZzaxlwo74XJIXhVs6+4Z25MftuwlssIjC9wosITD/wPIHpF54nYOhGN5yg12HoxgvDfQLgcyGKklWGHPcM9wko0i228p5KIgh88Dh2I6UFDKluQ/cAWfQdWKu5MYI8lhYUDVCfZEj9XwvkzfuX5CQMkymGvmYuMOSKIAebuzpbrcp0mQFacwQ9ZCun2QL+mGfoBUGf2epLuZGnFM4sM3kvHSTozhdLvULXqMsCLgAAAABJRU5ErkJggg=="></button>
             <!-- Delete Button -->
             <button class="absolute top-6 right-0 z-50

@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class Timeline2PopupComponent implements OnInit {
   showDatePickerIndex = -1;
-
+  newData: any;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<Timeline2PopupComponent>,
@@ -19,27 +19,30 @@ export class Timeline2PopupComponent implements OnInit {
       item.title = new Date(item.title);
       return item;
     });
+    this.newData = Object.assign({}, this.data);
   }
 
   onAddItem(): void {
-    this.data.item.push({
+    this.newData.item.push({
       title: '',
       description: '',
     });
   }
 
+  onDeleteItem(i: number): void {
+    this.newData.item.splice(i, 1);
+  }
 
   onChangeTitle(e: any, i: number): void {
-    this.data.item[i].title = e.target.value;
+    this.newData.item[i].title = e.target.value;
   }
 
   onChangeDescription(e: any, i: number): void {
-    this.data.item[i].description = e.target.value;
+    this.newData.item[i].description = e.target.value;
   }
 
   onSave(): void {
-    console.log('onSave', this.data);
-    this.dialogRef.close(this.data);
+    this.dialogRef.close(this.newData);
   }
 
   onClose(): void {

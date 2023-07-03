@@ -12,6 +12,8 @@ export class FrontPage1PopupComponent implements OnInit {
   fileImage: any;
 
   imageUrl: any;
+
+  newData: any;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<FrontPage1PopupComponent>,
@@ -19,12 +21,13 @@ export class FrontPage1PopupComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
+    this.newData = Object.assign({}, this.data);
   }
 
 
 
   onSave(): void {
-    this.dialogRef.close(this.data);
+    this.dialogRef.close(this.newData);
   }
 
   onCancel(): void {
@@ -36,11 +39,11 @@ export class FrontPage1PopupComponent implements OnInit {
 
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
-    formData.append('oldImage', this.data.image);
+    formData.append('oldImage', this.newData.image);
 
     this.uploadService.uploadFile(formData).subscribe((res) => {
       console.log(res);
-      this.data.image = res.data;
+      this.newData.image = res.data;
     });
 
     this.fileImage = e.target.files[0];

@@ -7,7 +7,7 @@
     <form class="mt-2">
       <div class="overflow-hidden"
            *ngFor="
-          let item of data.item; let i = index">
+          let item of newData.item; let i = index">
         <div class="col-span-full">
           <label class="block text-sm font-medium text-gray-700">Cover photo</label>
           <div class="mt-1 flex justify-center rounded-md">
@@ -81,8 +81,8 @@
       </div>
       <div class="mt-2">
         <button type="button"
-                [disabled]="data.item.length >= 5"
-                [style]="'opacity:'+(data.item.length >= 5 ? 0.5 : 1)"
+                [disabled]="newData.item.length >= 5"
+                [style]="'opacity:'+(newData.item.length >= 5 ? 0.5 : 1)"
                 (click)="addItem()"
                 class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           Add Item

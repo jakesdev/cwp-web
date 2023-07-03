@@ -4,7 +4,7 @@
        class="overflow-y-auto">
     <div class="p-4">
       <div class="gap-4 h-fit flex flex-col">
-        <div *ngFor="let image of data.images; let i = index">
+        <div *ngFor="let image of newData.images; let i = index">
           <div class="mt-1 flex justify-center rounded-md">
             <div class="space-y-1 text-center">
               <svg *ngIf="!image"
@@ -52,7 +52,7 @@
         <!-- add item button -->
         <div class="flex justify-center flex-col">
           <button type="button"
-                  *ngIf="data.images.length < 12"
+                  *ngIf="newData.images.length < 12"
                   (click)="addItem()"
                   class="mt-2 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white">Add item</button>
         </div>

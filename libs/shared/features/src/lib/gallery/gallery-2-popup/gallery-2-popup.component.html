@@ -5,7 +5,7 @@
     <div class="grid grid-cols-2 gap-2 p-4">
       <ng-container *ngFor="let grid of [0, 1]">
         <div class="grid gap-4 h-fit">
-          <div *ngFor="let image of data.images.slice(grid * 2, (grid + 1) * 2); let i = index">
+          <div *ngFor="let image of newData.images.slice(grid * 2, (grid + 1) * 2); let i = index">
             <div class="mt-1 flex justify-center rounded-md">
               <div class="space-y-1 text-center">
                 <svg *ngIf="!image"
@@ -50,7 +50,7 @@
           <!-- add item button -->
           <div class="flex justify-center flex-col">
             <button type="button"
-                    *ngIf="data.images.slice(grid * 2, (grid + 1) * 2).length < 10"
+                    *ngIf="newData.images.slice(grid * 2, (grid + 1) * 2).length < 10"
                     (click)="addItem(grid)"
                     class="mt-2 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white">Add item</button>
           </div>

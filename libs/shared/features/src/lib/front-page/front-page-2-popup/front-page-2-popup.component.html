@@ -9,7 +9,7 @@
         <div class="grid grid-cols-2 gap-4">
           <div class="mt-1 flex justify-center rounded-md">
             <div class="space-y-1 text-center">
-              <svg *ngIf="!data.image"
+              <svg *ngIf="!newData.image"
                    class="mx-auto h-12 w-12 text-gray-400"
                    stroke="currentColor"
                    fill="none"
@@ -29,8 +29,8 @@
                          #Image
                          (change)="handleFileInput($event)"
                          class="sr-only">
-                  <img *ngIf="data.image && !fileImage"
-                       [src]="data.image"
+                  <img *ngIf="newData.image && !fileImage"
+                       [src]="newData.image"
                        style="height: 300px"
                        class="image-dialog image-preview">
                   <img *ngIf="fileImage"
@@ -53,7 +53,7 @@
                 <input type="text"
                        autocomplete="title"
                        name="title"
-                       [(ngModel)]="data.title"
+                       [(ngModel)]="newData.title"
                        class="block flex-1 border-0 bg-transparent py-1.5 pl-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
               </div>
             </div>
@@ -63,7 +63,7 @@
               <textarea id="description"
                         name="description"
                         rows="3"
-                        [(ngModel)]="data.description"
+                        [(ngModel)]="newData.description"
                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
             </div>
           </div>
@@ -73,7 +73,7 @@
           <ul class="overflow-auto"
               style="height: 30vh;">
             <li class=""
-                *ngFor="let item of data.items; let i = index">
+                *ngFor="let item of newData.items; let i = index">
               <label for="titleItem"
                      class="block text-sm font-medium leading-6 text-gray-900">Item Title</label>
               <input type="text"
@@ -90,8 +90,8 @@
           </ul>
           <!-- button add item -->
           <button type="button"
-                  [disabled]="data.items.length >= 5"
-                  [style.opacity]="data.items.length >= 5 ? 0.5 : 1"
+                  [disabled]="newData.items.length >= 5"
+                  [style.opacity]="newData.items.length >= 5 ? 0.5 : 1"
                   class="mt-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
                   (click)="onAddItem()">
             Add Item

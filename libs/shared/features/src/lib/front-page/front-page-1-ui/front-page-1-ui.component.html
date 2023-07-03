@@ -9,6 +9,7 @@
           <p class="mt-4 text-xl text-gray-600">{{data.description}}</p>
           <div class="mt-6">
             <a href="{{data.url}}"
+               [style.pointer-events]="disabledTagA? 'none' : 'auto'"
                class="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 font-medium text-white hover:bg-indigo-700">Shop Productivity</a>
           </div>
         </div>

@@ -1,7 +1,7 @@
 <div class="bg-gray-100">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-2xl py-16 sm:py-12 lg:max-w-none lg:py-8">
-      <h2 class="text-2xl font-bold text-gray-900">Collections</h2>
+      <h2 class="text-2xl font-bold text-gray-900">{{data.headTitle}}</h2>
 
       <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
         <div class="group relative"
@@ -12,7 +12,8 @@
                  class="h-full w-full object-cover object-center">
           </div>
           <h3 class="mt-6 text-sm text-gray-500">
-            <a href="#">
+            <a href="#"
+               [style.pointer-events]="disabledTagA? 'none' : 'auto'">
               <span class="absolute inset-0"></span>
               {{item.title}}
             </a>

@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'cwp-video-1-popup',
   templateUrl: './video-1-popup.component.html',
-  styleUrls: ['./video-1-popup.component.css'],
+  styleUrls: ['./video-1-popup.component.scss'],
 })
 export class Video1PopupComponent implements OnInit {
 

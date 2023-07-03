@@ -33,6 +33,7 @@ export const DATA_SIDE_BAR = [
     option: {
       title: "Lorem ipsum dolor sit amet",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      url: "/#",
       image: "https://picsum.photos/200/300",
       backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
@@ -170,6 +171,7 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "category-2",
     option: {
+      headTitle: "Lorem ipsum dolor sit amet",
       item: [
         {
           title: "Lorem ipsum dolor sit amet",

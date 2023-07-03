@@ -8,4 +8,6 @@ import { Component, Input } from '@angular/core';
 export class Footer2UiComponent {
 
   @Input() data: any;
+
+  @Input() disabledTagA = false;
 }

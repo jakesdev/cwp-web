@@ -13,6 +13,8 @@ export class Category1PopupComponent {
 
   imageUrl: any;
 
+  newData: any;
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<Category1PopupComponent>,
@@ -21,17 +23,18 @@ export class Category1PopupComponent {
   ) {}
 
   ngOnInit() {
+    this.newData = Object.assign({}, this.data);
     this.fileImage = Array(this.data.item.length).fill('');
   }
 
   handleFileInput(e: any, index: number): void {
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
-    formData.append('oldImage', this.data.item[index].image);
+    formData.append('oldImage', this.newData.item[index].image);
 
     this.uploadService.uploadFile(formData).subscribe((res) => {
       console.log(res);
-      this.data.item[index].image = res.data;
+      this.newData.item[index].image = res.data;
     });
     this.fileImage[index] = e.target.files[0];
     const reader = new FileReader();
@@ -43,20 +46,20 @@ export class Category1PopupComponent {
 
 
   onChangeTitle(e: any, i: number): void {
-    this.data.item[i].title = e.target.value;
+    this.newData.item[i].title = e.target.value;
   }
 
   onChangeUrl(e: any, i: number): void {
-    this.data.item[i].url = e.target.value;
+    this.newData.item[i].url = e.target.value;
   }
 
 
   onChangeDescription(e: any, i: number): void {
-    this.data.item[i].description = e.target.value;
+    this.newData.item[i].description = e.target.value;
   }
 
   onSave(): void {
-    this.dialogRef.close(this.data);
+    this.dialogRef.close(this.newData);
   }
 
   onCancel(): void {
@@ -64,11 +67,11 @@ export class Category1PopupComponent {
   }
 
   onRemoveItem(i: number): void {
-    this.data.item.splice(i, 1);
+    this.newData.item.splice(i, 1);
   }
 
   onAddItem(): void {
-    this.data.item.push({
+    this.newData.item.push({
       title: 'Title',
       url: 'Url',
       description: 'Description',

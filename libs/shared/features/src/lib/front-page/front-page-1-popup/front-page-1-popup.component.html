@@ -10,7 +10,7 @@
           <label class="block text-sm font-medium text-gray-700">Cover photo</label>
           <div class="mt-1 flex justify-center rounded-md">
             <div class="space-y-1 text-center">
-              <svg *ngIf="!data.image"
+              <svg *ngIf="!newData.image"
                    class="mx-auto h-12 w-12 text-gray-400"
                    stroke="currentColor"
                    fill="none"
@@ -30,8 +30,8 @@
                          #Image
                          (change)="handleFileInput($event)"
                          class="sr-only">
-                  <img *ngIf="data.image && !fileImage"
-                       [src]="data.image"
+                  <img *ngIf="newData.image && !fileImage"
+                       [src]="newData.image"
                        style="height: 300px"
                        class="image-dialog image-preview">
                   <img *ngIf="fileImage"
@@ -47,6 +47,22 @@
             </div>
           </div>
         </div>
+
+        <div class="sm:col-span-4">
+          <label for="url"
+                 class="block text-sm font-medium leading-6 text-gray-900">Link Url</label>
+          <div class="mt-2">
+            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
+              <input type="text"
+                     id="url"
+                     autocomplete="url"
+                     name="url"
+                     [(ngModel)]="newData.url"
+                     class="pl-2 block flex-1 border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+        </div>
+
         <div class="sm:col-span-4">
           <label for="title"
                  class="block text-sm font-medium leading-6 text-gray-900">Title</label>
@@ -56,8 +72,8 @@
                      id="title"
                      autocomplete="title"
                      name="title"
-                     [(ngModel)]="data.title"
-                     class="pl-2 block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                     [(ngModel)]="newData.title"
+                     class="pl-2 block flex-1 border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
             </div>
           </div>
         </div>
@@ -69,7 +85,7 @@
             <textarea id="description"
                       name="description"
                       rows="3"
-                      [(ngModel)]="data.description"
+                      [(ngModel)]="newData.description"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
           </div>
           <p class="mt-3 text-sm leading-6 text-gray-600 italic">Write a few sentence</p>

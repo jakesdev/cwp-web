@@ -9,5 +9,5 @@ export class Header1UiComponent {
 
   @Input() data: any;
 
-  @Input() disabledTagA!: boolean;
+  @Input() disabledTagA = false;
 }

@@ -2,20 +2,26 @@
   <div class="p-4">
     <form>
       <div class="overflow-hidden">
-        <ul role="list"
-            *ngFor="let item of data.item; let i = index">
-          <label class="block text-sm font-medium leading-6 text-gray-900">Title</label>
-          <div class="card flex justify-content-center">
-            <p-calendar [(ngModel)]="item.title"
-                        [showIcon]="true"
-                        class="w-full"
-                        [ngModelOptions]="{standalone: true}"></p-calendar>
-          </div>
-          <label class="block text-sm font-medium leading-6 text-gray-900">Description</label>
-          <textarea class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    rows="3"
-                    value="{{item.description}}"
-                    (change)="onChangeDescription($event, i)"></textarea>
+        <ul role="list">
+          <li *ngFor="let item of newData.item; let i = index">
+            <label class="block text-sm font-medium leading-6 text-gray-900">Title</label>
+            <div class="card flex justify-content-center">
+              <p-calendar [(ngModel)]="item.title"
+                          [showIcon]="true"
+                          class="w-full"
+                          [ngModelOptions]="{standalone: true}"></p-calendar>
+            </div>
+            <label class="block text-sm font-medium leading-6 text-gray-900">Description</label>
+            <textarea class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      rows="3"
+                      value="{{item.description}}"
+                      (change)="onChangeDescription($event, i)"></textarea>
+            <button type="button"
+                    class="mt-2 inline-flex flex-end items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600"
+                    (click)="onDeleteItem(i)">
+              Delete
+            </button>
+          </li>
         </ul>
         <!-- button add item -->
         <button type="button"

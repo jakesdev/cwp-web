@@ -12,7 +12,7 @@ export class Gallery1PopupComponent implements OnInit {
 
   imageUrl: any;
 
-
+  newData: any;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<Gallery1PopupComponent>,
@@ -22,16 +22,17 @@ export class Gallery1PopupComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
+    this.newData = Object.assign({}, this.data);
     this.fileImage = Array(this.data.images.length).fill('');
   }
 
 
   addItem(): void {
-    this.data.images.push('');
+    this.newData.images.push('');
     this.fileImage.push('');
   }
   onSave(): void {
-    this.dialogRef.close(this.data);
+    this.dialogRef.close(this.newData);
   }
 
   onCancel(): void {
@@ -39,7 +40,7 @@ export class Gallery1PopupComponent implements OnInit {
   }
 
   onDelete(index: number): void {
-    this.data.images.splice(index, 1);
+    this.newData.images.splice(index, 1);
     this.fileImage.splice(index, 1);
   }
 
@@ -47,11 +48,11 @@ export class Gallery1PopupComponent implements OnInit {
   handleFileInput(e: any, index: number): void {
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
-    formData.append('oldImage', this.data.images[index]);
+    formData.append('oldImage', this.newData.images[index]);
 
     this.uploadService.uploadFile(formData).subscribe((res) => {
       console.log(res);
-      this.data.images[index] = res.data;
+      this.newData.images[index] = res.data;
     });
     this.fileImage[index] = e.target.files[0];
     const reader = new FileReader();

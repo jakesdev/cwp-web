@@ -238,234 +238,288 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     );
   };
 
-  onButtonClickHeader1(data: any): void {
+  onButtonClickHeader1(data: any, i: number): void {
     const dialogRef = this.dialog.open(Header1PopupComponent, {
       width: '1000px',
       data
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
-        }
-        )
-      ).subscribe(
-        {
-          next: () => {
-            this.notificationService.success('Update successfully');
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
           }
-        }
-      );
+          )
+        ).subscribe(
+          {
+            next: () => {
+              this.notificationService.success('Update successfully');
+            }
+          }
+        );
+      }
     });
   };
 
-  onButtonClickHeader2(data: any): void {
+  onButtonClickHeader2(data: any, i: number): void {
     const dialogRef = this.dialog.open(Header2PopupComponent, {
       width: '1000px',
       data
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
-        }
-        )
-      ).subscribe({
-        next: () => {
-          this.notificationService.success('Update successfully');
-        }
-      });
-    });
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe({
+          next: () => {
+            this.notificationService.success('Update successfully');
+          }
+        });
+      }
+    }
+    );
   };
 
-  onButtonClickFooter1(data: any): void {
+  onButtonClickFooter1(data: any, i: number): void {
     const dialogRef = this.dialog.open(Footer1PopupComponent, {
       width: '1000px',
       data
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe({
+          next: () => {
+            this.notificationService.success('Update successfully');
+          }
         }
-        )
-      ).subscribe({
-        next: () => {
-          this.notificationService.success('Update successfully');
-        }
+        );
       }
-      );
-    });
+    }
+    );
   };
-  onButtonClickFooter2(data: any): void {
+  onButtonClickFooter2(data: any, i: number): void {
     const dialogRef = this.dialog.open(Footer2PopupComponent, {
       width: '1000px',
       data
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe({
+          next: () => {
+            this.notificationService.success('Update successfully');
+          }
         }
-        )
-      ).subscribe({
-        next: () => {
-          this.notificationService.success('Update successfully');
-        }
+        );
       }
-      );
-    });
+    }
+    );
   };
 
-  onButtonClickCategory1(data: any): void {
+  onButtonClickCategory1(data: any, i: number): void {
     const dialogRef = this.dialog.open(Category1PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
       data
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe({
+          next: () => {
+            this.notificationService.success('Update successfully');
+          }
         }
-        )
-      ).subscribe({
-        next: () => {
-          this.notificationService.success('Update successfully');
-        }
+        );
       }
-      );
-    });
+    }
+    );
   };
 
-  onButtonClickCategory2(data: any): void {
+  onButtonClickCategory2(data: any, i: number): void {
     const dialogRef = this.dialog.open(Category2PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
       data
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe({
+          next: () => {
+            this.notificationService.success('Update successfully');
+          }
         }
-        )
-      ).subscribe({
-        next: () => {
-          this.notificationService.success('Update successfully');
-        }
+        );
       }
-      );
-    });
+    }
+    );
   };
 
-  onButtonClickCategory3(data: any): void {
+  onButtonClickCategory3(data: any, i: number): void {
     const dialogRef = this.dialog.open(Category3PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
       data
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe({
+          next: () => {
+            this.notificationService.success('Update successfully');
+          }
         }
-        )
-      ).subscribe({
-        next: () => {
-          this.notificationService.success('Update successfully');
-        }
+        );
       }
-      );
     }
     );
   };
 
-  onButtonClickFrontPage1(data: any): void {
+  onButtonClickFrontPage1(data: any, i: number): void {
     const dialogRef = this.dialog.open(FrontPage1PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
       data
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        if (result) {
+
+          this.page.components[i].option = result;
+          this.loaderService.loading$.next(true);
+          this.pageService.updatePage(this.params, {
+            components: this.page.components,
+            url: this.page.url,
+          }).pipe(
+            finalize(() => {
+              this.loaderService.loading$.next(false);
+            }
+            )
+          ).subscribe((res) => {
+            this.pageService.getPage(this.params).subscribe((res) => {
+              this.page = res.data;
+              this.components = res.data.components || [];
+              this.loaderService.loading$.next(false);
+            }
+            );
+          }
+          );
         }
-        )
-      ).subscribe((res) => {
-        this.pageService.getPage(this.params).subscribe((res) => {
-          this.page = res.data;
-          this.components = res.data.components || [];
-          this.loaderService.loading$.next(false);
-        }
-        );
       }
-      );
     }
     );
   };
 
-  onButtonClickFrontPage2(data: any): void {
+  onButtonClickFrontPage2(data: any, i: number): void {
     const dialogRef = this.dialog.open(FrontPage2PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
       data
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
-        }
-        )
-      ).subscribe((res) => {
-        this.pageService.getPage(this.params).subscribe((res) => {
-          this.page = res.data;
-          this.components = res.data.components || [];
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe((res) => {
+          this.pageService.getPage(this.params).subscribe((res) => {
+            this.page = res.data;
+            this.components = res.data.components || [];
+            this.loaderService.loading$.next(false);
+          }
+          );
         }
         );
       }
-      );
     }
     );
   };
 
-  onButtonClickPricingSection1(data: any): void {
+  onButtonClickPricingSection1(data: any, i: number): void {
     const dialogRef = this.dialog.open(PricingSection1PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
@@ -473,36 +527,41 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     });
   };
 
-  onButtonClickVideo1(data: any): void {
+  onButtonClickVideo1(data: any, i: number): void {
     const dialogRef = this.dialog.open(Video1PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
       data
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
-        }
-        )
-      ).subscribe((res) => {
-        this.pageService.getPage(this.params).subscribe((res) => {
-          this.page = res.data;
-          this.components = res.data.components || [];
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe((res) => {
+          this.pageService.getPage(this.params).subscribe((res) => {
+            this.page = res.data;
+            this.components = res.data.components || [];
+            this.loaderService.loading$.next(false);
+          }
+          );
         }
         );
       }
-      );
     }
     );
   };
 
-  onButtonClickAccordion1(data: any): void {
+  onButtonClickAccordion1(data: any, i: number): void {
     const dialogRef = this.dialog.open(Accordion1PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
@@ -510,29 +569,34 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
-        }
-        )
-      ).subscribe((res) => {
-        this.pageService.getPage(this.params).subscribe((res) => {
-          this.page = res.data;
-          this.components = res.data.components || [];
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe((res) => {
+          this.pageService.getPage(this.params).subscribe((res) => {
+            this.page = res.data;
+            this.components = res.data.components || [];
+            this.loaderService.loading$.next(false);
+          }
+          );
         }
         );
       }
-      );
     }
     );
   };
 
-  onButtonClickTimeline1(data: any): void {
+  onButtonClickTimeline1(data: any, i: number): void {
     const dialogRef = this.dialog.open(Timeline1PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
@@ -540,58 +604,68 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
-        }
-        )
-      ).subscribe((res) => {
-        this.pageService.getPage(this.params).subscribe((res) => {
-          this.page = res.data;
-          this.components = res.data.components || [];
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe((res) => {
+          this.pageService.getPage(this.params).subscribe((res) => {
+            this.page = res.data;
+            this.components = res.data.components || [];
+            this.loaderService.loading$.next(false);
+          }
+          );
         }
         );
       }
-      );
     }
     );
   };
 
-  onButtonClickTimeline2(data: any): void {
+  onButtonClickTimeline2(data: any, i: number): void {
     const dialogRef = this.dialog.open(Timeline2PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
       data
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
-        }
-        )
-      ).subscribe((res) => {
-        this.pageService.getPage(this.params).subscribe((res) => {
-          this.page = res.data;
-          this.components = res.data.components || [];
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe((res) => {
+          this.pageService.getPage(this.params).subscribe((res) => {
+            this.page = res.data;
+            this.components = res.data.components || [];
+            this.loaderService.loading$.next(false);
+          }
+          );
         }
         );
       }
-      );
     }
     );
   };
 
-  onButtonClickGallery1(data: any): void {
+  onButtonClickGallery1(data: any, i: number): void {
     const dialogRef = this.dialog.open(Gallery1PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
@@ -599,29 +673,34 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
-        }
-        )
-      ).subscribe((res) => {
-        this.pageService.getPage(this.params).subscribe((res) => {
-          this.page = res.data;
-          this.components = res.data.components || [];
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe((res) => {
+          this.pageService.getPage(this.params).subscribe((res) => {
+            this.page = res.data;
+            this.components = res.data.components || [];
+            this.loaderService.loading$.next(false);
+          }
+          );
         }
         );
       }
-      );
     }
     );
   };
 
-  onButtonClickGallery2(data: any): void {
+  onButtonClickGallery2(data: any, i: number): void {
     const dialogRef = this.dialog.open(Gallery2PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
@@ -629,24 +708,29 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
-        }
-        )
-      ).subscribe((res) => {
-        this.pageService.getPage(this.params).subscribe((res) => {
-          this.page = res.data;
-          this.components = res.data.components || [];
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe((res) => {
+          this.pageService.getPage(this.params).subscribe((res) => {
+            this.page = res.data;
+            this.components = res.data.components || [];
+            this.loaderService.loading$.next(false);
+          }
+          );
         }
         );
       }
-      );
     }
     );
   };
@@ -654,7 +738,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
 
 
 
-  onButtonClickGallery4(data: any): void {
+  onButtonClickGallery4(data: any, i: number): void {
     const dialogRef = this.dialog.open(Gallery4PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
@@ -662,29 +746,34 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
-        }
-        )
-      ).subscribe((res) => {
-        this.pageService.getPage(this.params).subscribe((res) => {
-          this.page = res.data;
-          this.components = res.data.components || [];
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe((res) => {
+          this.pageService.getPage(this.params).subscribe((res) => {
+            this.page = res.data;
+            this.components = res.data.components || [];
+            this.loaderService.loading$.next(false);
+          }
+          );
         }
         );
       }
-      );
     }
     );
   };
 
-  onButtonClickBlog1(data: any): void {
+  onButtonClickBlog1(data: any, i: number): void {
     const dialogRef = this.dialog.open(Blog1PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
@@ -694,24 +783,29 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.loaderService.loading$.next(true);
-      this.pageService.updatePage(this.params, {
-        components: this.page.components,
-        url: this.page.url,
-      }).pipe(
-        finalize(() => {
-          this.loaderService.loading$.next(false);
-        }
-        )
-      ).subscribe((res) => {
-        this.pageService.getPage(this.params).subscribe((res) => {
-          this.page = res.data;
-          this.components = res.data.components || [];
-          this.loaderService.loading$.next(false);
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe((res) => {
+          this.pageService.getPage(this.params).subscribe((res) => {
+            this.page = res.data;
+            this.components = res.data.components || [];
+            this.loaderService.loading$.next(false);
+          }
+          );
         }
         );
       }
-      );
     }
     );
   }

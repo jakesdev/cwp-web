@@ -3,13 +3,15 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'cwp-video-1-ui',
   templateUrl: './video-1-ui.component.html',
-  styleUrls: ['./video-1-ui.component.css'],
+  styleUrls: ['./video-1-ui.component.scss'],
 })
-export class Video1UiComponent implements OnInit{
+export class Video1UiComponent implements OnInit {
 
   @Input() data: any;
 
-  videoId='';
+  @Input() disabledTagA = false;
+
+  videoId = '';
 
   ngOnInit() {
     this.videoId = this.data.src.split('v=')[1];
