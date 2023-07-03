@@ -1,3 +1,4 @@
+export * from './admin.service';
 export * from './api.service';
 export * from './app-notification.service';
 export * from './auth.service';

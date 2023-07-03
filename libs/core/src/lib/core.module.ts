@@ -11,7 +11,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { AdminGuard, DevelopingGuard, HasLoggedInGuard, HasNotLoggedInGuard, OnBoardingGuard, UserGuard } from './guard';
 import { ErrorInterceptor, JwtInterceptor } from './interceptor';
 import { throwIfAlreadyLoaded } from './module-import-guard';
-import { ApiService, AuthService, CustomerSupportService, MarketPlaceService, NavigationService, NotificationService, PostService, TransactionService, UploadService } from './services';
+import { AdminService, ApiService, AuthService, CustomerSupportService, MarketPlaceService, NavigationService, NotificationService, PostService, TransactionService, UploadService } from './services';
 
 
 export const GUARD = [
@@ -34,6 +34,7 @@ export const SERVICES = [
   MarketPlaceService,
   PostService,
   UploadService,
+  AdminService
 ];
 
 export const MODULES = [

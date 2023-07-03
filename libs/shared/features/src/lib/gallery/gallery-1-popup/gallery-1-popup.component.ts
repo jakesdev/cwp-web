@@ -26,14 +26,9 @@ export class Gallery1PopupComponent implements OnInit {
   }
 
 
-  addItem(grid: number): void {
-    this.data.images.splice(
-      this.data.images.length,
-      0
-      , 'https://via.placeholder.com/150');
-    this.fileImage.splice(this.data.images.length,
-      0
-      , '');
+  addItem(): void {
+    this.data.images.push('');
+    this.fileImage.push('');
   }
   onSave(): void {
     this.dialogRef.close(this.data);
@@ -43,27 +38,27 @@ export class Gallery1PopupComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onDelete(index: number, grid: number): void {
-    this.data.images.splice(grid * 3 + index, 1);
-    this.fileImage.splice(grid * 3 + index, 1);
+  onDelete(index: number): void {
+    this.data.images.splice(index, 1);
+    this.fileImage.splice(index, 1);
   }
 
 
-  handleFileInput(e: any, index: number, grid: number): void {
+  handleFileInput(e: any, index: number): void {
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
-    formData.append('oldImage', this.data.images[grid * 3 + index]);
+    formData.append('oldImage', this.data.images[index]);
 
     this.uploadService.uploadFile(formData).subscribe((res) => {
       console.log(res);
-      this.data.images[grid * 3 + index] = res.data;
+      this.data.images[index] = res.data;
     });
-    this.fileImage[grid * 3 + index] = e.target.files[0];
+    this.fileImage[index] = e.target.files[0];
     const reader = new FileReader();
     reader.onload = (event: any) => {
       this.imageUrl = event.target.result;
     };
-    reader.readAsDataURL(this.fileImage[grid * 3 + index]);
+    reader.readAsDataURL(this.fileImage[index]);
   }
 
 }

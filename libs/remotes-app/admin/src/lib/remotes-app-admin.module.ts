@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
 import { RouterModule } from '@angular/router';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { StatCardComponent } from './containers/stat-card/stat-card.component';
 import { AdminCustomerSupportComponent } from './page/admin-customer-support/admin-customer-support.component';
@@ -37,9 +38,18 @@ import { remotesAppAdminRoute } from './remotes-app-admin.routes';
     MatInputModule,
     ReactiveFormsModule,
     TableModule,
+    ButtonModule,
     FormsModule,
     CKEditorModule,
-    RouterModule.forChild(remotesAppAdminRoute)],
-  declarations: [RemotesAppAdminComponent, AdminUserManagementComponent, AdminCustomerSupportComponent, AdminDashboardComponent, StatCardComponent, AdminReleaseNotePageComponent]
+    RouterModule.forChild(remotesAppAdminRoute),
+  ],
+  declarations: [
+    RemotesAppAdminComponent,
+    AdminUserManagementComponent,
+    AdminCustomerSupportComponent,
+    AdminDashboardComponent,
+    StatCardComponent,
+    AdminReleaseNotePageComponent,
+  ],
 })
 export class RemotesAppAdminModule {}

@@ -44,26 +44,57 @@
       </ng-template>
       <mp-paginator [pagination]="pagination"
                     (pageChange)="onChangePagination($event)"></mp-paginator> -->
-      <p-table [value]="products"
-               [tableStyle]="{ 'min-width': '50rem' }">
-        <ng-template pTemplate="header">
-          <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Quantity</th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body"
-                     let-product>
-          <tr>
-            <td>{{ product.code }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.quantity }}</td>
-          </tr>
-        </ng-template>
-      </p-table>
+      <div class="card">
+        <p-table [value]="tickets"
+                 [paginator]="true"
+                 [rows]="5"
+                 [totalRecords]="pagination.itemCount!"
+                 [showCurrentPageReport]="true"
+                 [tableStyle]="{ 'min-width': '50rem' }"
+                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                 [rowsPerPageOptions]="[10, 25, 50]">
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="width:25%">User</th>
+              <th style="width:25%">Title</th>
+              <th style="width:25%">Content</th>
+              <th style="width:15%">Created At</th>
+              <th style="width:10%">Action</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body"
+                       let-ticket>
+            <tr>
+              <td>{{ ticket.createdBy }}</td>
+              <td>
+                {{ ticket.title }}
+              </td>
+              <td>{{ ticket.content }}</td>
+              <td>{{ ticket.createdAt | date }}</td>
+              <td>
+                <div class="flex flex-row">
+                  <button type="button"
+                          icon="pi pi-pencil"
+                          class="mr-2 inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Replay</button>
+                  <button type="button"
+                          icon="pi pi-trash"
+                          class="inline-flex justify-center rounded-md bg-red-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="paginatorleft">
+            <p-button type="button"
+                      icon="pi pi-plus"
+                      styleClass="p-button-text"></p-button>
+          </ng-template>
+          <ng-template pTemplate="paginatorright">
+            <p-button type="button"
+                      icon="pi pi-cloud"
+                      styleClass="p-button-text"></p-button>
+          </ng-template>
+        </p-table>
+      </div>
     </div>
   </div>
 </div>

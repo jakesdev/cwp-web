@@ -90,23 +90,23 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
           previewImage: item.preview
         };
       });
-      this.items = this.items.filter((item) => {
-        return this.integrationComponents.some((component) => {
-          return component.type === item.type;
-        });
-      });
 
-      this.items = this.items.
-        map((item) => {
-          return {
-            ...item,
-            name: item.type.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
-            previewImage: this.integrationComponents.find((component) => {
-              return component.type === item.type;
-            })?.previewImage
-          };
-        }
-        );
+      // this.items = this.items.filter((item) => {
+      //   return this.integrationComponents.some((component) => {
+      //     return component.type === item.type;
+      //   });
+      // }
+      // )
+      this.items = this.items.map((item) => {
+        return {
+          ...item,
+          name: item.type.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
+          previewImage: this.integrationComponents.find((component) => {
+            return component.type === item.type;
+          })?.previewImage
+        };
+      }
+      );
     });
   }
 
@@ -198,7 +198,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
 
   openPreview(): void {
     window.open(environment.webView + this.page.url, '_blank');
-  }
+  };
 
   openPublicPage(): void {
     const dialogRef = this.dialog.open(PublishPageDialogComponent, {
@@ -222,7 +222,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       }
       );
     });
-  }
+  };
 
   onButtonClickDelete(item: any, i: number): void {
     this.components.splice(i, 1);
@@ -236,7 +236,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       }
     }
     );
-  }
+  };
 
   onButtonClickHeader1(data: any): void {
     const dialogRef = this.dialog.open(Header1PopupComponent, {
@@ -260,7 +260,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
         }
       );
     });
-  }
+  };
 
   onButtonClickHeader2(data: any): void {
     const dialogRef = this.dialog.open(Header2PopupComponent, {
@@ -282,7 +282,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
         }
       });
     });
-  }
+  };
 
   onButtonClickFooter1(data: any): void {
     const dialogRef = this.dialog.open(Footer1PopupComponent, {
@@ -306,7 +306,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       }
       );
     });
-  }
+  };
   onButtonClickFooter2(data: any): void {
     const dialogRef = this.dialog.open(Footer2PopupComponent, {
       width: '1000px',
@@ -329,7 +329,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       }
       );
     });
-  }
+  };
 
   onButtonClickCategory1(data: any): void {
     const dialogRef = this.dialog.open(Category1PopupComponent, {
@@ -354,7 +354,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       }
       );
     });
-  }
+  };
 
   onButtonClickCategory2(data: any): void {
     const dialogRef = this.dialog.open(Category2PopupComponent, {
@@ -379,7 +379,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       }
       );
     });
-  }
+  };
 
   onButtonClickCategory3(data: any): void {
     const dialogRef = this.dialog.open(Category3PopupComponent, {
@@ -405,7 +405,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       );
     }
     );
-  }
+  };
 
   onButtonClickFrontPage1(data: any): void {
     const dialogRef = this.dialog.open(FrontPage1PopupComponent, {
@@ -434,7 +434,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       );
     }
     );
-  }
+  };
 
   onButtonClickFrontPage2(data: any): void {
     const dialogRef = this.dialog.open(FrontPage2PopupComponent, {
@@ -463,7 +463,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       );
     }
     );
-  }
+  };
 
   onButtonClickPricingSection1(data: any): void {
     const dialogRef = this.dialog.open(PricingSection1PopupComponent, {
@@ -471,7 +471,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       maxHeight: '90vh',
       data
     });
-  }
+  };
 
   onButtonClickVideo1(data: any): void {
     const dialogRef = this.dialog.open(Video1PopupComponent, {
@@ -500,7 +500,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       );
     }
     );
-  }
+  };
 
   onButtonClickAccordion1(data: any): void {
     const dialogRef = this.dialog.open(Accordion1PopupComponent, {
@@ -530,7 +530,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       );
     }
     );
-  }
+  };
 
   onButtonClickTimeline1(data: any): void {
     const dialogRef = this.dialog.open(Timeline1PopupComponent, {
@@ -560,7 +560,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       );
     }
     );
-  }
+  };
 
   onButtonClickTimeline2(data: any): void {
     const dialogRef = this.dialog.open(Timeline2PopupComponent, {
@@ -589,7 +589,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       );
     }
     );
-  }
+  };
 
   onButtonClickGallery1(data: any): void {
     const dialogRef = this.dialog.open(Gallery1PopupComponent, {
@@ -619,7 +619,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       );
     }
     );
-  }
+  };
 
   onButtonClickGallery2(data: any): void {
     const dialogRef = this.dialog.open(Gallery2PopupComponent, {
@@ -649,7 +649,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       );
     }
     );
-  }
+  };
 
 
 
@@ -682,7 +682,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       );
     }
     );
-  }
+  };
 
   onButtonClickBlog1(data: any): void {
     const dialogRef = this.dialog.open(Blog1PopupComponent, {

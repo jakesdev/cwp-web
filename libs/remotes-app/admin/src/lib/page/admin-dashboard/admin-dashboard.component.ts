@@ -1,4 +1,7 @@
+import { registerLocaleData } from '@angular/common';
+import es from '@angular/common/locales/es';
 import { Component, OnInit } from '@angular/core';
+import { AdminService, LoaderService } from '@cwp/core/services';
 import { Chart, registerables } from 'chart.js';
 import { STAT_CARD } from './analytic-data';
 
@@ -10,71 +13,102 @@ import { STAT_CARD } from './analytic-data';
 export class AdminDashboardComponent implements OnInit {
   cardMockData = STAT_CARD;
 
-  ngOnInit() {
-    Chart.register(...registerables);
+  usersByMonth: {
+    month: string;
+    count: number;
+  }[] = [];
 
+  transactionsByMonth: {
+    month: string;
+    count: number;
+  }[] = [];
+  dataStatCard = {
+    userCount: 0,
+    customerSupportCount: 0,
+    transactionCount: 0,
+    pageCount: 0
+  };
+
+  constructor(
+    private readonly adminService: AdminService,
+
+    private readonly loaderService: LoaderService
+  ) {}
+
+  ngOnInit() {
+    registerLocaleData(es);
+    this.adminService.getStatCard().subscribe((res: any) => {
+      this.dataStatCard = res.data;
+    });
+
+    Chart.register(...registerables);
     this.renderLineChart();
     this.renderBarChart();
     this.renderPieChart();
   }
 
   renderLineChart() {
-    const lineChartData = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-      datasets: [
-        {
-          label: 'User Activity',
-          data: [34, 43, 20, 37, 56, 60, 49, 73, 65, 70, 82, 74],
-          borderColor: 'rgba(75, 192, 192, 1)',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          fill: true,
-        },
-      ],
-    };
+    this.adminService.getUsersByMonth().subscribe((res: any) => {
+      this.usersByMonth = res.data;
+      const lineChartData = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [
+          {
+            label: 'User Created By Month',
+            data: this.usersByMonth.map((item) => item.count),
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            fill: true,
+          },
+        ],
+      };
 
-    const lineChartOptions = {
-      responsive: true,
-      scales: {
-        y: {
-          beginAtZero: true,
+      const lineChartOptions = {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
         },
-      },
-    };
+      };
 
-    new Chart('lineChart', {
-      type: 'line',
-      data: lineChartData,
-      options: lineChartOptions,
+      new Chart('lineChart', {
+        type: 'line',
+        data: lineChartData,
+        options: lineChartOptions,
+      });
     });
   }
 
   renderBarChart() {
-    const barChartData = {
-      labels: ['Pricing Sections', 'Dialog Sections', 'About Us Sections', ' Newsletter Sections', 'Testimonials', '  Blog Sections'],
-      datasets: [
-        {
-          label: 'Total Purchase',
-          data: [50, 30, 70, 45, 54, 64],
-          backgroundColor: 'rgba(255, 99, 132, 0.6)',
-        },
-      ],
-    };
+    this.adminService.getTransactionByMonth().subscribe((res: any) => {
+      this.transactionsByMonth = res.data;
+      const barChartData = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [
+          {
+            label: 'Total Purchase',
+            data: this.transactionsByMonth.map((item) => item.count),
+            backgroundColor: 'rgba(255, 99, 132, 0.6)',
+          },
+        ],
+      };
 
-    const barChartOptions = {
-      responsive: true,
-      scales: {
-        y: {
-          beginAtZero: true,
+      const barChartOptions = {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
         },
-      },
-    };
+      };
 
-    new Chart('barChart', {
-      type: 'bar',
-      data: barChartData,
-      options: barChartOptions,
+      new Chart('barChart', {
+        type: 'bar',
+        data: barChartData,
+        options: barChartOptions,
+      });
     });
-
   }
 
   renderPieChart() {
@@ -97,6 +131,17 @@ export class AdminDashboardComponent implements OnInit {
       data: pieChartData,
       options: pieChartOptions,
     });
+  }
+
+  checkLoading() {
+    if (this.dataStatCard.userCount == 0 && this.dataStatCard.customerSupportCount == 0 && this.dataStatCard.transactionCount == 0 && this.dataStatCard.pageCount == 0
+      && this.usersByMonth.length == 0
+    ) {
+      return true;
+    }
+    else {
+      return this.loaderService.loading$.next(false);
+    }
   }
 
 }
