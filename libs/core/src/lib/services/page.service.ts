@@ -19,6 +19,10 @@ export class PageService {
     return this.apiServices.get<any>(`pages`, true);
   }
 
+  getTemplatesPage() {
+    return this.apiServices.get<any>(`pages/templates`, true);
+  }
+
   createPage(data: CreatePage) {
     return this.apiServices.post<any>('pages', data, true);
   }

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NoSanitizePipe } from '@cwp/core/pipe';
+import { NoSanitizePipe, SafePipe } from '@cwp/core/pipe';
 import { AppLayoutModule, ModelLayoutModule } from '@cwp/shared/layout';
 import { ConfirmDialogComponent } from './containers/confirm-dialog/confirm-dialog.component';
 import { PageCreateDialogComponent } from './containers/page-create-dialog/page-create-dialog.component';
@@ -14,6 +14,14 @@ import { PageSettingComponent } from './page-setting.component';
 import { remotesAppPageRoute } from './page-setting.routes';
 
 @NgModule({
+  declarations: [
+    PageSettingComponent,
+    PageEditDialogComponent,
+    PageCreateDialogComponent,
+    ConfirmDialogComponent,
+    PublishPageDialogComponent,
+  ],
+  exports: [PageSettingComponent],
   imports: [
     NoSanitizePipe,
     CommonModule,
@@ -24,14 +32,7 @@ import { remotesAppPageRoute } from './page-setting.routes';
     DialogModule,
     DragDropModule,
     RouterModule.forChild(remotesAppPageRoute),
-  ],
-  declarations: [
-    PageSettingComponent,
-    PageEditDialogComponent,
-    PageCreateDialogComponent,
-    ConfirmDialogComponent,
-    PublishPageDialogComponent,
-  ],
-  exports: [PageSettingComponent],
+    SafePipe
+  ]
 })
 export class ClientPageSettingModule {}

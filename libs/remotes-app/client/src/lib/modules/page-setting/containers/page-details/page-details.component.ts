@@ -1,6 +1,6 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, copyArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
-import { AfterViewChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { LoaderService, NotificationService, PageService, PostService, TransactionService } from '@cwp/core/services';
@@ -17,6 +17,7 @@ import { Footer1PopupComponent } from '../../../../../../../../shared/features/s
 import { Footer2PopupComponent } from '../../../../../../../../shared/features/src/lib/footer/footer-2-popup/footer-2-popup.component';
 import { FrontPage1PopupComponent } from '../../../../../../../../shared/features/src/lib/front-page/front-page-1-popup/front-page-1-popup.component';
 import { FrontPage2PopupComponent } from '../../../../../../../../shared/features/src/lib/front-page/front-page-2-popup/front-page-2-popup.component';
+import { FrontPage3PopupComponent } from '../../../../../../../../shared/features/src/lib/front-page/front-page-3-popup/front-page-3-popup.component';
 import { Gallery1PopupComponent } from '../../../../../../../../shared/features/src/lib/gallery/gallery-1-popup/gallery-1-popup.component';
 import { Gallery2PopupComponent } from '../../../../../../../../shared/features/src/lib/gallery/gallery-2-popup/gallery-2-popup.component';
 import { Gallery4PopupComponent } from '../../../../../../../../shared/features/src/lib/gallery/gallery-4-popup/gallery-4-popup.component';
@@ -62,7 +63,9 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     public postService: PostService,
 
     public notificationService: NotificationService,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
+
+    private elementRef: ElementRef,
   ) {}
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
@@ -91,13 +94,12 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
         };
       });
 
-      // this.items = this.items.filter((item) => {
-      //   return this.integrationComponents.some((component) => {
-      //     return component.type === item.type;
-      //   });
-      // }
-      // )
-      this.items = this.items.map((item) => {
+      this.items = this.items.filter((item) => {
+        return this.integrationComponents.some((component) => {
+          return component.type === item.type;
+        });
+      }
+      ).map((item) => {
         return {
           ...item,
           name: item.type.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
@@ -112,6 +114,10 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked() {
     this.cdRef.detectChanges();
+  }
+
+  backToPrevious() {
+    window.history.back();
   }
 
   drop(event: CdkDragDrop<any[]>): void {
@@ -195,6 +201,16 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       this.showButton = null;
     };
   }
+
+  // @HostListener('document:click', ['$event'])
+  // onClick(event: MouseEvent) {
+  //   const targetElement = event.target as HTMLElement;
+  //   const desiredElement = document.getElementById('sidebar4');
+
+  //   if (desiredElement && !desiredElement.contains(targetElement)) {
+  //     this.sidebarVisible4 = true;
+  //   }
+  // }
 
   openPreview(): void {
     window.open(environment.webView + this.page.url, '_blank');
@@ -487,6 +503,40 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
 
   onButtonClickFrontPage2(data: any, i: number): void {
     const dialogRef = this.dialog.open(FrontPage2PopupComponent, {
+      width: '1000px',
+      maxHeight: '90vh',
+      data
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+
+        this.page.components[i].option = result;
+
+        this.loaderService.loading$.next(true);
+        this.pageService.updatePage(this.params, {
+          components: this.page.components,
+          url: this.page.url,
+        }).pipe(
+          finalize(() => {
+            this.loaderService.loading$.next(false);
+          }
+          )
+        ).subscribe((res) => {
+          this.pageService.getPage(this.params).subscribe((res) => {
+            this.page = res.data;
+            this.components = res.data.components || [];
+            this.loaderService.loading$.next(false);
+          }
+          );
+        }
+        );
+      }
+    }
+    );
+  };
+
+  onButtonClickFrontPage3(data: any, i: number): void {
+    const dialogRef = this.dialog.open(FrontPage3PopupComponent, {
       width: '1000px',
       maxHeight: '90vh',
       data

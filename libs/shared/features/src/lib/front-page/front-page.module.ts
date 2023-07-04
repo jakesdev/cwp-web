@@ -6,6 +6,8 @@ import { FrontPage1PopupComponent } from './front-page-1-popup/front-page-1-popu
 import { FrontPage1UiComponent } from './front-page-1-ui/front-page-1-ui.component';
 import { FrontPage2PopupComponent } from './front-page-2-popup/front-page-2-popup.component';
 import { FrontPage2UiComponent } from './front-page-2-ui/front-page-2-ui.component';
+import { FrontPage3PopupComponent } from './front-page-3-popup/front-page-3-popup.component';
+import { FrontPage3UiComponent } from './front-page-3-ui/front-page-3-ui.component';
 
 @NgModule({
   declarations: [
@@ -13,12 +15,16 @@ import { FrontPage2UiComponent } from './front-page-2-ui/front-page-2-ui.compone
     FrontPage1PopupComponent,
     FrontPage2UiComponent,
     FrontPage2PopupComponent,
+    FrontPage3UiComponent,
+    FrontPage3PopupComponent,
   ],
   exports: [
     FrontPage1UiComponent,
     FrontPage1PopupComponent,
     FrontPage2UiComponent,
     FrontPage2PopupComponent,
+    FrontPage3UiComponent,
+    FrontPage3PopupComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, CKEditorModule],
 })

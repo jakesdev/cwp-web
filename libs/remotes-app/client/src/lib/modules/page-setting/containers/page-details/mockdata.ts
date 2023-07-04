@@ -34,11 +34,25 @@ export const DATA_SIDE_BAR = [
       title: "Lorem ipsum dolor sit amet",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       url: "/#",
+      buttonText: 'Lorem ipsum dolor sit amet',
       image: "https://picsum.photos/200/300",
       backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
     src: "<cwp-front-page-1-ui data=[]></cwp-front-page-1-ui>"
+  },
+  {
+    preview: 'https://via.placeholder.com/300',
+    type: "front-page-3",
+    option: {
+      title: "Lorem ipsum dolor sit amet",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      url: "/#",
+      image: "https://picsum.photos/200/300",
+      backGroundColor: "rgba(129, 140, 248, 1)",
+      textColor: "rgba(255, 255, 255,1)",
+    },
+    src: "<cwp-front-page-3-ui data=[]></cwp-front-page-3-ui>"
   },
   {
     preview: 'https://via.placeholder.com/300',

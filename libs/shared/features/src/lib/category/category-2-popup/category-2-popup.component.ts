@@ -9,7 +9,7 @@ import { UploadService } from '@cwp/core/services';
 export class Category2PopupComponent {
   fileImage: any[] = [];
 
-  imageUrl: any;
+  imageUrl: any[] = [];
 
   newData: any;
 
@@ -23,6 +23,7 @@ export class Category2PopupComponent {
   ngOnInit() {
     this.newData = this.data;
     this.fileImage = Array(this.data.item.length).fill('');
+    this.imageUrl = Array(this.data.item.length).fill('');
   }
 
   handleFileInput(e: any, index: number): void {
@@ -37,7 +38,7 @@ export class Category2PopupComponent {
     this.fileImage[index] = e.target.files[0];
     const reader = new FileReader();
     reader.onload = (event: any) => {
-      this.imageUrl = event.target.result;
+      this.imageUrl[index] = event.target.result;
     };
     reader.readAsDataURL(this.fileImage[index]);
   }

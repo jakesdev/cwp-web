@@ -64,8 +64,8 @@ import { VideoModule } from './video/video.module';
     DragDropModule,
     FormsModule,
     ReactiveFormsModule,
-    NoSanitizePipe
-  ]
+    NoSanitizePipe,
+  ],
 })
 export class ComponentFeaturesModule {}
 

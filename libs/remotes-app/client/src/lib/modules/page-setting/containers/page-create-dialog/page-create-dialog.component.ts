@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { environment } from '@cwp/core/endpoint';
 import { AuthService, PageService } from '@cwp/core/services';
 import { debounceTime } from 'rxjs';
 
@@ -17,10 +18,15 @@ export class PageCreateDialogComponent implements OnInit {
 
   userUrl!: string;
 
+  templatePages: any[] = [];
+
   formValid = {
     url: true,
     title: true
   };
+
+  webView = environment.webView;
+  selectedTemplate: any;
 
   constructor(
     public dialogRef: MatDialogRef<PageCreateDialogComponent>,
@@ -30,11 +36,33 @@ export class PageCreateDialogComponent implements OnInit {
     private pageService: PageService,
   ) {}
   ngOnInit(): void {
+    this.getTemplatePages();
     this.userUrl = this.authService.currentUserValue.user.url || '';
   }
 
+  getTemplatePages() {
+    this.pageService.getTemplatesPage().subscribe((res) => {
+      this.templatePages = res.data;
+      if (this.templatePages.length > 0) {
+        this.selectedTemplate = this.templatePages[0];
+      }
+    });
+  }
+
+  onSelectTemplate(post: any) {
+    if (this.selectedTemplate?._id === post._id) {
+      this.selectedTemplate = null;
+      return;
+    }
+
+    this.selectedTemplate = post;
+  }
+
   onChangedTitle(event: any) {
-    this.title = event.target.value;
+    this.title = event;
+    if (this.title) {
+      this.formValid.title = true;
+    }
   }
 
   onChangeUrl(event: any) {
@@ -84,7 +112,7 @@ export class PageCreateDialogComponent implements OnInit {
     );
 
     if (this.formValid.title && this.formValid.url) {
-      this.dialogRef.close({ url: createUrl, title: this.title });
+      this.dialogRef.close({ url: createUrl, title: this.title, templateId: this.selectedTemplate?._id });
     }
   }
 

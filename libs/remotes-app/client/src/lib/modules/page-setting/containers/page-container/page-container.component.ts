@@ -56,19 +56,19 @@ export class PageContainerComponent implements OnInit {
 
   openNewPage(): void {
     const dialogRef = this.dialog.open(PageCreateDialogComponent, {
-      width: '800px',
+      width: '1000px',
     });
     dialogRef.afterClosed().subscribe((result) => {
       this.pageService.createPage({
         title: result.title,
         url: result.url,
-        userId: this.userProfile?.id,
+        templateId: result.templateId,
       }).subscribe({
         next: () => {
           this.getPage();
         },
         error: (err) => {
-          this.notificationService.error('Page URL already exists');
+          this.notificationService.error('There was an error creating the page.');
         }
       }
       );
