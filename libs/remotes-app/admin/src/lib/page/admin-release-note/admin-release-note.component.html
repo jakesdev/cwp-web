@@ -1,12 +1,19 @@
-<h2 _ngcontent-usk-c76=""
-    mat-dialog-title=""
-    class="mat-mdc-dialog-title mdc-dialog__title font-bold text-gray-900 text-xl mb-2 mx-4 mt-3"
-    id="mat-mdc-dialog-title-0">Release Note Details</h2>
-<ckeditor [editor]="Editor"
-          #myEditor
-          (click)="onEditorReady($event)"></ckeditor>
-<button _ngcontent-usk-c76=""
-        mat-raised-button=""
-        color="primary"
-        class="flex justify-end ml-auto p-px px-4 py-2 mt-3 mr-3 text-sm font-medium leading-5 text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
-        (click)="submit()">Submit</button>
+<h2
+  class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl ml-3 my-3"
+>
+  Release Note Details
+</h2>
+<ckeditor
+  [editor]="Editor"
+  #myEditor
+  (click)="onEditorReady($event)"
+></ckeditor>
+<button
+  _ngcontent-usk-c76=""
+  mat-raised-button=""
+  color="primary"
+  class="flex justify-end ml-auto p-px px-4 py-2 mt-3 mr-3 text-sm font-medium leading-5 text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+  (click)="submit()"
+>
+  Submit
+</button>

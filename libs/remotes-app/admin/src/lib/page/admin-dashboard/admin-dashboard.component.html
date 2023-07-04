@@ -1,37 +1,52 @@
 <div class="relative w-100 h-100">
   <div class="z-10 top-0 p-4 container">
-
     <div class="stat-card p-4 shadow z-10">
       <div class="grid gap-4 xl:grid-cols-4 md:grid-cols-2">
-        <cwp-stat-card [iconUrl]="'https://img.icons8.com/color/96/null/circled-user-male-skin-type-7--v1.png'"
-                       [title]="'User'"
-                       [stat]="dataStatCard.userCount.toString()"></cwp-stat-card>
-        <cwp-stat-card [iconUrl]="'https://img.icons8.com/color/96/null/banknotes.png'"
-                       [title]="'Revenue'"
-                       [stat]="dataStatCard.transactionCount.toString()"></cwp-stat-card>
-        <cwp-stat-card [iconUrl]="'https://img.icons8.com/external-flaticons-flat-flat-icons/64/null/external-visitor-internet-marketing-service-flaticons-flat-flat-icons.png'"
-                       [title]="'Customer Support'"
-                       [stat]="dataStatCard.customerSupportCount.toString()"></cwp-stat-card>
-        <cwp-stat-card [iconUrl]="'https://img.icons8.com/external-filled-line-andi-nur-abdillah/64/null/external-Warning-cyber-security-(filled-line)-filled-line-andi-nur-abdillah.png'"
-                       [title]="'Pages Website'"
-                       [stat]="dataStatCard.pageCount.toString()"></cwp-stat-card>
+        <cwp-stat-card
+          [iconUrl]="
+            'https://img.icons8.com/color/96/null/circled-user-male-skin-type-7--v1.png'
+          "
+          [title]="'User'"
+          [stat]="dataStatCard.userCount.toString()"
+        ></cwp-stat-card>
+        <cwp-stat-card
+          [iconUrl]="'https://img.icons8.com/color/96/null/banknotes.png'"
+          [title]="'Revenue'"
+          [stat]="dataStatCard.transactionCount.toString()"
+        ></cwp-stat-card>
+        <cwp-stat-card
+          [iconUrl]="
+            'https://img.icons8.com/external-flaticons-flat-flat-icons/64/null/external-visitor-internet-marketing-service-flaticons-flat-flat-icons.png'
+          "
+          [title]="'Customer Support'"
+          [stat]="dataStatCard.customerSupportCount.toString()"
+        ></cwp-stat-card>
+        <cwp-stat-card
+          [iconUrl]="
+            'https://img.icons8.com/external-filled-line-andi-nur-abdillah/64/null/external-Warning-cyber-security-(filled-line)-filled-line-andi-nur-abdillah.png'
+          "
+          [title]="'Pages Website'"
+          [stat]="dataStatCard.pageCount.toString()"
+        ></cwp-stat-card>
       </div>
     </div>
 
     <!-- Line chart -->
     <div class="mt-4">
-      <h1>User Analytics</h1>
-      <canvas id="lineChart"
-              width="300"
-              height="200"></canvas>
+      <h2 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+        User Analytics
+      </h2>
+      <canvas id="lineChart" width="300" height="200"></canvas>
     </div>
     <div class="container">
-      <h1>Purchased Items</h1>
-      <canvas id="barChart"
-              width="300"
-              height="200"></canvas>
+      <h1></h1>
+      <h2
+        class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl mt-10"
+      >
+        Purchased Items
+      </h2>
+      <canvas id="barChart" width="300" height="200"></canvas>
     </div>
     <!-- Bar chart -->
-
   </div>
 </div>
