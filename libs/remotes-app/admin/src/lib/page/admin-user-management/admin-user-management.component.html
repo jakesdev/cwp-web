@@ -7,12 +7,15 @@
     <div>
       <div class="mt-1 md:flex sm:block rounded-md shadow-sm">
         <div class="relative flex flex-grow items-stretch focus-within:z-10">
-
-          <input type="searchField"
-                 name="searchField"
-                 id="searchField"
-                 class="block border w-full sm:rounded-none md:rounded-l-md border-gray-300 pl-4 pt-3 pb-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                 placeholder="Search user by email or brand name">
+          <input
+            type="searchField"
+            name="searchField"
+            id="searchField"
+            class="block border w-full sm:rounded-none md:rounded-l-md border-gray-300 pl-4 pt-3 pb-3 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            placeholder="Search user by email or brand name"
+            [(ngModel)]="searchFilter.searchKey"
+            (ngModelChange)="onSearch()"
+          />
           <!-- <ng-container *ngIf="searchKey.trim() !== ''">
             <button type="button"
                     class="absolute right-0 top-5 button-title-clear mr-2 flex items-center">
@@ -20,7 +23,6 @@
             </button>
           </ng-container> -->
         </div>
-
       </div>
     </div>
     <div class="table-container relative mt-4">
@@ -45,44 +47,50 @@
       <mp-paginator [pagination]="pagination"
                     (pageChange)="onChangePagination($event)"></mp-paginator> -->
       <div class="card">
-        <p-table [value]="customers"
-                 [paginator]="true"
-                 [rows]="5"
-                 [totalRecords]="pagination.itemCount!"
-                 [pageLinks]="pagination.pageCount!"
-                 [showCurrentPageReport]="true"
-                 [tableStyle]="{ 'min-width': '50rem' }"
-                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                 [rowsPerPageOptions]="[10, 25, 50]">
+        <p-table
+          [value]="customers"
+          [paginator]="true"
+          [rows]="5"
+          [totalRecords]="pagination.itemCount!"
+          [pageLinks]="pagination.pageCount!"
+          [showCurrentPageReport]="true"
+          [tableStyle]="{ 'min-width': '50rem' }"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          [rowsPerPageOptions]="[10, 25, 50]"
+        >
           <ng-template pTemplate="header">
             <tr>
-              <th style="width:25%">Email</th>
-              <th style="width:25%">User Url</th>
-              <th style="width:25%">Login Count</th>
-              <th style="width:25%">Followers</th>
+              <th style="width: 25%">Email</th>
+              <th style="width: 25%">User Url</th>
+              <th style="width: 25%">Login Count</th>
+              <th style="width: 25%">Followers</th>
             </tr>
           </ng-template>
-          <ng-template pTemplate="body"
-                       let-customer>
+          <ng-template pTemplate="body" let-customer>
             <tr>
               <td>{{ customer.email }}</td>
               <td>
-                <a [href]="webView + customer.url"
-                   target="_blank">{{ customer.url }}</a>
+                <a [href]="webView + customer.url" target="_blank">{{
+                  customer.url
+                }}</a>
               </td>
               <td>{{ customer.loginCount }}</td>
               <td>{{ customer.followers.length }}</td>
             </tr>
           </ng-template>
           <ng-template pTemplate="paginatorleft">
-            <p-button type="button"
-                      icon="pi pi-plus"
-                      styleClass="p-button-text"></p-button>
+            <p-button
+              type="button"
+              icon="pi pi-plus"
+              styleClass="p-button-text"
+            ></p-button>
           </ng-template>
           <ng-template pTemplate="paginatorright">
-            <p-button type="button"
-                      icon="pi pi-cloud"
-                      styleClass="p-button-text"></p-button>
+            <p-button
+              type="button"
+              icon="pi pi-cloud"
+              styleClass="p-button-text"
+            ></p-button>
           </ng-template>
         </p-table>
       </div>

@@ -15,6 +15,7 @@ export class AdminUserManagementComponent implements OnInit {
 
   searchFilter: TableFilterModel = {
     page: 1,
+    searchKey: 'test',
   };
 
   pagination: PaginationModel = {
@@ -26,18 +27,31 @@ export class AdminUserManagementComponent implements OnInit {
     page: 0,
   };
 
-  constructor(
-    private readonly adminService: AdminService
-  ) {}
+  constructor(private readonly adminService: AdminService) {}
 
   ngOnInit() {
     this.webView = environment.webView;
+    this.fetchUsers();
+  }
+  onSearch() {
+    this.searchFilter.page = 1;
+    this.fetchUsers();
+  }
+
+  onChangePagination(event: any) {
+    this.searchFilter.page = event.page + 1;
+    this.fetchUsers();
+  }
+
+  fetchUsers() {
     this.adminService.getUsers(this.searchFilter).subscribe((res: any) => {
       this.customers = res.data;
       this.pagination = {
-        take: res.meta.page * 10,
+        take: res.meta.page * res.meta.perPage,
         itemCount: res.meta.totalCount,
         pageCount: res.meta.totalPage,
+        hasPreviousPage: res.meta.page > 1,
+        hasNextPage: res.meta.page < res.meta.totalPage,
         page: res.meta.page,
       };
     });
