@@ -29,4 +29,8 @@ export class TransactionService {
   buyPlan(data: any) {
     return this.apiService.post<any>('transaction/buy-plan', data, true);
   }
+
+  getCurrentPlan() {
+    return this.apiService.get<any>('transaction/plan', true);
+  }
 }

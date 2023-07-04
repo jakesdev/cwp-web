@@ -28,30 +28,30 @@
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-      <a [routerLink]="['/features']"
-         class="text-sm font-semibold leading-6 text-white">Features</a>
-
+      <!-- <a [routerLink]="['/features']"
+         class="text-sm font-semibold leading-6 text-white">Features</a> -->
+      <ng-container *ngIf="userProfile">
+        <a [routerLink]="['/page']"
+           class="text-sm font-semibold leading-6 text-white">Page</a>
+      </ng-container>
       <a [routerLink]="['/marketplace']"
          class="text-sm font-semibold leading-6 text-white">Marketplace</a>
 
       <a [routerLink]="['/community']"
          class="text-sm font-semibold leading-6 text-white">Community</a>
-
+      <a [routerLink]="['/customer-support']"
+         class="text-sm font-semibold leading-6 text-white">Customer Support</a>
       <a [routerLink]="['/about-us']"
          class="text-sm font-semibold leading-6 text-white">About Us</a>
       <a [routerLink]="['/release-note']"
          class="text-sm font-semibold leading-6 text-white">Release Note</a>
 
-      <ng-container *ngIf="userProfile">
-        <a [routerLink]="['/page']"
-           class="text-sm font-semibold leading-6 text-white">Page</a>
-      </ng-container>
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <div *ngIf="isAuthenticated; else notAuthenticated"
            class="">
         <div class="ml-4 flex items-center md:ml-6">
-          <div class="dropdown relative">
+          <!-- <div class="dropdown relative">
             <button type="button"
                     id="notification"
                     data-toggle="dropdown"
@@ -71,14 +71,13 @@
               </svg>
             </button>
             <div class="absolute text-[10px] bg-red-500 text-white top-0 left-0 border-white border border-2px rounded-full w-[16px] h-[16px] flex justify-center items-center">
-              <!-- 1 -->
               12
             </div>
             <div class="dropdown-menu dropdown-menu-right absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                  aria-labelledby="notification">
               test notification
             </div>
-          </div>
+          </div> -->
 
           <!-- Profile dropdown -->
           <!--

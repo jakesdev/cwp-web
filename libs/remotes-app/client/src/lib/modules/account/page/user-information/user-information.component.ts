@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '@cwp/core/endpoint';
 import { UserProfileModel } from '@cwp/core/model/response';
-import { AuthService, LoaderService } from '@cwp/core/services';
+import { AuthService, LoaderService, TransactionService } from '@cwp/core/services';
 import { finalize } from 'rxjs';
 
 interface Font {
@@ -34,16 +34,28 @@ export class UserInformationPageComponent implements OnInit {
     { name: 'Font 5', sampleText: 'This is a sample text in Font 5' }
   ];
 
+  currentPlan: any;
   constructor(
     private authService: AuthService,
 
     private loaderService: LoaderService,
+
+    private transactionService: TransactionService
   ) {
   }
   ngOnInit(): void {
     this.authService.me().subscribe((res) => {
       this.userProfile = res;
       this.userUrl = res.url;
+    }
+    );
+
+    this.getCurrentPlan();
+  }
+
+  getCurrentPlan() {
+    this.transactionService.getCurrentPlan().subscribe((res) => {
+      this.currentPlan = res.data;
     }
     );
   }
