@@ -81,23 +81,26 @@
         </ul>
       </div>
 
-      <div class="rounded-3xl p-8 xl:p-10 bg-white/5 ring-2 ring-indigo-500">
+      <div *ngIf="popularPlan$ |
+                              async
+                              as
+                              popularPlan"
+           class="rounded-3xl p-8 xl:p-10 bg-white/5 ring-2 ring-indigo-500">
         <div class="flex items-center justify-between gap-x-4">
           <h3 id="tier-startup"
-              class="text-lg font-semibold leading-8 text-white">{{"Startup" | translate}}</h3>
+              class="text-lg font-semibold leading-8 text-white">{{
+                popularPlan?.name | translate}}</h3>
 
           <p class="rounded-full bg-indigo-500 py-1 px-2.5 text-xs font-semibold leading-5 text-white">{{"Most popular" | translate}}</p>
         </div>
-        <p class="mt-4 text-sm leading-6 text-gray-300">{{"A plan that scales with your rapidly growing business." | translate}}</p>
+        <p class="mt-4 text-sm leading-6 text-gray-300">{{ popularPlan?.description | translate}}</p>
         <p class="mt-6 flex items-baseline gap-x-1">
           <!-- Price, update based on frequency toggle state -->
-          <span class="text-4xl font-bold tracking-tight text-white">200.000đ</span>
-          <!-- Payment frequency, update based on frequency toggle state -->
-          <span class="text-sm font-semibold leading-6 text-gray-300">{{"/month" | translate}}</span>
+          <span class="text-4xl font-bold tracking-tight text-white">{{popularPlan?.price | currency:'VND'}}</span>
         </p>
-        <a href="#"
-           aria-describedby="tier-startup"
-           class="mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-500 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline-indigo-500">{{"Buy plan" | translate}}</a>
+        <div (click)="buyPlan(popularPlan)"
+             class="mt-6 z-20 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-500 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline-indigo-500">{{"Buy plan" | translate}}
+        </div>
         <ul role="list"
             class="mt-8 space-y-3 text-sm leading-6 text-gray-300 xl:mt-10">
           <li class="flex gap-x-3">

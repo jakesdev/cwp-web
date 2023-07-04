@@ -15,4 +15,8 @@ export class MarketPlaceService {
     return this.apiService.get<any>(`marketplaces/${id}`, true);
   }
 
+  getPlans() {
+    return this.apiService.get<any>('marketplaces/plan', true);
+  }
+
 }

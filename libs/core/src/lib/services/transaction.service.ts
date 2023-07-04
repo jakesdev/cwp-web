@@ -16,7 +16,10 @@ export class TransactionService {
   }
 
   createPayment(data: any) {
-    return this.apiService.post<any>('transaction/create-payment-url', data, true);
+    return this.apiService.post<any>('transaction/create-payment-url', {
+      productId: data._id,
+      quantity: data.price
+    }, true);
   }
 
   getPlan() {
