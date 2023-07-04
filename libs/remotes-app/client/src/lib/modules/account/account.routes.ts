@@ -1,5 +1,6 @@
 import { Route } from '@angular/router';
 import { ClientAccountComponent } from './account.component';
+import { PlanAndBillingPageComponent } from './page';
 import { FavoritesComponent } from './page/favorites/favorites.component';
 import { IntegrationComponentsPageComponent } from './page/integration-components/integration-components.component';
 import { PasswordComponent } from './page/password/password.component';
@@ -35,11 +36,11 @@ export const remotesAppAccountRoutes: Route[] = [
       {
         path: 'password',
         component: PasswordComponent,
+      },
+      {
+        path: 'plan',
+        component: PlanAndBillingPageComponent,
       }
-      // {
-      //   path:'plan-billing',
-      //   component: PlanAndBillingComponent,
-      // }
     ]
   }
 ];

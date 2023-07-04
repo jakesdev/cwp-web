@@ -33,7 +33,7 @@
                           r="1" />
                 </svg>
                 <div class="flex gap-x-2.5">
-                  <img [src]="post.userAvatarUrl"
+                  <img [src]="post.userAvatarUrl || 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y'"
                        class="h-6 w-6 flex-none rounded-full bg-white/10" />
                   {{ post.userEmail }}
                 </div>

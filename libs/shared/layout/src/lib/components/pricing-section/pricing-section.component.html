@@ -96,7 +96,7 @@
         <p class="mt-4 text-sm leading-6 text-gray-300">{{ popularPlan?.description | translate}}</p>
         <p class="mt-6 flex items-baseline gap-x-1">
           <!-- Price, update based on frequency toggle state -->
-          <span class="text-4xl font-bold tracking-tight text-white">{{popularPlan?.price | currency:'VND'}}</span>
+          <span class="text-4xl font-bold tracking-tight text-white">{{popularPlan?.price | currency:'USD'}}</span>
         </p>
         <div (click)="buyPlan(popularPlan)"
              class="mt-6 z-20 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-indigo-500 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline-indigo-500">{{"Buy plan" | translate}}
