@@ -47,7 +47,7 @@ export class MarketplacePageComponent implements OnInit {
               this.notificationService.success('You have successfully purchased this product');
             },
             error: (err) => {
-              this.notificationService.error('You already have this product');
+              this.notificationService.error(err.message);
             }
           })
           );
@@ -58,7 +58,7 @@ export class MarketplacePageComponent implements OnInit {
               window.location.href = res.data;
             },
             error: (err) => {
-              this.notificationService.error('You already have this product');
+              this.notificationService.error(err.message);
             }
           })
           );

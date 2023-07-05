@@ -7,7 +7,6 @@ import { API_URL } from '../environments/endpoint';
 import { HttpErrorResponse } from '../model/response-model';
 import { NotificationService } from './notification.service';
 
-// TODO: Quang doc API base service
 @Injectable()
 export class ApiService {
   constructor(
@@ -20,7 +19,7 @@ export class ApiService {
     return this.httpClient
       .get<T>(`${API_URL}/${url}`)
       .pipe(
-        catchError((res) => this.handleError(res.error, url, hideErrorMessage))
+        catchError((res) => this.handleError(res, url, hideErrorMessage))
       );
   }
 
@@ -32,15 +31,14 @@ export class ApiService {
     return this.httpClient
       .get<T>(`${API_URL}/${url}`, { params })
       .pipe(
-        catchError((res) => this.handleError(res.error, url, hideErrorMessage))
+        catchError((res) => this.handleError(res, url, hideErrorMessage))
       );
   }
 
   post<T>(url: string, data: any, hideErrorMessage?: boolean): Observable<T> {
     return this.httpClient.post<T>(`${API_URL}/${url}`, data).pipe(
-      catchError((res) => {
-        return this.handleError(res.error, url, hideErrorMessage);
-      })
+      catchError((res) =>
+        this.handleError(res, url, hideErrorMessage))
     );
   }
 
@@ -64,7 +62,7 @@ export class ApiService {
     return this.httpClient
       .patch<T>(`${API_URL}/${url}`, data)
       .pipe(
-        catchError((res) => this.handleError(res.error, url, hideErrorMessage))
+        catchError((res) => this.handleError(res, url, hideErrorMessage))
       );
   }
 
@@ -78,7 +76,7 @@ export class ApiService {
         body: data,
       })
       .pipe(
-        catchError((res) => this.handleError(res.error, url, hideErrorMessage))
+        catchError((res) => this.handleError(res, url, hideErrorMessage))
       );
   }
 
@@ -87,21 +85,23 @@ export class ApiService {
     requestUrl?: string,
     hideErrorMessage: boolean = true
   ) {
-    const errMessage = 'Error';
-    //
-    if (response.statusCode === 403) {
-      return throwError(response.messageCode);
-    }
-    //
-    if (response.statusCode === 500) {
-      return throwError(response);
-    }
 
+    const errMessage = 'Error';
     if (hideErrorMessage === false) {
       this.notificationService.error(errMessage);
     }
 
     // return an observable with a user-facing error message
-    return throwError(response?.error);
+    return throwError(() => new Error(this.formatString(response.error.message)));
+
+  }
+
+  formatString(str: string): string {
+    const words = str.toLowerCase().split('_');
+    const formattedWords = words.map((word) => {
+      const capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+      return capitalizedWord;
+    });
+    return formattedWords.join(' ');
   }
 }

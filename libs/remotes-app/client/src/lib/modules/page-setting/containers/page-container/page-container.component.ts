@@ -26,9 +26,9 @@ export class PageContainerComponent implements OnInit {
   userProfile!: UserProfileModel | null;
 
   pages: PageModel[] = [];
-
   urlSafe!: SafeResourceUrl;
 
+  limitsPage = 0;
   constructor(
     public dialog: MatDialog,
     private router: Router,
@@ -49,12 +49,16 @@ export class PageContainerComponent implements OnInit {
 
   getPage() {
     this.pageService.getAllPages().subscribe((res) => {
-      this.pages = res.data;
+      this.pages = res.data.page;
+      this.limitsPage = res.data.user.limitsPage;
     }
     );
   }
 
   openNewPage(): void {
+    if (this.limitsPage <= this.pages.length) return this.notificationService.error('You have reached the limit of pages'
+    );
+
     const dialogRef = this.dialog.open(PageCreateDialogComponent, {
       width: '1000px',
     });
@@ -68,7 +72,7 @@ export class PageContainerComponent implements OnInit {
           this.getPage();
         },
         error: (err) => {
-          this.notificationService.error('There was an error creating the page.');
+          this.notificationService.error(err.message);
         }
       }
       );

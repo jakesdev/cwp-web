@@ -221,7 +221,12 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       width: '1000px',
       data: this.page,
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().pipe(
+      finalize(() => {
+        this.loaderService.loading$.next(false);
+      }
+      )
+    ).subscribe(result => {
       this.loaderService.loading$.next(true);
       this.postService.createPost({
         pageId: this.page._id,
@@ -233,7 +238,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
         },
         error: (err) => {
           this.loaderService.loading$.next(false);
-          this.notificationService.error('This post is already published');
+          this.notificationService.error(err.message);
         }
       }
       );

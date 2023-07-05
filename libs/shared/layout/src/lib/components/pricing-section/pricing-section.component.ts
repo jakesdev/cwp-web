@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { MarketPlaceService, TransactionService } from '@cwp/core/services';
+import { MarketPlaceService, NotificationService, TransactionService } from '@cwp/core/services';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -9,7 +9,9 @@ import { BehaviorSubject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PricingSectionComponent implements OnInit {
-  constructor(private marketService: MarketPlaceService, private transactionService: TransactionService) {}
+  constructor(private marketService: MarketPlaceService, private transactionService: TransactionService,
+    private notificationService: NotificationService,
+  ) {}
 
   plans: any[] = [];
   popularPlan$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
@@ -27,9 +29,14 @@ export class PricingSectionComponent implements OnInit {
   }
 
   buyPlan(plan: any) {
-    this.transactionService.createPayment(plan).subscribe((res) => {
-      // open new tab
-      window.open(res.data, '_blank');
-    });
+    this.transactionService.createPayment(plan).subscribe({
+      next: (res) => {
+        window.location.href = res.data;
+      },
+      error: (err) => {
+        this.notificationService.error(err.message);
+      },
+    }
+    );
   }
 }

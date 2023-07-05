@@ -43,7 +43,7 @@ export class PasswordComponent implements OnInit {
           this.notificationService.success('Change password successfully');
         },
         error: (err) => {
-          this.notificationService.error('Change password failed');
+          this.notificationService.error(err.message);
         }
       });
   }

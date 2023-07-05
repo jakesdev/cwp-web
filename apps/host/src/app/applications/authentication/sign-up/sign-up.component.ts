@@ -10,13 +10,13 @@ import { Store } from '@ngrx/store';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
 })
-export class SignUpComponent implements OnInit{
+export class SignUpComponent implements OnInit {
   hide = true;
   isValidEmail = true;
   isValidPassword = true;
   isValidConfirmPassword = true;
 
-  isSamePassword= true;
+  isSamePassword = true;
 
   registerForm = new FormGroup({
     email: new FormControl('', [
@@ -87,8 +87,7 @@ export class SignUpComponent implements OnInit{
           this.router.navigate(['/auth/login']);
         },
         error: (err) => {
-          console.log(err);
-          this.notificationService.error( 'Sign up failed');
+          this.notificationService.error(err);
         }
       }
       );

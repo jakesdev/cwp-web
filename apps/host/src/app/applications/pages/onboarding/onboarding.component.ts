@@ -71,7 +71,7 @@ export class OnboardingPageComponent {
           }
         },
         error: (err) => {
-          this.notificationService.error('URL is already exist');
+          this.notificationService.error(err.message);
         }
       });
       //isExistUrl => return notification
