@@ -39,6 +39,7 @@ export class MarketplacePageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
       if (result !== false) {
 
         if (result.quantity === 0) {
@@ -53,7 +54,7 @@ export class MarketplacePageComponent implements OnInit {
           );
         }
         else {
-          this.transactionService.createPayment(result).subscribe(({
+          this.transactionService.createPaymentComponent(result).subscribe(({
             next: (res) => {
               window.location.href = res.data;
             },

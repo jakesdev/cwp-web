@@ -25,6 +25,14 @@ export class TransactionService {
     );
   }
 
+  createPaymentComponent(data: any) {
+    return this.apiService.post<any>(
+      'transaction/create-payment-url',
+      data,
+      true
+    );
+  }
+
   getPlan() {
     return this.apiService.get<any>('transaction/plan', true);
   }
