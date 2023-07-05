@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from '@cwp/core/endpoint';
 import { UserProfileModel } from '@cwp/core/model/response';
-import { AuthService, LoaderService, PostService } from '@cwp/core/services';
+import { AuthService, LoaderService, NotificationService, PostService } from '@cwp/core/services';
 
 @Component({
   selector: 'cwp-recent-post',
@@ -18,6 +18,8 @@ export class RecentPostComponent implements OnInit {
     private authService: AuthService,
 
     private loaderService: LoaderService,
+
+    private notificationService: NotificationService,
 
     public dialog: MatDialog,
   ) {}
@@ -68,10 +70,16 @@ export class RecentPostComponent implements OnInit {
   }
 
   onFollow(id: string) {
-    this.authService.followUser(id).subscribe((res: any) => {
-      this.loaderService.loading$.next(true);
-      this.getRandomUsers();
-      this.loaderService.loading$.next(false);
+    this.authService.followUser(id).subscribe({
+      next: (res) => {
+        const user = this.randomUsers.find((item) => item._id === id);
+        if (user) {
+          user.isFollow = !user.isFollow;
+        }
+      },
+      error: (err) => {
+        this.notificationService.error(err);
+      }
     });
   }
 

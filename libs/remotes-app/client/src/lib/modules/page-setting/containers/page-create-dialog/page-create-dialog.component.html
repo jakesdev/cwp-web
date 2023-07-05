@@ -3,10 +3,10 @@
   <p class="ml-8 mt-1 max-w-2xl text-sm leading-6 text-gray-600">
     Enter your page information.
   </p>
-  <div class="mt-10 space-y-8 pb-12 sm:space-y-0 sm:pb-0">
-    <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+  <div class="mt-2 space-y-2 pb-2 sm:space-y-0 sm:pb-0">
+    <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-2 sm:py-2">
       <label for="title"
-             class="ml-8 block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5">Title</label>
+             class="ml-8 block text-sm font-medium leading-6 text-gray-900">Title</label>
       <div class="mt-2 sm:col-span-2 sm:mt-0">
         <div class="">
           <input type="text"
@@ -21,9 +21,9 @@
       </div>
     </div>
 
-    <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+    <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-2 sm:py-2">
       <label for="url"
-             class="ml-8 block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5">Url</label>
+             class="ml-8 block text-sm font-medium leading-6 text-gray-900">Url</label>
       <div class="mt-2 sm:col-span-2 sm:mt-0">
         <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
           <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">{{userUrl}}/</span>
@@ -41,12 +41,12 @@
 
     <!-- lis template -->
     <ng-container *ngIf="templatePages && templatePages.length > 0; else emptyTemplate">
-      <div class="mx-auto mt-4 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <div class="mx-auto mt-2 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         <article *ngFor="let post of templatePages"
                  (click)="onSelectTemplate(post)"
                  class="relative cursor-pointer isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
           <iframe width="100%"
-                  height="580px"
+                  height="500px"
                   frameborder="0"
                   cellspacing="0"
                   scrolling="no"
@@ -88,7 +88,7 @@
       </main>
     </ng-template>
     <!-- button cancel and save-->
-    <div class="pt-5 mt-8 border-gray-200">
+    <div class="pt-3 border-gray-200">
       <div class="flex justify-end">
         <button type="button"
                 mat-dialog-close="false"

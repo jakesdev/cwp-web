@@ -61,6 +61,7 @@ export class PageContainerComponent implements OnInit {
 
     const dialogRef = this.dialog.open(PageCreateDialogComponent, {
       width: '1000px',
+
     });
     dialogRef.afterClosed().subscribe((result) => {
       this.pageService.createPage({
