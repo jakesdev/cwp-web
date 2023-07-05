@@ -40,7 +40,8 @@ export const remotesAppAccountRoutes: Route[] = [
       {
         path: 'plan',
         component: PlanAndBillingPageComponent,
-      }
+      },
+
     ]
   }
 ];

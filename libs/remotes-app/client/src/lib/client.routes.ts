@@ -40,4 +40,10 @@ export const remotesAppClientRoutes: Route[] = [
         (m) => m.ClientCustomerSupportModule
       ),
   },
+  {
+    path: 'payment',
+    canActivate: [HasLoggedInGuard, UserGuard],
+    loadChildren: () =>
+      import('./modules/payment/payment.module').then((m) => m.ClientPaymentModule),
+  },
 ];

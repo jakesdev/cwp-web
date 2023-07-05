@@ -4,9 +4,7 @@ import { RouterModule } from '@angular/router';
 import { remotesAppClientRoutes } from './client.routes';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(remotesAppClientRoutes),
-  ],
+  imports: [CommonModule, RouterModule.forChild(remotesAppClientRoutes)],
+  declarations: [],
 })
 export class RemotesAppClientModule {}
