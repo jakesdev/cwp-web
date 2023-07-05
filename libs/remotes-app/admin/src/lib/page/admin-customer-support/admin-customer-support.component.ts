@@ -34,6 +34,7 @@ export class AdminCustomerSupportComponent implements OnInit {
       .getCustomerSupport(this.searchFilter)
       .subscribe((res: any) => {
         this.tickets = res.data;
+        console.log(this.tickets);
         this.pagination = {
           take: res.meta.page * 10,
           itemCount: res.meta.totalCount,

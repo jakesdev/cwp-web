@@ -3,23 +3,26 @@ import { ApiService } from '.';
 
 @Injectable()
 export class TransactionService {
-  constructor(
-    private apiService: ApiService
-  ) {}
+  constructor(private apiService: ApiService) {}
 
   getTransactionList() {
     return this.apiService.get<any>('transaction', true);
   }
-
+  getHistory() {
+    return this.apiService.get<any>('transaction/history', true);
+  }
   createTransaction(data: any) {
     return this.apiService.post<any>('transaction', data, true);
   }
-
   createPayment(data: any) {
-    return this.apiService.post<any>('transaction/create-payment-url', {
-      productId: data._id,
-      quantity: data.price
-    }, true);
+    return this.apiService.post<any>(
+      'transaction/create-payment-url',
+      {
+        productId: data._id,
+        quantity: data.price,
+      },
+      true
+    );
   }
 
   getPlan() {
