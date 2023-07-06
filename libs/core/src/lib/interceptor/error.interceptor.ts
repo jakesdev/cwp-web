@@ -31,7 +31,6 @@ export class ErrorInterceptor implements HttpInterceptor {
                   Authorization: `Bearer ${token}`
                 }
               });
-              // TODO: call api auth me
               return next.handle(newRequest);
             })
           );

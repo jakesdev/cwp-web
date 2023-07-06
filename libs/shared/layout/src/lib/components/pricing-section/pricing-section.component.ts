@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { MarketPlaceService, NotificationService, TransactionService } from '@cwp/core/services';
+import { Router } from '@angular/router';
+import { UserProfileModel } from '@cwp/core/model/response';
+import { AuthService, MarketPlaceService, NotificationService, TransactionService } from '@cwp/core/services';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -9,13 +11,21 @@ import { BehaviorSubject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PricingSectionComponent implements OnInit {
-  constructor(private marketService: MarketPlaceService, private transactionService: TransactionService,
-    private notificationService: NotificationService,
-  ) {}
 
   plans: any[] = [];
+
+  userProfile!: UserProfileModel;
   popularPlan$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+
+  constructor(private marketService: MarketPlaceService, private transactionService: TransactionService,
+    private notificationService: NotificationService,
+
+    private authService: AuthService,
+
+    private router: Router) {}
+
   ngOnInit(): void {
+    this.userProfile = this.authService.currentUserValue?.user;
     this.getPlans();
   }
 
@@ -29,6 +39,7 @@ export class PricingSectionComponent implements OnInit {
   }
 
   buyPlan(plan: any) {
+    if(this.userProfile){
     this.transactionService.createPayment(plan).subscribe({
       next: (res) => {
         window.location.href = res.data;
@@ -38,5 +49,10 @@ export class PricingSectionComponent implements OnInit {
       },
     }
     );
+    }
+    else{
+      this.notificationService.error('Please login to buy plan');
+      this.router.navigate(['/auth/login']);
+    }
   }
 }

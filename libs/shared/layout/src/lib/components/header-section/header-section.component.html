@@ -39,8 +39,11 @@
 
       <a [routerLink]="['/community']"
          class="text-sm font-semibold leading-6 text-white">Community</a>
+      <ng-container *ngIf="userProfile">
       <a [routerLink]="['/customer-support']"
          class="text-sm font-semibold leading-6 text-white">Customer Support</a>
+      </ng-container>
+
       <a [routerLink]="['/about-us']"
          class="text-sm font-semibold leading-6 text-white">About Us</a>
       <a [routerLink]="['/release-note']"

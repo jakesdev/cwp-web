@@ -1,7 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { AuthService, NavigationService } from '../services';
+import { AuthService, NavigationService, NotificationService } from '../services';
 
 @Injectable()
 export class HasLoggedInGuard {
@@ -9,7 +9,8 @@ export class HasLoggedInGuard {
     private navigationService: NavigationService,
     private authService: AuthService,
 
-    private helper: JwtHelperService
+    private helper: JwtHelperService,
+    private notificationService: NotificationService
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -31,7 +32,7 @@ export class HasLoggedInGuard {
     // localStorage.removeItem('refreshToken');
     // return true;
     // }
-
+    this.notificationService.error('You need to login to access this page');
     this.navigationService.defaultPage();
     // not logged in so redirect to login page with the return url
     return true;
