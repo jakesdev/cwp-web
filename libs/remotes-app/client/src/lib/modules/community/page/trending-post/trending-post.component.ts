@@ -9,10 +9,17 @@ import { PostService } from '@cwp/core/services';
 })
 export class TrendingPostComponent implements OnInit {
   posts: any[] = [];
+
+  loaded = false;
+
   constructor(private postService: PostService) {}
 
   ngOnInit(): void {
     this.getPosts();
+  }
+  onLoad(e: any) {
+    console.log(e);
+    this.loaded = true;
   }
 
   getPosts() {

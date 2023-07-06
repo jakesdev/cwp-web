@@ -16,14 +16,14 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { StatCardComponent } from './containers/stat-card/stat-card.component';
+import { TicketCreationPopupComponent } from './containers/ticket-creation-popup/ticket-creation-popup.component';
 import { AdminCustomerSupportComponent } from './page/admin-customer-support/admin-customer-support.component';
 import { AdminDashboardComponent } from './page/admin-dashboard/admin-dashboard.component';
+import { AdminMarketplaceComponent } from './page/admin-marketplace/admin-marketplace.component';
 import { AdminReleaseNotePageComponent } from './page/admin-release-note/admin-release-note.component';
 import { AdminUserManagementComponent } from './page/admin-user-management/admin-user-management.component';
 import { RemotesAppAdminComponent } from './remotes-app-admin.component';
 import { remotesAppAdminRoute } from './remotes-app-admin.routes';
-import { TicketCreationPopupComponent } from './containers/ticket-creation-popup/ticket-creation-popup.component';
-import { AdminMarketplaceComponent } from './page/admin-marketplace/admin-marketplace.component';
 @NgModule({
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AppLayoutModule } from '@cwp/shared/layout';
+import { AppLayoutModule, ModelLayoutModule } from '@cwp/shared/layout';
 import { ComponentDetailComponent } from './container/component-detail/component-detail.component';
 import { ClientMarketplaceComponent } from './marketplace.component';
 import { remotesAppMarketplaceRoutes } from './marketplace.routes';
@@ -10,11 +10,6 @@ import { MarketplacePageComponent } from './page/marketplace/marketplace.compone
 import { PaymentPageComponent } from './page/payment/payment.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AppLayoutModule,
-    RouterModule.forChild(remotesAppMarketplaceRoutes),
-  ],
   declarations: [
     ClientMarketplaceComponent,
     MarketplacePageComponent,
@@ -23,5 +18,11 @@ import { PaymentPageComponent } from './page/payment/payment.component';
     MarketplaceDialogComponent,
   ],
   exports: [ClientMarketplaceComponent, MarketplacePageComponent],
+  imports: [
+    CommonModule,
+    AppLayoutModule,
+    RouterModule.forChild(remotesAppMarketplaceRoutes),
+    ModelLayoutModule
+  ]
 })
 export class ClientMarketplaceModule {}

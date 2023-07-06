@@ -124,13 +124,35 @@
                 <div class="mt-2 space-y-4 text-sm text-gray-700 relative">
                   <div class="w-full h-full flex flex-col z-50">
                     <p>{{ item.content }}</p>
+                    <!-- iframe is loading -->
+                    <ng-container *ngIf="!loaded">
+                      <div class="absolute inset-0 z-40 flex items-center justify-center">
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-gray-900"
+                             xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24">
+                          <circle class="opacity-25"
+                                  cx="12"
+                                  cy="12"
+                                  r="10"
+                                  stroke="currentColor"
+                                  stroke-width="4"></circle>
+                          <path class="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                        </svg>
+                      </div>
+                    </ng-container>
                     <iframe width="100%"
                             height="580px"
                             frameborder="0"
                             cellspacing="0"
                             scrolling="no"
+                            loading="lazy"
                             style="pointer-events: none; overflow: hidden"
+                            (load)="onLoad($event)"
                             [src]="item.pageUrl | safe"></iframe>
+                    <!-- </ng-template> -->
                     <span (click)="openPreview(item.pageUrl)"
                           class="absolute bottom-0 right-0 z-10 rounded-full cursor-pointer m-2 px-3 py-1.5 font-medium text-white bg-indigo-600 hover:bg-indigo-800">
                       Preview
@@ -213,7 +235,7 @@
                                 (click)="onFollow(item._id)"
                                 class="inline-flex items-center gap-x-1.5 text-sm font-semibold leading-6 text-gray-900
                                 focus:outline-none">
-                          <ng-container *ngIf="item.isFollow;else notFollow">
+                          <ng-container *ngIf="item.followers.includes(user._id) || item.isFollow; else notFollow">
                             <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
                               Unfollow
                             </span>

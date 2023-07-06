@@ -13,6 +13,11 @@ export class RecentPostComponent implements OnInit {
   data: any[] = [];
 
   randomUsers: any[] = [];
+
+  user!: UserProfileModel;
+
+  loaded = false;
+
   constructor(
     private postService: PostService,
     private authService: AuthService,
@@ -24,18 +29,20 @@ export class RecentPostComponent implements OnInit {
     public dialog: MatDialog,
   ) {}
 
-  user!: UserProfileModel;
   ngOnInit(): void {
     this.authService.currentUserSubject.subscribe({
       next: (res) => {
         this.user = res.user;
-        console.log(this.user);
       },
     });
     this.getPosts();
     this.getRandomUsers();
   }
 
+  onLoad(e: any) {
+    console.log(e);
+    this.loaded = true;
+  }
   getPosts() {
     this.postService.getPosts(1).subscribe((res) => {
       this.data = res.data.map((item: any) => {

@@ -5,7 +5,7 @@ import { MarketPlaceService } from '@cwp/core/services';
 @Component({
   selector: 'cwp-marketplace-dialog',
   templateUrl: './marketplace-dialog.component.html',
-  styleUrls: ['./marketplace-dialog.component.css'],
+  styleUrls: ['./marketplace-dialog.component.scss'],
 })
 export class MarketplaceDialogComponent implements OnInit {
 

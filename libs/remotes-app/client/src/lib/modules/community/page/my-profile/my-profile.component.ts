@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '@cwp/core/endpoint';
@@ -11,7 +11,7 @@ import { ConfirmPopupComponent } from '@cwp/shared/theme';
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss'],
 })
-export class MyProfileComponent {
+export class MyProfileComponent implements OnInit {
   posts: any[] = [];
   userId!: string;
   userProfile: UserProfileModel = {
@@ -21,6 +21,8 @@ export class MyProfileComponent {
     role: '',
     isFinishedTutorial: false
   };
+
+  loaded = false;
 
   constructor(
     private router: ActivatedRoute,
@@ -34,6 +36,11 @@ export class MyProfileComponent {
   ngOnInit(): void {
     this.getUserProfile();
     this.getPosts(this.userProfile._id || '');
+  }
+
+  onLoad(e: any) {
+    console.log(e);
+    this.loaded = true;
   }
 
   getUserProfile() {

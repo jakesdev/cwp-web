@@ -27,6 +27,8 @@ export class UserProfileComponent implements OnInit {
     isFinishedTutorial: false
   };
 
+  currentUser = this.authService.currentUserValue.user;
+
   selectedFollowTab = null;
 
   FollowList = {
@@ -40,6 +42,7 @@ export class UserProfileComponent implements OnInit {
   followList: any[] = [];
   detailFollowVisible = false;
 
+  loaded = false;
   constructor(
     private router: ActivatedRoute,
     private postService: PostService,
@@ -53,7 +56,6 @@ export class UserProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.authService.currentUserValue.user._id);
     this.router.params.subscribe((params) => {
       this.userId = params['id'];
       if (this.userId) {
@@ -61,6 +63,11 @@ export class UserProfileComponent implements OnInit {
         this.getPosts(this.userId);
       }
     });
+  }
+
+  onLoad(e: any) {
+    console.log(e);
+    this.loaded = true;
   }
 
   getUserProfile(userId: string) {

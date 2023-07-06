@@ -35,6 +35,7 @@ export class MarketplacePageComponent implements OnInit {
   openDetailMarketPlace(id: string) {
     const dialogRef = this.dialog.open(MarketplaceDialogComponent, {
       width: '1000px',
+      maxHeight: '90vh',
       data: { id: id },
     });
 

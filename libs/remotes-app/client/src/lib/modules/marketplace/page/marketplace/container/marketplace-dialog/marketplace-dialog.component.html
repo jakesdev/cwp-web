@@ -1,92 +1,54 @@
-<div class="relative z-10"
-     role="dialog"
-     aria-modal="true">
-  <!--
-    Background backdrop, show/hide based on modal state.
+<!-- Detail of Product sticky top -->
+<div class="flex flex-row-reverse sticky top-0 z-20 pt-2 pb-2 bg-gray-200">
+  <i class="fa-solid fa-xmark close px-2 py-2"
+     (click)="onClose()"></i>
+  <div class="flex justify-center w-full ml-24">
+    <p class="text-2xl font-bold text-gray-900 sm:pr-12 ">Detail of Product</p>
+  </div>
+</div>
+<div class="relative w-full overflow-auto items-center bg-gray-200 p-4">
+  <div class="rounded-lg w-full bg-gray-200 sm:col-span-4 lg:col-span-5">
+    <img src="{{marketPlace.preview}}"
+         alt="Two each of gray, white, and black shirts arranged on table."
+         class="object-contain object-center m-auto h-80">
+  </div>
+  <div class="w-full items-start gap-x-6 gap-y-8 sm: lg:gap-x-8">
 
-    Entering: "ease-out duration-300"
-      From: "opacity-0"
-      To: "opacity-100"
-    Leaving: "ease-in duration-200"
-      From: "opacity-100"
-      To: "opacity-0"
-  -->
-  <div class="fixed inset-0 hidden bg-gray-500 bg-opacity-75 transition-opacity md:block"></div>
+    <div class="mt-2">
+      <h2 class="text-2xl font-bold text-gray-900 sm:pr-12">{{marketPlace.name}}</h2>
 
-  <div class="fixed inset-0 z-10 overflow-y-auto">
-    <div class="flex min-h-full items-stretch justify-center text-center md:items-center md:px-2 lg:px-4">
-      <!--
-        Modal panel, show/hide based on modal state.
+      <section aria-labelledby="information-heading"
+               class="mt-2">
+        <h3 id="information-heading"
+            class="sr-only">Product information</h3>
+        <ng-container *ngIf="marketPlace.price > 0">
+          <p class="text-2xl text-blue-500">{{marketPlace.price | currency}}</p>
+        </ng-container>
+        <ng-container *ngIf="marketPlace.price === 0">
+          <p class="text-2xl text-blue-500">Free</p>
+        </ng-container>
+      </section>
 
-        Entering: "ease-out duration-300"
-          From: "opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
-          To: "opacity-100 translate-y-0 md:scale-100"
-        Leaving: "ease-in duration-200"
-          From: "opacity-100 translate-y-0 md:scale-100"
-          To: "opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
-      -->
-      <div class="flex w-full transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-4xl">
-        <div class="relative flex w-full items-center overflow-hidden bg-white px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
-          <button type="button"
-                  (click)="onClose()"
-                  class="absolute right-4 top-4 text-gray-400 hover:text-gray-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8">
-            <span class="sr-only">Close</span>
-            <svg class="h-6 w-6"
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke-width="1.5"
-                 stroke="currentColor"
-                 aria-hidden="true">
-              <path stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+      <!-- description -->
+      <section aria-labelledby="description-heading"
+               class="mt-2">
+        <h3 id="description-heading"
+            class="sr-only">Description</h3>
 
-          <div class="grid w-full grid-cols-2 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
-            <div class="aspect-h-3 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
-              <img src="https://picsum.photos/400/500"
-                   alt="Two each of gray, white, and black shirts arranged on table."
-                   class="object-cover object-center">
-            </div>
-            <div class="sm:col-span-8 lg:col-span-7">
-              <h2 class="text-2xl font-bold text-gray-900 sm:pr-12">{{marketPlace.name}}</h2>
-
-              <section aria-labelledby="information-heading"
-                       class="mt-2">
-                <h3 id="information-heading"
-                    class="sr-only">Product information</h3>
-
-                <p class="text-2xl text-blue-500">{{marketPlace.price | currency}}</p>
-              </section>
-
-              <!-- description -->
-              <section aria-labelledby="description-heading"
-                       class="mt-6">
-                <h3 id="description-heading"
-                    class="sr-only">Description</h3>
-
-                <div class="text-base text-gray-700 space-y-6">
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, laudantium! Dignissimos delectus, nostrum iure omnis nam accusamus quisquam laudantium molestias error. Velit impedit nemo dolorum quisquam vitae et maxime natus.</p>
-                </div>
-              </section>
-
-
-              <section aria-labelledby="options-heading"
-                       class="mt-10">
-                <h3 id="options-heading"
-                    class="sr-only">Product options</h3>
-
-                <form>
-                  <button type="button"
-                          (click)="onClick()"
-                          class="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add to bag</button>
-                </form>
-              </section>
-            </div>
-          </div>
+        <div class="text-base text-gray-700 space-y-6">
+          <p>{{marketPlace.description}}</p>
         </div>
-      </div>
+      </section>
+      <section aria-labelledby="options-heading"
+               class="mt-10">
+        <h3 id="options-heading"
+            class="sr-only">Product options</h3>
+        <form>
+          <button type="button"
+                  (click)="onClick()"
+                  class="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add to bag</button>
+        </form>
+      </section>
     </div>
   </div>
 </div>

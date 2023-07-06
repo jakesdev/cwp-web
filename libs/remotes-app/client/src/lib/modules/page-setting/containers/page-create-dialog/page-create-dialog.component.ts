@@ -28,6 +28,8 @@ export class PageCreateDialogComponent implements OnInit {
   webView = environment.webView;
   selectedTemplate: any;
 
+  loaded = false;
+
   constructor(
     public dialogRef: MatDialogRef<PageCreateDialogComponent>,
     public dialog: MatDialog,
@@ -38,6 +40,11 @@ export class PageCreateDialogComponent implements OnInit {
   ngOnInit(): void {
     this.getTemplatePages();
     this.userUrl = this.authService.currentUserValue.user.url || '';
+  }
+
+  onLoad(e: any) {
+    console.log(e);
+    this.loaded = true;
   }
 
   getTemplatePages() {

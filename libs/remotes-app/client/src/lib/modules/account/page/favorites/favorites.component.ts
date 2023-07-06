@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { environment } from '@cwp/core/endpoint';
 import { PostService } from '@cwp/core/services';
 
@@ -7,12 +7,19 @@ import { PostService } from '@cwp/core/services';
   templateUrl: './favorites.component.html',
   styleUrls: ['./favorites.component.scss'],
 })
-export class FavoritesComponent {
+export class FavoritesComponent implements OnInit {
   posts: any[] = [];
+
+  loaded = false;
   constructor(private postService: PostService) {}
 
   ngOnInit(): void {
     this.getPosts();
+  }
+
+  onLoad(e: any) {
+    console.log(e);
+    this.loaded = true;
   }
 
   getPosts() {

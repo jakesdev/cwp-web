@@ -29,6 +29,8 @@ export class PageContainerComponent implements OnInit {
   urlSafe!: SafeResourceUrl;
 
   limitsPage = 0;
+
+  loaded = false;
   constructor(
     public dialog: MatDialog,
     private router: Router,
@@ -44,7 +46,11 @@ export class PageContainerComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getPage();
+  }
 
+  onLoad(e: any) {
+    console.log(e);
+    this.loaded = true;
   }
 
   getPage() {
