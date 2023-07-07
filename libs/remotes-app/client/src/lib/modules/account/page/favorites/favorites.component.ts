@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '@cwp/core/endpoint';
-import { PostService } from '@cwp/core/services';
+import { LoaderService, PostService } from '@cwp/core/services';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'cwp-favorites',
@@ -11,7 +12,10 @@ export class FavoritesComponent implements OnInit {
   posts: any[] = [];
 
   loaded = false;
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private loaderService: LoaderService
+  ) {}
 
   ngOnInit(): void {
     this.getPosts();
@@ -23,7 +27,13 @@ export class FavoritesComponent implements OnInit {
   }
 
   getPosts() {
-    this.postService.getFavorites().subscribe((res) => {
+    this.loaderService.loading$.next(true);
+    this.postService.getFavorites().pipe(
+      finalize(() => {
+        this.loaderService.loading$.next(false);
+      }
+      )
+    ).subscribe((res) => {
       this.posts = res.data;
     });
   }

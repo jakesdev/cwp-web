@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TransactionService } from '@cwp/core/services';
+import { LoaderService, TransactionService } from '@cwp/core/services';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'cwp-client-account-plan-and-billing-page',
@@ -7,14 +8,23 @@ import { TransactionService } from '@cwp/core/services';
   styleUrls: ['./plan-and-billing.component.scss'],
 })
 export class PlanAndBillingPageComponent implements OnInit {
-  constructor(private transactionService: TransactionService) {}
+  constructor(
+    private transactionService: TransactionService,
+    private loaderService: LoaderService
+  ) {}
   transactionList: any[] = [];
   ngOnInit(): void {
     this.getTransactions();
   }
 
   getTransactions() {
-    this.transactionService.getTransactionList().subscribe((res) => {
+    this.loaderService.loading$.next(true);
+    this.transactionService.getTransactionList().pipe(
+      finalize(() => {
+        this.loaderService.loading$.next(false);
+      }
+      )
+    ).subscribe((res) => {
       this.transactionList = res.data;
     });
   }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '@cwp/core/endpoint';
 import { UserProfileModel } from '@cwp/core/model/response';
 import { AuthService, LoaderService, TransactionService } from '@cwp/core/services';
-import { finalize } from 'rxjs';
+import { finalize, forkJoin } from 'rxjs';
 
 interface Font {
   name: string;
@@ -44,20 +44,28 @@ export class UserInformationPageComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-    this.authService.me().subscribe((res) => {
-      this.userProfile = res;
-      this.userUrl = res.url;
-    }
+    this.loaderService.loading$.next(true);
+    forkJoin([this.getUserProfile(), this.getCurrentPlan()]).pipe(
+      finalize(() => {
+        this.loaderService.loading$.next(false);
+      }
+      )
+    ).subscribe(
+      (res) => {
+        this.userProfile = res[0];
+        this.currentPlan = res[1].data;
+        this.userUrl = res[0].url;
+        console.log(res);
+      }
     );
+  }
 
-    this.getCurrentPlan();
+  getUserProfile(){
+    return this.authService.me()
   }
 
   getCurrentPlan() {
-    this.transactionService.getCurrentPlan().subscribe((res) => {
-      this.currentPlan = res.data;
-    }
-    );
+    return this.transactionService.getCurrentPlan()
   }
 
   selectFont(font: Font) {
