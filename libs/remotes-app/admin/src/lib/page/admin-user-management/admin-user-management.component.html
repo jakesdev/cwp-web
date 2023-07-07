@@ -14,36 +14,10 @@
                  placeholder="Search user by email or brand name"
                  [(ngModel)]="searchFilter.searchKey"
                  (ngModelChange)="onSearch($event)" />
-          <!-- <ng-container *ngIf="searchKey.trim() !== ''">
-            <button type="button"
-                    class="absolute right-0 top-5 button-title-clear mr-2 flex items-center">
-              <i class="fa-duotone fa-circle-xmark"></i>
-            </button>
-          </ng-container> -->
         </div>
       </div>
     </div>
     <div class="table-container relative mt-4">
-      <!-- <mp-loading [position]="'middle'"
-                  *ngIf="$searchLoading"></mp-loading>
-      <mp-skeleton-loading-table *ngIf="$isLoading; else loaded"
-                                 [totalNumberOfRows]="skeletonRow"
-                                 [columns]="userColumnsConfig"></mp-skeleton-loading-table> -->
-      <!-- <ng-template #loaded>
-        <mp-table [columnsConfig]="userColumnsConfig"
-                  [data]="userList"
-                  [editMode]="true"
-                  [isSelection]="true"
-                  [selectedRows]="selectedUsers"
-                  (selectionChange)="onSelectionChanged($event)"
-                  (sortChanged)="onSortChanged($event)"
-                  (clickedRow)="onClickedRow($event)"
-                  (openMessage)="onOpenMessage($event)"
-                  (removed)="openConfirmDialog($event)"
-                  (clickUrl)="onClickUrl($event)"></mp-table>
-      </ng-template>
-      <mp-paginator [pagination]="pagination"
-                    (pageChange)="onChangePagination($event)"></mp-paginator> -->
       <div class="card">
         <p-table [value]="customers"
                  [paginator]="true"

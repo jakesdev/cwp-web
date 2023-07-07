@@ -26,4 +26,20 @@ export class AdminService {
   getTransactionByMonth() {
     return this.apiService.get<any>('transaction/by-month');
   }
+
+  getReleaseNotes() {
+    return this.apiService.get<any>('release-notes');
+  }
+
+  createReleaseNotes(data: any) {
+    return this.apiService.post<any>('release-notes', data);
+  }
+
+  updateReleaseNotes(data: any) {
+    return this.apiService.update<any>('release-notes', data);
+  }
+
+  deleteReleaseNotes(id: any) {
+    return this.apiService.delete<any>('release-notes/' + id);
+  }
 }

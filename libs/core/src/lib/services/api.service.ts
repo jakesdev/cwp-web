@@ -91,6 +91,10 @@ export class ApiService {
       this.notificationService.error(errMessage);
     }
 
+    // if (response.status === 401) {
+    //   this.router.navigate(['/auth/login']);
+    // }
+
     // return an observable with a user-facing error message
     return throwError(() => new Error(this.formatString(response.error.message)));
 

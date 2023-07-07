@@ -8,8 +8,8 @@ export class TransactionService {
   getTransactionList() {
     return this.apiService.get<any>('transaction', true);
   }
-  getHistory() {
-    return this.apiService.get<any>('transaction/history', true);
+  getHistory(options: any) {
+    return this.apiService.getWithOptions<any>('transaction/history', options, true);
   }
   createTransaction(data: any) {
     return this.apiService.post<any>('transaction', data, true);

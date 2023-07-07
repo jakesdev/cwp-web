@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
 import { RouterModule } from '@angular/router';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { NoSanitizePipe } from '@cwp/core/pipe';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { StatCardComponent } from './containers/stat-card/stat-card.component';
@@ -42,6 +43,7 @@ import { remotesAppAdminRoute } from './remotes-app-admin.routes';
     ButtonModule,
     FormsModule,
     CKEditorModule,
+    NoSanitizePipe,
     RouterModule.forChild(remotesAppAdminRoute),
   ],
   declarations: [

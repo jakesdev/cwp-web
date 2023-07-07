@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PaginationModel, TableFilterModel } from '@cwp/core/model/request';
 import { TransactionService } from '@cwp/core/services';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { debounceTime, Subject } from 'rxjs';
 
 @Component({
   selector: 'cwp-admin-marketplace',
@@ -10,6 +11,10 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 })
 export class AdminMarketplaceComponent implements OnInit {
   transactions!: any[];
+  searchFilter: TableFilterModel = {
+    page: 1,
+  };
+
   pagination: PaginationModel = {
     take: 0,
     itemCount: 0,
@@ -18,13 +23,38 @@ export class AdminMarketplaceComponent implements OnInit {
     hasNextPage: true,
     page: 0,
   };
+
+  private debounceSubject: Subject<any> = new Subject<any>();
+
   constructor(
     private readonly transactionService: TransactionService,
     private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.transactionService.getHistory().subscribe((res) => {
+    this.getHistory(this.searchFilter);
+    this.debounceSubject
+      .pipe(debounceTime(500))
+      .subscribe(() => {
+        this.getHistory(this.searchFilter);
+      });
+  }
+
+  onSearch(e: any) {
+    if (e === '') {
+      // remove search key
+      delete this.searchFilter.searchKey;
+    }
+    else {
+      this.searchFilter.searchKey = e;
+    }
+
+    // Emit a value into debounceSubject to trigger the debounce
+    this.debounceSubject.next(this.searchFilter);
+  }
+
+  getHistory(searchFilter: TableFilterModel) {
+    this.transactionService.getHistory(searchFilter).subscribe((res) => {
       this.transactions = res.data;
       console.log(this.transactions);
 
@@ -36,6 +66,16 @@ export class AdminMarketplaceComponent implements OnInit {
       };
     });
   }
+
+  formatString(str:string) {
+  // Replace underscores with spaces
+  let formattedStr = str.replace(/_/g, ' ').toLowerCase();
+
+  // Capitalize the first letter of each word
+  formattedStr = formattedStr.replace(/\b\w/g, match => match.toUpperCase());
+
+  return formattedStr;
+}
   // openDialog() {
   //   const dialogConfig = new MatDialogConfig();
 

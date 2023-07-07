@@ -1,44 +1,22 @@
 <cwp-header-section [bgGray]="true"></cwp-header-section>
 <div class="bg-white py-24 md:py-32 lg:py-40">
-  <div
-    class="mx-auto grid max-w-7xl grid-cols-1 gap-y-20 gap-x-8 px-6 lg:px-8 xl:grid-cols-3"
-  >
+  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-y-20 gap-x-8 px-6 lg:px-8 xl:grid-cols-3"
+       *ngFor="let item of releaseNotes; let i = index">
     <div class="mx-auto max-w-2xl lg:mx-0">
       <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         Release Note
       </h1>
       <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-        30/04/2023
+        {{item.createdAt | date:'mediumDate'}}
       </h1>
       <!-- <p class="mt-6 text-lg leading-8 text-gray-600">We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our clients.</p> -->
     </div>
-    <ul
-      role="list"
-      class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-2"
-    >
+    <ul role="list"
+        class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-2">
       <li>
-        <h2 class="font-bold">Updated</h2>
-        <p class="mt-2">• Update Marketplaces</p>
-        <p class="mt-2">• Upgrade application performances</p>
-      </li>
-      <li>
-        <h2 class="font-bold">What News</h2>
-        <h5 class="mt-5 font-semibold">New Feature</h5>
-        <p class="mt-2">• Page Navigation</p>
-        <p class="mt-2">• Account Setting Feature</p>
-        <p class="mt-2">• Purchasing Component</p>
-        <p class="mt-2">• Customer Support Feature</p>
-        <h5 class="mt-5 font-semibold">New Component</h5>
-        <p class="mt-2">• UI Header 1</p>
-        <p class="mt-2">• UI Header 2</p>
-        <p class="mt-2">• UI Category</p>
-        <p class="mt-2">• UI Section</p>
-        <p class="mt-2">• UI Footer 1</p>
-      </li>
-      <li>
-        <h2 class="font-bold">Bug Fixing</h2>
-        <p class="mt-2">• Registration Bug</p>
-        <p class="mt-2">• UI Minor Bug</p>
+        <div class="bg-white px-2 py-5 sm:px-6 flex justify-center">
+          <div [innerHTML]="item.text | noSanitize"></div>
+        </div>
       </li>
       <!-- <li>
         <h2 class="font-bold">Contribution</h2>
