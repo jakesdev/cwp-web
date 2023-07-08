@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerSupportService } from '@cwp/core/services';
+import { RepliesComponentComponent } from '../../containers/replies-component/replies-component.component';
 import { TicketCreationPopupComponent } from '../../containers/ticket-creation-popup/ticket-creation-popup.component';
 
 @Component({
@@ -53,6 +54,22 @@ export class CustomerSupportPageComponent implements OnInit {
       }
     }
     );
+  }
 
+  openReplies(id: string) {
+    const dialogRef = this.dialog.open(RepliesComponentComponent, {
+      width: '800px',
+      autoFocus: true,
+      data: {
+        title: {
+          text: 'Ticket Replies',
+        },
+        content: {
+          text: 'Please describe your issue below',
+        },
+        id: id,
+        replies: this.customerTickets.find((ticket) => ticket._id === id).replies,
+      }
+    });
   }
 }

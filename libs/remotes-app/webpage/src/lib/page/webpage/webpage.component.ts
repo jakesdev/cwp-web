@@ -58,6 +58,7 @@ export class WebpageComponent implements OnInit {
       this.pageService.getPageBySlug(params).subscribe({
         next: (res) => {
           this.items = res.data.page.components;
+          this.favIcon.href = res.data.user.avatarUrl;
           this.title.setTitle(res.data.page.title);
         },
         error: (err) => {

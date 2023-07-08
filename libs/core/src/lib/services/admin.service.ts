@@ -15,6 +15,10 @@ export class AdminService {
     return this.apiService.getWithOptions<any>('customer-support/admin/all', options);
   }
 
+  replyCustomerSupport(id: string, data: any) {
+    return this.apiService.post<any>('customer-support/admin/' + id, data);
+  }
+
   getStatCard() {
     return this.apiService.get<any>('users/stat-card');
   }

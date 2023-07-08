@@ -8,8 +8,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class TicketCreationPopupComponent {
 
-  title = '';
-
   content = '';
 
   constructor(
@@ -18,6 +16,6 @@ export class TicketCreationPopupComponent {
     public dialogRef: MatDialogRef<TicketCreationPopupComponent>
   ) {}
   onSubmit() {
-    this.dialogRef.close();
+    this.dialogRef.close(this.content);
   }
 }

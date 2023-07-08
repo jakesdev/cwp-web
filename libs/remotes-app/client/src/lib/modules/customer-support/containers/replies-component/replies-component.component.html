@@ -1,0 +1,53 @@
+<h2 mat-dialog-title
+    class="text-indigo-600 text-xl font-bold {{ data.title.color }}">
+  {{ data.title.text }}
+</h2>
+<!-- list replies -->
+<div mat-dialog-content>
+  <ul role="list"
+      class="divide-y divide-gray-200">
+    <li class="py-4"
+        *ngIf="data.replies.length === 0">
+      <div class="flex space-x-3">
+        <div class="flex-shrink-0">
+          <img class="h-6 w-6 rounded-full"
+               src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
+               alt="">
+        </div>
+        <div class="min-w-0 flex-1">
+          <p class="text-sm font-medium text-gray-900">
+            No replies yet
+          </p>
+        </div>
+      </div>
+    </li>
+    <li class="py-4"
+        *ngFor="let reply of data.replies">
+      <div class="flex space-x-3">
+        <div class="flex-shrink-0">
+          <img class="h-6 w-6 rounded-full"
+               src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
+               alt="">
+        </div>
+        <div class="min-w-0 flex-1">
+          <p class="text-sm font-medium text-gray-900">
+            {{ reply.message }}
+          </p>
+          <p class="text-sm text-gray-500">
+            {{ reply.createdAt | date:'medium' }}
+          </p>
+        </div>
+      </div>
+  </ul>
+  <!-- close button -->
+  <div mat-dialog-actions
+       class="flex justify-end">
+    <div class="ml-auto">
+      <button mat-button
+              [mat-dialog-close]="true"
+              class="px-4 py-2 text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
