@@ -3,10 +3,12 @@
                            [ngSwitch]="item.type">
                 <cwp-header-1-ui *ngSwitchCase="'header-1'"
                                  [disabledTagA]="false"
+                                 [logo]="logo || './assets/shared/images/logo_white.png'"
                                  [data]="item.option"></cwp-header-1-ui>
                 <cwp-front-page-1-ui *ngSwitchCase="'front-page-1'"
                                      [data]="item.option"></cwp-front-page-1-ui>
                 <cwp-header-2-ui *ngSwitchCase="'header-2'"
+                                 [logo]="logo || './assets/shared/images/logo_white.png'"
                                  [data]="item.option"></cwp-header-2-ui>
                 <cwp-category-1-ui *ngSwitchCase="'category-1'"
                                    [data]="item.option"></cwp-category-1-ui>

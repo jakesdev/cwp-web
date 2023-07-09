@@ -10,4 +10,6 @@ export class Header1UiComponent {
   @Input() data: any;
 
   @Input() disabledTagA = false;
+
+  @Input() logo = '';
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from '@cwp/core/endpoint';
+import { PaginationModel, TableFilterModel } from '@cwp/core/model/request';
 import { UserProfileModel } from '@cwp/core/model/response';
 import { AuthService, LoaderService, NotificationService, PostService } from '@cwp/core/services';
 
@@ -17,6 +18,20 @@ export class RecentPostComponent implements OnInit {
   user!: UserProfileModel;
 
   loaded = false;
+
+  searchFilter: TableFilterModel = {
+    page: 1,
+  };
+
+  pagination: PaginationModel = {
+    take: 0,
+    itemCount: 0,
+    pageCount: 0,
+    hasPreviousPage: false,
+    hasNextPage: true,
+    page: 0,
+  };
+
 
   constructor(
     private postService: PostService,
@@ -44,7 +59,7 @@ export class RecentPostComponent implements OnInit {
     this.loaded = true;
   }
   getPosts() {
-    this.postService.getPosts(1).subscribe((res) => {
+    this.postService.getPosts(this.searchFilter).subscribe((res) => {
       this.data = res.data.map((item: any) => {
         return {
           ...item,

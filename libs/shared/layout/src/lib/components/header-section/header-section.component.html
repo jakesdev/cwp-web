@@ -1,6 +1,6 @@
 <header class="absolute inset-x-0 top-0 z-50"
         [ngClass]="{ 'bg-gray-900': bgGray }">
-  <nav class="flex items-center justify-between p-6 lg:px-8"
+  <nav class="flex items-center justify-between p-6 lg:px-8 bg-gray-800"
        aria-label="Global">
     <div class="flex lg:flex-1">
       <a href="#"
@@ -40,8 +40,8 @@
       <a [routerLink]="['/community']"
          class="text-sm font-semibold leading-6 text-white">Community</a>
       <ng-container *ngIf="userProfile">
-      <a [routerLink]="['/customer-support']"
-         class="text-sm font-semibold leading-6 text-white">Customer Support</a>
+        <a [routerLink]="['/customer-support']"
+           class="text-sm font-semibold leading-6 text-white">Customer Support</a>
       </ng-container>
 
       <a [routerLink]="['/about-us']"

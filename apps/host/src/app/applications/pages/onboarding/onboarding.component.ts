@@ -65,7 +65,6 @@ export class OnboardingPageComponent {
       }
       this.authService.onboarding(url).subscribe({
         next: (res) => {
-          console.log(res);
           if (res) {
             this.router.navigate(['/']);
           }

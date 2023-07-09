@@ -7,8 +7,8 @@ export class PostService {
     private apiService: ApiService
   ) {}
 
-  getPosts(page: number) {
-    return this.apiService.get<any>(`posts?page=${page}`, true);
+  getPosts(options: any) {
+    return this.apiService.getWithOptions<any>(`posts`, options, true);
   }
 
   getTrendingPosts() {

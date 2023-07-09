@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
@@ -6,12 +6,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './header-2-popup.component.html',
   styleUrls: ['./header-2-popup.component.scss'],
 })
-export class Header2PopupComponent {
+export class Header2PopupComponent implements OnInit {
   editHeaderForm!: FormGroup;
   textColor = "#4f46e5";
 
   backGroundColor = "#ffffff";
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<Header2PopupComponent>,

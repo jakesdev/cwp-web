@@ -6,6 +6,8 @@ export class PageModel {
 
   userId!: string;
 
+  components?: any[];
+
   public constructor(init?: Partial<PageModel>) {
     Object.assign(this, init);
   }

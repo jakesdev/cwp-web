@@ -38,8 +38,10 @@
                              [ngSwitch]="item.type">
             <cwp-header-1-ui *ngSwitchCase="'header-1'"
                              [disabledTagA]="true"
+                             [logo]="userProfile.avatarUrl || './assets/shared/images/logo_white.png'"
                              [data]="item.option"></cwp-header-1-ui>
             <cwp-header-2-ui *ngSwitchCase="'header-2'"
+                             [logo]="userProfile.avatarUrl || './assets/shared/images/logo_white.png'"
                              [data]="item.option"></cwp-header-2-ui>
             <cwp-category-1-ui *ngSwitchCase="'category-1'"
                                [disabledTagA]="true"

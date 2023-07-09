@@ -1,13 +1,14 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, copyArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
-import { AfterViewChecked, ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { LoaderService, NotificationService, PageService, PostService, TransactionService } from '@cwp/core/services';
+import { AuthService, LoaderService, NotificationService, PageService, PostService, TransactionService } from '@cwp/core/services';
 import remove from 'lodash-es/remove';
 import { finalize } from 'rxjs';
 
 import { environment } from '../../../../../../../../core/src/lib/environments/environment';
+import { UserProfileModel } from '../../../../../../../../core/src/lib/model/response-model';
 import { Accordion1PopupComponent } from '../../../../../../../../shared/features/src/lib/accordion/accordion-1-popup/accordion-1-popup.component';
 import { Blog1PopupComponent } from '../../../../../../../../shared/features/src/lib/blog/blog-1-popup/blog-1-popup.component';
 import { Category1PopupComponent } from '../../../../../../../../shared/features/src/lib/category/category-1-popup/category-1-popup.component';
@@ -38,6 +39,8 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
 
   components: any[] = [];
 
+  userProfile!: UserProfileModel;
+
   page: any;
 
   showButton: string | null = null;
@@ -63,11 +66,14 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     public postService: PostService,
 
     public notificationService: NotificationService,
+
+    private authService: AuthService,
     private cdRef: ChangeDetectorRef,
 
-    private elementRef: ElementRef,
   ) {}
   ngOnInit(): void {
+    this.userProfile = this.authService.currentUserValue.user;
+    console.log(this.userProfile);
     this.routeSub = this.route.params.subscribe(params => {
       this.params = params['id'];
     });
@@ -235,6 +241,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       }).subscribe({
         next: (res) => {
           this.loaderService.loading$.next(false);
+          this.notificationService.success('Published successfully');
         },
         error: (err) => {
           this.loaderService.loading$.next(false);

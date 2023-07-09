@@ -16,6 +16,8 @@ export class WebpageComponent implements OnInit {
 
   paramsRouter: string[] = [];
 
+  logo = '';
+
   favIcon: HTMLLinkElement = <HTMLLinkElement>document.querySelector('#appIcon');
 
   constructor(
@@ -40,6 +42,7 @@ export class WebpageComponent implements OnInit {
         next: (res) => {
           this.items = res.data.page.components;
           this.favIcon.href = res.data.user.avatarUrl;
+          this.logo = res.data.user.avatarUrl;
           this.title.setTitle(res.data.page.title);
         },
         error: (err) => {
@@ -59,6 +62,7 @@ export class WebpageComponent implements OnInit {
         next: (res) => {
           this.items = res.data.page.components;
           this.favIcon.href = res.data.user.avatarUrl;
+          this.logo = res.data.user.avatarUrl;
           this.title.setTitle(res.data.page.title);
         },
         error: (err) => {
