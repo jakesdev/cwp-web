@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { UserProfileModel } from '@cwp/core/model/response';
 import { AuthService, LoaderService } from '@cwp/core/services';
 import { TranslateService } from '@ngx-translate/core';
@@ -13,10 +14,21 @@ export class AppComponent {
 
   userProfile!: UserProfileModel | null;
   constructor(
+    private meta: Meta,
+    private title: Title,
     public loaderService: LoaderService,
     public translateService: TranslateService,
     private authService: AuthService) {
     this.userProfile = this.authService.currentUserValue.user || null;
+    this.meta.addTags([
+      { name: 'description', content: 'Web site created using create-angular-app' },
+      { name: 'author', content: 'Creative Web Platform' },
+      { name: 'keywords', content: 'Angular, Angular 11, Angular Universal, Angular CLI, Web Builder, Creative Web Platform' },
+    ]);
+    this.setTitle('Creative Web Builder Platform');
+  }
+  public setTitle(newTitle: string) {
+    this.title.setTitle(newTitle);
   }
 
   // languages = [
