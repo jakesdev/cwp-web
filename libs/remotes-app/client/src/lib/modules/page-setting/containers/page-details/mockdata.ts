@@ -35,7 +35,7 @@ export const DATA_SIDE_BAR = [
       description: "Discover a world of possibilities and solutions tailored just for you. Whether you're looking to enhance your business, share your story, or promote your products, our platform provides the tools you need to make an impact. Get started now and unlock your full potential.",
       url: "/#",
       buttonText: 'Contact',
-      image: "https://picsum.photos/200/300",
+      image: "https://marketplace.canva.com/EAFWspXQ4Uc/1/0/1131w/canva-pink-yellow-gradient-portfolio-cover-document-kBzjGecjvDA.jpg",
       backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
@@ -48,7 +48,7 @@ export const DATA_SIDE_BAR = [
       title: "Welcome to [Your Company Name]!",
       description: "Discover a world of possibilities and solutions tailored just for you. Whether you're looking to enhance your business, share your story, or promote your products, our platform provides the tools you need to make an impact. Get started now and unlock your full potential.",
       url: "/#",
-      image: "https://picsum.photos/200/300",
+      image: "https://www.mswordcoverpages.com/wp-content/uploads/2022/11/School-art-project-front-page-design-4CRC.png",
       backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
     },
@@ -62,37 +62,37 @@ export const DATA_SIDE_BAR = [
         {
           title: "Web Development",
           description: "Create stunning, user-friendly websites that captivate your audience and drive engagement",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg",
           url: "/#",
         },
         {
           title: "Content Creation",
           description: "Craft compelling, high-quality content that resonates with your target market and boosts your brand presence.",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
           url: "/#",
         },
         {
           title: "Digital Marketing",
           description: "Reach your audience effectively through strategic digital marketing campaigns, including SEO, social media, and paid advertising",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-03.jpg",
           url: "/#",
         },
         {
           title: "E-commerce Solutions",
           description: "Establish a robust online store and seamlessly manage your products, inventory, and transactions.",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-04.jpg",
           url: "/#",
         },
         {
           title: "Branding and Design",
           description: "Build a strong brand identity and leave a lasting impression with professional logo design, graphic design, and branding strategies.",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-05.jpg",
           url: "/#",
         },
         {
           title: "Experience",
           description: "With years of industry experience, our team has the expertise and knowledge to deliver outstanding results",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
           url: "/#",
         },
       ],
@@ -190,19 +190,19 @@ export const DATA_SIDE_BAR = [
         {
           title: "Web Development",
           description: "Create stunning, user-friendly websites that captivate your audience and drive engagement",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/product-page-05-related-product-01.jpg",
           url: "/#",
         },
         {
           title: "Content Creation",
           description: "Craft compelling, high-quality content that resonates with your target market and boosts your brand presence.",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/product-page-05-related-product-02.jpg",
           url: "/#",
         },
         {
           title: "Digital Marketing",
           description: "Reach your audience effectively through strategic digital marketing campaigns, including SEO, social media, and paid advertising",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/product-page-05-related-product-03.jpg",
           url: "/#",
         },
 
@@ -221,31 +221,31 @@ export const DATA_SIDE_BAR = [
         {
           title: "Web Development",
           description: "Create stunning, user-friendly websites that captivate your audience and drive engagement",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-01.jpg",
           url: "/#",
         },
         {
           title: "Content Creation",
           description: "Craft compelling, high-quality content that resonates with your target market and boosts your brand presence.",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-02.jpg",
           url: "/#",
         },
         {
           title: "Digital Marketing",
           description: "Reach your audience effectively through strategic digital marketing campaigns, including SEO, social media, and paid advertising",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-03.jpg",
           url: "/#",
         },
         {
           title: "E-commerce Solutions",
           description: "Establish a robust online store and seamlessly manage your products, inventory, and transactions.",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-04.jpg",
           url: "/#",
         },
         {
           title: "Branding and Design",
           description: "Build a strong brand identity and leave a lasting impression with professional logo design, graphic design, and branding strategies.",
-          image: "https://picsum.photos/200/300",
+          image: "https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-05.jpg",
           url: "/#",
         },
       ]
@@ -406,16 +406,16 @@ export const DATA_SIDE_BAR = [
     option: {
       item: [
         {
-          title: "Title 1",
-          description: "Description"
+          title: "How do I navigate a website?",
+          description: " To navigate a website, you can use the navigation menu, links, buttons, or search bar provided on the website. These elements help you move between different pages or sections of the site."
         },
         {
-          title: "Title 2",
-          description: "Description"
+          title: "What is the purpose of a search bar on a website?",
+          description: "A search bar allows you to quickly search for specific information or content within a website. You can enter relevant keywords or phrases and the website will display results that match your search query."
         },
         {
-          title: "Title 3",
-          description: "Description"
+          title: "How do I find specific information on a website?",
+          description: " You can find specific information on a website by using the search bar, navigation menu, or browsing through different sections or categories. Additionally, some websites provide filters or sorting options to help you narrow down the content and find what you're looking for."
         }
       ]
     },
@@ -428,15 +428,15 @@ export const DATA_SIDE_BAR = [
       item: [
         {
           title: new Date(),
-          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          description: "Developed a responsive website for a local business, incorporating modern design elements and optimizing user experience. "
         },
         {
           title: new Date(),
-          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          description: " Designed and developed a cross-platform mobile application using React Native."
         },
         {
           title: new Date(),
-          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          description: "Conducted data analysis on a large dataset, using Python and various statistical techniques. "
         }
       ]
     },
@@ -449,15 +449,15 @@ export const DATA_SIDE_BAR = [
       item: [
         {
           title: new Date(),
-          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          description: "Developed a responsive website for a local business, incorporating modern design elements and optimizing user experience. "
         },
         {
           title: new Date(),
-          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          description: " Designed and developed a cross-platform mobile application using React Native."
         },
         {
           title: new Date(),
-          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          description: "Conducted data analysis on a large dataset, using Python and various statistical techniques. "
         }
       ]
     },

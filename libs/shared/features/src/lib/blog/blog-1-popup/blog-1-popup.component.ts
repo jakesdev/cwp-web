@@ -34,6 +34,8 @@ export class Blog1PopupComponent implements OnInit {
           'indent',
           'outdent',
           '|',
+          'alignment', // Add alignment plugin
+          '|',
           'blockQuote',
           'insertTable',
           'undo',

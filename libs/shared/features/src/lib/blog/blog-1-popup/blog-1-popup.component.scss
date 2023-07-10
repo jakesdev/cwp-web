@@ -1,82 +1,9 @@
 :host ::ng-deep {
-  h1 {
-    // Heading 1 styles
-    font-size: 24px;
-    color: #007bff;
-    margin-bottom: 10px;
-  }
 
-  h2 {
-    // Heading 2 styles
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 8px;
-  }
+  #cke_editor1 {}
 
-  h3 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 8px;
-  }
-
-  h4 {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 8px;
-  }
-
-  p {
-    // Paragraph styles
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-
-  a {
-    // Anchor link styles
-    color: #007bff;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  ul,
-  ol {
-    // List styles
-    margin: 0;
-    padding-left: 20px;
-  }
-
-  li {
-    // List item styles
-    margin-bottom: 5px;
-  }
-
-  blockquote {
-    // Blockquote styles
-    margin: 0 0 10px;
-    padding: 10px;
-    border-left: 3px solid #ccc;
-    background-color: #f7f7f7;
-    color: #555;
-  }
-
-  code {
-    // Inline code styles
-    font-family: Consolas, monospace;
-    background-color: #f7f7f7;
-    padding: 2px 4px;
-    border-radius: 4px;
-  }
-
-  pre {
-    // Code block styles
-    font-family: Consolas, monospace;
-    background-color: #f7f7f7;
-    padding: 10px;
-    border: 1px solid #ccc;
-    overflow-x: auto;
+  .cke_contents {
+    height: 60vh !important;
+    overflow: auto;
   }
 }

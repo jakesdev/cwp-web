@@ -3,7 +3,7 @@
         mat-dialog-title=""
         class="mat-mdc-dialog-title mdc-dialog__title font-bold text-gray-900 text-xl mb-2 mx-4 mt-3"
         id="mat-mdc-dialog-title-0">Edit your blog</h2>
-    <ckeditor [editor]="Editor"
+    <ckeditor [config]="{extraPlugins: 'divarea,justify'}"
               [(ngModel)]="text"
               data-bs-focus="false"
               #myEditor></ckeditor>
