@@ -103,7 +103,7 @@
                                   aria-haspopup="true">
                             <span class="sr-only">Add to favorites</span>
                             <svg class="mr-3 h-5 w-5"
-                                 [class.text-indigo-600]="item.favorites.includes(user._id || user.id)"
+                                 [class.text-indigo-600]="item.favorites.includes(user._id || user.id) && item.isFavorite"
                                  viewBox="0 0 20 20"
                                  fill="currentColor"
                                  aria-hidden="true">
@@ -166,7 +166,7 @@
                               type="button"
                               class="inline-flex space-x-2 text-gray-400 hover:text-gray-500 ">
                         <svg class="h-5 w-5 "
-                             [class.text-indigo-600]="item.likes.includes(user._id || user.id)"
+                             [class.text-indigo-600]="item.likes.includes(user._id || user.id) && item.isLike"
                              viewBox="0 0 20 20"
                              fill="currentColor"
                              aria-hidden="true">
@@ -201,9 +201,16 @@
                              [comments]="item.comments"></cwp-comment>
               </article>
             </li>
-
-            <!-- More questions... -->
           </ul>
+          <!-- load more button -->
+          <div class="flex justify-center mt-2"
+               *ngIf="pagination.hasNextPage">
+            <button type="button"
+                    class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                    (click)="onLoadMore()">
+              Load more
+            </button>
+          </div>
         </div>
       </main>
       <aside class="hidden xl:col-span-4 xl:block">

@@ -55,17 +55,29 @@ export class RecentPostComponent implements OnInit {
   }
 
   onLoad(e: any) {
-    console.log(e);
     this.loaded = true;
   }
   getPosts() {
     this.postService.getPosts(this.searchFilter).subscribe((res) => {
-      this.data = res.data.map((item: any) => {
+      this.pagination.hasNextPage = res.meta.hasNextPage;
+      this.pagination.hasPreviousPage = res.meta.hasPreviousPage;
+      this.pagination.itemCount = res.meta.itemCount;
+      this.pagination.page = res.meta.page;
+      this.pagination.pageCount = res.meta.pageCount;
+      const result = res.data.map((item: any) => {
         return {
           ...item,
+          isLike: item.likes.includes(this.user._id),
+          isFavorite: item.favorites.includes(this.user._id),
           isShowComment: false,
         };
       });
+      if (result.length > 0) {
+        this.data = [...this.data, ...result];
+      }
+      else {
+        this.searchFilter.page -= 1;
+      }
     });
   }
 
@@ -79,15 +91,35 @@ export class RecentPostComponent implements OnInit {
     this.data[index].isShowComment = true;
   }
 
+  onLoadMore() {
+    this.searchFilter.page += 1;
+    this.getPosts();
+  }
+
   likePost(id: string) {
     this.postService.likePost(id).subscribe((res: any) => {
-      this.getPosts();
+      this.data = this.data.map((item) => {
+        if (item._id === id) {
+          item.isLike = !item.isLike;
+          item.likeCount = item.isLike ? item.likeCount + 1 : item.likeCount - 1;
+          item.likes = [...item.likes, this.user._id];
+        }
+        return item;
+      }
+      );
     });
   }
 
   addFavorite(id: string) {
     this.postService.addFavorite(id).subscribe((res: any) => {
-      this.getPosts();
+      this.data = this.data.map((item) => {
+        if (item._id === id) {
+          item.isFavorite = !item.isFavorite;
+          item.favorites = [...item.favorites, this.user._id];
+        }
+        return item;
+      }
+      );
     });
   }
 
