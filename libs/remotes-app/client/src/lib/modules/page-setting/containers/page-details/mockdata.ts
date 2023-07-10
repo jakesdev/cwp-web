@@ -31,10 +31,10 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "front-page-1",
     option: {
-      title: "Lorem ipsum dolor sit amet",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Welcome to [Your Company Name]!",
+      description: "Discover a world of possibilities and solutions tailored just for you. Whether you're looking to enhance your business, share your story, or promote your products, our platform provides the tools you need to make an impact. Get started now and unlock your full potential.",
       url: "/#",
-      buttonText: 'Lorem ipsum dolor sit amet',
+      buttonText: 'Contact',
       image: "https://picsum.photos/200/300",
       backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
@@ -45,8 +45,8 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "front-page-3",
     option: {
-      title: "Lorem ipsum dolor sit amet",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Welcome to [Your Company Name]!",
+      description: "Discover a world of possibilities and solutions tailored just for you. Whether you're looking to enhance your business, share your story, or promote your products, our platform provides the tools you need to make an impact. Get started now and unlock your full potential.",
       url: "/#",
       image: "https://picsum.photos/200/300",
       backGroundColor: "rgba(129, 140, 248, 1)",
@@ -60,38 +60,38 @@ export const DATA_SIDE_BAR = [
     option: {
       item: [
         {
-          title: "Lorem ipsum dolor sit amet",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          title: "Web Development",
+          description: "Create stunning, user-friendly websites that captivate your audience and drive engagement",
           image: "https://picsum.photos/200/300",
           url: "/#",
         },
         {
-          title: "Lorem ipsum dolor sit amet",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          title: "Content Creation",
+          description: "Craft compelling, high-quality content that resonates with your target market and boosts your brand presence.",
           image: "https://picsum.photos/200/300",
           url: "/#",
         },
         {
-          title: "Lorem ipsum dolor sit amet",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          title: "Digital Marketing",
+          description: "Reach your audience effectively through strategic digital marketing campaigns, including SEO, social media, and paid advertising",
           image: "https://picsum.photos/200/300",
           url: "/#",
         },
         {
-          title: "Lorem ipsum dolor sit amet",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          title: "E-commerce Solutions",
+          description: "Establish a robust online store and seamlessly manage your products, inventory, and transactions.",
           image: "https://picsum.photos/200/300",
           url: "/#",
         },
         {
-          title: "Lorem ipsum dolor sit amet",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          title: "Branding and Design",
+          description: "Build a strong brand identity and leave a lasting impression with professional logo design, graphic design, and branding strategies.",
           image: "https://picsum.photos/200/300",
           url: "/#",
         },
         {
-          title: "Lorem ipsum dolor sit amet",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          title: "Experience",
+          description: "With years of industry experience, our team has the expertise and knowledge to deliver outstanding results",
           image: "https://picsum.photos/200/300",
           url: "/#",
         },
@@ -188,23 +188,24 @@ export const DATA_SIDE_BAR = [
       headTitle: "Lorem ipsum dolor sit amet",
       item: [
         {
-          title: "Lorem ipsum dolor sit amet",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          title: "Web Development",
+          description: "Create stunning, user-friendly websites that captivate your audience and drive engagement",
           image: "https://picsum.photos/200/300",
           url: "/#",
         },
         {
-          title: "Lorem ipsum dolor sit amet",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          title: "Content Creation",
+          description: "Craft compelling, high-quality content that resonates with your target market and boosts your brand presence.",
           image: "https://picsum.photos/200/300",
           url: "/#",
         },
         {
-          title: "Lorem ipsum dolor sit amet",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          title: "Digital Marketing",
+          description: "Reach your audience effectively through strategic digital marketing campaigns, including SEO, social media, and paid advertising",
           image: "https://picsum.photos/200/300",
           url: "/#",
         },
+
       ],
       backGroundColor: "rgba(129, 140, 248, 1)",
       textColor: "rgba(255, 255, 255,1)",
@@ -215,33 +216,38 @@ export const DATA_SIDE_BAR = [
     preview: 'https://via.placeholder.com/300',
     type: "category-3",
     option: {
-      heading: "Lorem ipsum dolor sit amet",
+      heading: "Heading",
       item: [
         {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
-          title: "Title 1",
-          url: "/#"
+          title: "Web Development",
+          description: "Create stunning, user-friendly websites that captivate your audience and drive engagement",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
         },
         {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
-          title: "Title 2",
-          url: "/#"
+          title: "Content Creation",
+          description: "Craft compelling, high-quality content that resonates with your target market and boosts your brand presence.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
         },
         {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
-          title: "Title 3",
-          url: "/#"
+          title: "Digital Marketing",
+          description: "Reach your audience effectively through strategic digital marketing campaigns, including SEO, social media, and paid advertising",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
         },
         {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
-          title: "Title 4",
-          url: "/#"
+          title: "E-commerce Solutions",
+          description: "Establish a robust online store and seamlessly manage your products, inventory, and transactions.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
         },
         {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
-          title: "Title 5",
-          url: "/#"
-        }
+          title: "Branding and Design",
+          description: "Build a strong brand identity and leave a lasting impression with professional logo design, graphic design, and branding strategies.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
       ]
     },
     src: "<cwp-category-3-ui data=[]></cwp-category-3-ui>"
@@ -284,20 +290,24 @@ export const DATA_SIDE_BAR = [
       image: "https://picsum.photos/200/300",
       items: [
         {
-          title: "Lorem ipsum dolor sit amet",
-          url: '/#',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          title: "Web Development",
+          description: "Create stunning, user-friendly websites that captivate your audience and drive engagement",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
         },
         {
-          title: "Lorem ipsum dolor sit amet",
-          url: '/#',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          title: "Content Creation",
+          description: "Craft compelling, high-quality content that resonates with your target market and boosts your brand presence.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
         },
         {
-          title: "Lorem ipsum dolor sit amet",
-          url: '/#',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        }
+          title: "Digital Marketing",
+          description: "Reach your audience effectively through strategic digital marketing campaigns, including SEO, social media, and paid advertising",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
+
       ]
     },
     src: "<cwp-front-page-2-ui data=[]></cwp-front-page-2-ui>"
@@ -347,21 +357,24 @@ export const DATA_SIDE_BAR = [
     option: {
       item: [
         {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg",
-          title: "Title 1",
-          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          title: "Web Development",
+          description: "Create stunning, user-friendly websites that captivate your audience and drive engagement",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
         },
         {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg",
-          title: "Title 2",
-          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          title: "Content Creation",
+          description: "Craft compelling, high-quality content that resonates with your target market and boosts your brand presence.",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
+        {
+          title: "Digital Marketing",
+          description: "Reach your audience effectively through strategic digital marketing campaigns, including SEO, social media, and paid advertising",
+          image: "https://picsum.photos/200/300",
+          url: "/#",
+        },
 
-        },
-        {
-          image: "https://primefaces.org/cdn/primeng/images/galleria/galleria5.jpg",
-          title: "Title 3",
-          description: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }
       ]
     },
     src: "<cwp-gallery-4-ui data=[]></cwp-gallery-4-ui>"
@@ -455,13 +468,8 @@ export const DATA_SIDE_BAR = [
     type: "blog-1",
     option: {
       text: `
-      <h1>Blog Title</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <ul>
-        <li>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-        <li>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-        <li>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-      </ul>
+
+      <h2><strong>Blog Title: We help businesses transform emotions into motions.</strong></h2><p>&nbsp;</p><p><br>Hey you! Squareme was established in 2013 by Luka and Sebastjan. We wanted to create a media production company to bring our crazy ideas to the world and have some fun along the way. And throughout the years we realized that actually, we’re quite good at this stuff. But our work best speaks for itself, so take a look at our projects below.</p><p>&nbsp;</p><blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></blockquote><blockquote><p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></blockquote>
       `
     },
     src: "<cwp-blog-1-ui data=[]></cwp-blog-1-ui>"

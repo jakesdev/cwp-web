@@ -18,10 +18,15 @@
   </div>
 </div>
 <div>
-  <div class="container mt-4 mx-auto px-2 sm:px-6 lg:px-8
-  border border-gray-200 rounded-lg shadow-lg p-4">
+  <div class="container px-2 sm:px-6 lg:px-8">
     <p class="text-md font-bold text-gray-900 mb-2">Page Setting</p>
     <p class="text-gray-700 text-sm mb-2">Drop components <span class="text-red-500 font-bold">here</span> to build your page</p>
+  </div>
+
+  <div class="container mt-4 mx-auto px-2 sm:px-6 lg:px-8
+  border border-gray-200 rounded-lg shadow-lg p-4"
+       [class.mb-32]="sidebarVisible4">
+
     <div cdkDropListGroup>
       <div cdkDropList
            style="min-height:300px;"
@@ -249,22 +254,7 @@
           </container-element>
         </div>
       </div>
-      <div class="bg-white shadow sm:rounded-lg">
-        <div class="px-4 py-5 sm:p-6">
-          <h3 class="text-base font-semibold leading-6 text-gray-900">Any questions?</h3>
-          <div class="mt-2 max-w-xl text-sm text-gray-500">
-            <!-- Write sentence support -->
-            <p>Please contact us if you have any questions or suggestions.</p>
-          </div>
-          <div class="mt-3 text-sm leading-6">
-            <a href="/customer-support"
-               class="font-semibold text-indigo-600 hover:text-indigo-500">
-              Get in touch
-              <span aria-hidden="true"> &rarr;</span>
-            </a>
-          </div>
-        </div>
-      </div>
+
 
       <p-sidebar [(visible)]="sidebarVisible4"
                  [closeOnEscape]="true"
@@ -325,6 +315,22 @@
                 (click)="sidebarVisible4 = !sidebarVisible4"
                 icon="pi pi-th-large">
       </p-button>
+    </div>
+  </div>
+  <div class="bg-white container ">
+    <div class="py-5">
+      <h3 class="text-base font-semibold leading-6 text-gray-900">Any questions?</h3>
+      <div class="mt-2 max-w-xl text-sm text-gray-500">
+        <!-- Write sentence support -->
+        <p>Please contact us if you have any questions or suggestions.</p>
+      </div>
+      <div class="mt-3 text-sm leading-6">
+        <a href="/customer-support"
+           class="font-semibold text-indigo-600 hover:text-indigo-500">
+          Get in touch
+          <span aria-hidden="true"> &rarr;</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>

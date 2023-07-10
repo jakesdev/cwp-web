@@ -1,31 +1,82 @@
 :host ::ng-deep {
+  h1 {
+    // Heading 1 styles
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+
   h2 {
-    font-size: 2rem;
+    // Heading 2 styles
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 8px;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
   }
 
   h4 {
-    font-size: 1.25rem;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
   }
 
-  ul {
-    list-style-type: disc;
-    padding: 0 0 0 1.5rem;
+  p {
+    // Paragraph styles
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
   }
 
+  a {
+    // Anchor link styles
+    color: #007bff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul,
   ol {
-    list-style-type: decimal;
-    padding: 0 0 0 1.5rem;
+    // List styles
+    margin: 0;
+    padding-left: 20px;
   }
 
-  .ck-body-wrapper {
-    z-index: 1300 !important;
+  li {
+    // List item styles
+    margin-bottom: 5px;
   }
 
-  .ck.ck-balloon-panel {
-    z-index: 10054 !important;
+  blockquote {
+    // Blockquote styles
+    margin: 0 0 10px;
+    padding: 10px;
+    border-left: 3px solid #ccc;
+    background-color: #f7f7f7;
+    color: #555;
+  }
+
+  code {
+    // Inline code styles
+    font-family: Consolas, monospace;
+    background-color: #f7f7f7;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+
+  pre {
+    // Code block styles
+    font-family: Consolas, monospace;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border: 1px solid #ccc;
+    overflow-x: auto;
   }
 }

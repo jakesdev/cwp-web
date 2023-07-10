@@ -114,13 +114,13 @@ export class PageCreateDialogComponent implements OnInit {
       }
       else {
         this.formValid.url = true;
+
+        if (this.formValid.title && this.formValid.url) {
+          this.dialogRef.close({ url: createUrl, title: this.title, templateId: this.selectedTemplate?._id });
+        }
       }
     }
     );
-
-    if (this.formValid.title && this.formValid.url) {
-      this.dialogRef.close({ url: createUrl, title: this.title, templateId: this.selectedTemplate?._id });
-    }
   }
 
 }
