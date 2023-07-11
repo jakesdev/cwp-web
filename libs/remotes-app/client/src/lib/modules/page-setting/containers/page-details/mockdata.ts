@@ -287,7 +287,7 @@ export const DATA_SIDE_BAR = [
     option: {
       title: "Lorem ipsum dolor sit amet",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "https://picsum.photos/200/300",
+      image: "https://www.mswordcoverpages.com/wp-content/uploads/2022/11/School-art-project-front-page-design-4CRC.png",
       items: [
         {
           title: "Web Development",
