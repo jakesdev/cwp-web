@@ -1,6 +1,6 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, copyArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
-import { AfterViewChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService, LoaderService, NotificationService, PageService, PostService, TransactionService } from '@cwp/core/services';
@@ -35,7 +35,7 @@ import { DATA_SIDE_BAR } from './mockdata';
   templateUrl: './page-details.component.html',
   styleUrls: ['./page-details.component.scss'],
 })
-export class PageDetailsComponent implements OnInit, AfterViewChecked {
+export class PageDetailsComponent implements OnInit, AfterViewInit {
 
   components: any[] = [];
 
@@ -71,18 +71,25 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     private cdRef: ChangeDetectorRef,
 
   ) {}
+  ngAfterViewInit(): void {
+    this.cdRef.detectChanges();
+  }
   ngOnInit(): void {
     this.userProfile = this.authService.currentUserValue.user;
     console.log(this.userProfile);
     this.routeSub = this.route.params.subscribe(params => {
       this.params = params['id'];
     });
-    this.pageService.getPage(this.params).subscribe((res) => {
+    this.getPage(this.params);
+    this.getTransactionList();
+  }
+
+  getPage(params: string) {
+    this.pageService.getPage(params).subscribe((res) => {
       this.page = res.data;
       this.components = res.data.components || [];
     }
     );
-    this.getTransactionList();
   }
 
   getTransactionList() {
@@ -118,10 +125,6 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  ngAfterViewChecked() {
-    this.cdRef.detectChanges();
-  }
-
   backToPrevious() {
     window.history.back();
   }
@@ -140,6 +143,7 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
         url: this.page.url,
       }).pipe(
         finalize(() => {
+          this.getPage(this.params);
           this.loaderService.loading$.next(false);
         }
         )
@@ -156,13 +160,14 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
         event.previousIndex,
         event.currentIndex,
       );
-      this.components = event.container.data;
-      this.page.components = this.components;
+      const newComponents = event.container.data;
+      this.page.components = newComponents;
       this.pageService.updatePage(this.params, {
         components: this.page.components,
         url: this.page.url,
       }).pipe(
         finalize(() => {
+          this.getPage(this.params);
           this.loaderService.loading$.next(false);
         }
         )
@@ -207,16 +212,6 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
       this.showButton = null;
     };
   }
-
-  // @HostListener('document:click', ['$event'])
-  // onClick(event: MouseEvent) {
-  //   const targetElement = event.target as HTMLElement;
-  //   const desiredElement = document.getElementById('sidebar4');
-
-  //   if (desiredElement && !desiredElement.contains(targetElement)) {
-  //     this.sidebarVisible4 = true;
-  //   }
-  // }
 
   openPreview(): void {
     window.open(environment.webView + this.page.url, '_blank');
@@ -391,7 +386,13 @@ export class PageDetailsComponent implements OnInit, AfterViewChecked {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
 
+        console.log(result);
+
         this.page.components[i].option = result;
+
+        console.log(i);
+        console.log(this.page.components);
+        console.log(this.page.components[i]);
 
         this.loaderService.loading$.next(true);
         this.pageService.updatePage(this.params, {

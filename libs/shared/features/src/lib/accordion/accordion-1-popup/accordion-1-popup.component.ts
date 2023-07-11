@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -6,7 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './accordion-1-popup.component.html',
   styleUrls: ['./accordion-1-popup.component.scss'],
 })
-export class Accordion1PopupComponent {
+export class Accordion1PopupComponent implements OnInit {
 
   newData: any;
   constructor(

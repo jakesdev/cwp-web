@@ -23,7 +23,7 @@ export class Gallery1PopupComponent implements OnInit {
   }
   ngOnInit(): void {
     this.newData = Object.assign({}, this.data);
-    this.fileImage = Array(this.data.images.length).fill('');
+    this.fileImage = Array(this.newData.images.length).fill('');
   }
 
 

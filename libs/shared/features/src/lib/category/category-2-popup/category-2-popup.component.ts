@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UploadService } from '@cwp/core/services';
 @Component({
@@ -6,7 +6,7 @@ import { UploadService } from '@cwp/core/services';
   templateUrl: './category-2-popup.component.html',
   styleUrls: ['./category-2-popup.component.scss'],
 })
-export class Category2PopupComponent {
+export class Category2PopupComponent implements OnInit {
   fileImage: any[] = [];
 
   imageUrl: any[] = [];
@@ -22,8 +22,8 @@ export class Category2PopupComponent {
 
   ngOnInit() {
     this.newData = this.data;
-    this.fileImage = Array(this.data.item.length).fill('');
-    this.imageUrl = Array(this.data.item.length).fill('');
+    this.fileImage = Array(this.newData.item.length).fill('');
+    this.imageUrl = Array(this.newData.item.length).fill('');
   }
 
   handleFileInput(e: any, index: number): void {
