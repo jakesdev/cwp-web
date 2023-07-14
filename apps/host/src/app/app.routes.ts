@@ -4,13 +4,10 @@ import {
   AdminGuard,
   HasLoggedInGuard, HasNotLoggedInGuard, OnBoardingGuard
 } from '@cwp/core';
-import { AboutUsPageComponent } from './applications/pages/about-us/about-us.component';
 import { ErrorPageComponent } from './applications/pages/error/error.component';
-import { FeaturesPageComponent } from './applications/pages/features/features.component';
 import { MaintenancePageComponent } from './applications/pages/maintenance/maintenance.component';
 import { OnboardingPageComponent } from './applications/pages/onboarding/onboarding.component';
 import { PermissionPageComponent } from './applications/pages/permission/permission.component';
-import { ReleaseNotePageComponent } from './applications/pages/release-note/release-note.component';
 
 export const appRoutes: Route[] = [
   {
@@ -26,21 +23,6 @@ export const appRoutes: Route[] = [
       import('./applications/authentication/authentication.module').then(
         (m) => m.AuthenticationModule
       ),
-  },
-  {
-    path: 'features',
-    canActivate: [],
-    component: FeaturesPageComponent,
-  },
-  {
-    path: 'about-us',
-    canActivate: [],
-    component: AboutUsPageComponent,
-  },
-  {
-    path: 'release-note',
-    canActivate: [],
-    component: ReleaseNotePageComponent,
   },
   {
     path: 'admin',

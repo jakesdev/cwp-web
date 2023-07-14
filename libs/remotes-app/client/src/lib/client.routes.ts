@@ -1,14 +1,9 @@
 import { Route } from '@angular/router';
 import { HasLoggedInGuard, UserGuard } from '@cwp/core/guard';
-import { HomeComponent } from './modules/home/home.component';
 
 export const remotesAppClientRoutes: Route[] = [
   {
     path: '',
-    component: HomeComponent,
-  },
-  {
-    path: 'page',
     canActivate: [HasLoggedInGuard, UserGuard],
     loadChildren: () =>
       import('./modules/page-setting/page-setting.module').then((m) => m.ClientPageSettingModule),

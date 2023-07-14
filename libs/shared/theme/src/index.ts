@@ -6,3 +6,4 @@ export * from './lib/alerts/alerts.component';
 export * from './lib/badges/badges.component';
 export * from './lib/popup/popup.component';
 export * from './lib/confirm-popup/confirm-popup.component';
+export * from './lib/model-layout/model-layout.module';

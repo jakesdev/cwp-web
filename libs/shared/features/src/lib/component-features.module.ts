@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NoSanitizePipe, SafePipe } from '@cwp/core/pipe';
-import { ModelLayoutModule } from '@cwp/shared/layout';
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { SidebarModule } from 'primeng/sidebar';
@@ -21,6 +20,7 @@ import { SelectionComponentComponent } from './selection-component/selection-com
 import { EditDialogComponent } from './setup-component/edit-dialog/edit-dialog.component';
 import { TimelineModule } from './timeline/timeline.module';
 import { VideoModule } from './video/video.module';
+import { ModelLayoutModule } from '@cwp/shared/theme';
 
 @NgModule({
   declarations: [

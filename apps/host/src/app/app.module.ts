@@ -16,15 +16,12 @@ import { StoreModule } from '@ngrx/store';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AboutUsPageComponent } from './applications/pages/about-us/about-us.component';
 import { ErrorPageComponent } from './applications/pages/error/error.component';
-import { FeaturesPageComponent } from './applications/pages/features/features.component';
 import { MaintenancePageComponent } from './applications/pages/maintenance/maintenance.component';
 import { OnboardingPageComponent } from './applications/pages/onboarding/onboarding.component';
 import { PermissionPageComponent } from './applications/pages/permission/permission.component';
-import { ReleaseNotePageComponent } from './applications/pages/release-note/release-note.component';
+import { AppRoutingModule } from './app.routes';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
@@ -39,9 +36,6 @@ function initializeApp(injector: Injector) {
 
 const COMPONENT = [
   OnboardingPageComponent,
-  AboutUsPageComponent,
-  FeaturesPageComponent,
-  ReleaseNotePageComponent,
   MaintenancePageComponent,
   ErrorPageComponent,
   PermissionPageComponent,

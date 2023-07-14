@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "nx serve host",
     "start": "nx run host:serve:production",
+    "portal": "nx run portal:serve --configuration=development",
     "design-system": "nx run design-system:serve --configuration=development",
     "build": "nx build host",
+    "build-portal": "nx build portal",
+    "build-design-system": "nx build design-system",
     "up-version": "nx migrate latest",
     "ng": "nx"
   },

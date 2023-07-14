@@ -1,35 +1,5 @@
 <div class="relative">
   <router-outlet></router-outlet>
-  <!-- <div class="fixed bottom-4 left-4"
-       *ngIf="userProfile?.role !== 'ADMIN'">
-    <div class="dropdown">
-      <div class="dropdown-toggle"
-           type="button"
-           id="dropdownMenuButton"
-           data-toggle="dropdown"
-           aria-haspopup="true">
-        <img [src]="selectedLanguage.flag"
-             width="32"
-             height="32"
-             class="cursor-pointer">
-      </div>
-      <div class="dropdown-menu w-32 max-h-40 py-0 overflow-y-auto"
-           aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item flex gap-x-4"
-           href="#"
-           (click)="changeLanguage(language)"
-           *ngFor="let language of languages">
-          <img [src]="language.flag"
-               width="32"
-               height="32"
-               class="cursor-pointer">
-          <div>
-            {{ language.country }}
-          </div>
-        </a>
-      </div>
-    </div>
-  </div> -->
   <div *ngIf="isLoading$ | async"
        class="h-screen w-full fixed bg-gray-500">
     <div class="cssload-container">

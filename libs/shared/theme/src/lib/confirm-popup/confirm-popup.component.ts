@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogComponent } from '@cwp/shared/layout';
 
 @Component({
   selector: 'cwp-confirm-popup',
@@ -13,18 +12,18 @@ import { DialogComponent } from '@cwp/shared/layout';
 })
 export class ConfirmPopupComponent {
 
-  constructor(
-    public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-  ) {
+  // constructor(
+  //   public dialogRef: MatDialogRef<DialogComponent>,
+  //   @Inject(MAT_DIALOG_DATA) public data: any,
+  // ) {
 
-  }
+  // }
 
-  onClose() {
-    this.dialogRef.close(false);
-  }
+  // onClose() {
+  //   this.dialogRef.close(false);
+  // }
 
-  onConfirm() {
-    this.dialogRef.close(true);
-  }
+  // onConfirm() {
+  //   this.dialogRef.close(true);
+  // }
 }

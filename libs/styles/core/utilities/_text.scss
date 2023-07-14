@@ -1,14 +1,21 @@
 @import 'base/mixins';
 @import 'variables';
 
-.grid-title {
-	@include rem(font-size, 12);
-	font-style: normal;
-	color: $color-black-5;
+.page-title {
+
 }
 
 .field-title {
-	@include rem(font-size, 12);
-	font-style: normal;
-	color: $color-black-5;
+
+}
+
+.field-desciption {
+
+}
+
+.content-title {
+
+}
+.content-description {
+
 }
