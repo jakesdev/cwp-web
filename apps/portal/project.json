@@ -15,7 +15,13 @@
         "main": "apps/portal/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/portal/tsconfig.app.json",
-        "assets": ["apps/portal/src/favicon.ico", "apps/portal/src/assets"],
+        "assets": [
+          {
+            "input": "libs/shared/assets",
+            "glob": "**/*",
+            "output": "assets/shared"
+          }
+        ],
         "styles": [
           "@angular/material/prebuilt-themes/indigo-pink.css",
           "libs/styles/global.scss",
