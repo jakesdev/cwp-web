@@ -9,6 +9,8 @@ import {
   IntroducingComponent,
   DesignSystemTextInputComponent,
 } from './modules';
+import { TypographyComponent } from './modules/typography/typography.component';
+import { ColorComponent } from './modules/color/color.component';
 
 export const appRoutes: Route[] = [
   {
@@ -18,6 +20,10 @@ export const appRoutes: Route[] = [
   {
     path: 'button',
     component: DesignSystemButtonComponent,
+  },
+  {
+    path: 'color',
+    component: ColorComponent,
   },
   {
     path: 'badge',
@@ -42,5 +48,9 @@ export const appRoutes: Route[] = [
   {
     path: 'text-input',
     component: DesignSystemTextInputComponent,
+  },
+  {
+    path: 'typography',
+    component: TypographyComponent,
   },
 ];

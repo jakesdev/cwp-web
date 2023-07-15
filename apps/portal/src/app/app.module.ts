@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { AppLayoutModule } from '@cwp/shared/layout';
 import { NoSanitizePipe, SafePipe } from '@cwp/core/pipe';
 import { ContentSectionComponent, FaqSectionComponent, FooterSectionComponent, HeaderSectionComponent, HeroSectionComponent, LogoSectionComponent, PricingSectionComponent } from './components';
-import { RouterModule } from '@angular/router';
 import { ApiService, PostService } from '@cwp/core/services';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -13,13 +12,15 @@ import { AppRoutingModule } from './app.routes';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ReleaseNotePageComponent } from './pages/release-note/release-note.component';
 import { AboutUsPageComponent } from './pages/about-us/about-us.component';
+import { FeaturesPageComponent } from './pages/features/features.component';
 
 
 const PAGE = [
   AppComponent,
   HomePageComponent,
   AboutUsPageComponent,
-  ReleaseNotePageComponent
+  ReleaseNotePageComponent,
+  FeaturesPageComponent
 ]
 const COMPONENT = [
   PricingSectionComponent,
