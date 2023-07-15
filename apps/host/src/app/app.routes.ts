@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import {
   AdminGuard,
-  HasLoggedInGuard, HasNotLoggedInGuard, OnBoardingGuard
+  HasLoggedInGuard, HasNotLoggedInGuard
 } from '@cwp/core';
 import { ErrorPageComponent } from './applications/pages/error/error.component';
 import { MaintenancePageComponent } from './applications/pages/maintenance/maintenance.component';
-import { OnboardingPageComponent } from './applications/pages/onboarding/onboarding.component';
 import { PermissionPageComponent } from './applications/pages/permission/permission.component';
 
 export const appRoutes: Route[] = [
@@ -38,7 +37,6 @@ export const appRoutes: Route[] = [
   {
     path: 'permission-denied',
     pathMatch: 'full',
-    canActivate: [],
     component: PermissionPageComponent,
   },
   {
@@ -46,12 +44,7 @@ export const appRoutes: Route[] = [
     pathMatch: 'full',
     component: MaintenancePageComponent
   },
-  {
-    path: 'onboarding',
-    pathMatch: 'full',
-    canActivate: [OnBoardingGuard], // onboarding rồi thì ko cho vào nữa // TODO :linh
-    component: OnboardingPageComponent
-  },
+
   {
     path: ':url',
     loadChildren: () =>

@@ -1,0 +1,116 @@
+<div class="flex h-screen">
+  <div class="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+    <div class="mx-auto w-full max-w-sm lg:w-96">
+      <div>
+        <img src="/assets/shared/images/logo_dark.png"
+        class="cursor-pointer h-14 w-auto"
+         >
+        <h3>{{ "Hello, have a nice day!" | translate: { name: "Angular" } }}</h3>
+        <p class="mt-2 text-sm text-gray-600">
+          {{"Or" | translate}}
+          <a [routerLink]="['/auth/register']"
+             class="font-medium text-indigo-600 hover:text-indigo-500">{{"Register" | translate}}</a>
+        </p>
+      </div>
+
+      <div class="mt-8">
+        <div class="mt-6">
+          <form class="space-y-6"
+                [formGroup]="loginForm"
+                (keyup.enter)="login()">
+            <div>
+              <label for="email"
+                     class="block text-sm font-medium leading-6 text-gray-900">{{"Email address" | translate}}</label>
+              <div class="mt-2">
+                <input id="email"
+                       name="email"
+                       type="email"
+                       autocomplete="email"
+                       formControlName="email"
+                       required
+                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+              <p *ngIf="
+                        loginForm.controls.email.touched &&
+                        loginForm.controls.email.errors && loginForm.controls.email.errors['required']"
+                 class="mt-2 text-sm text-red-600"
+                 translate>
+                Email is required
+              </p>
+              <p *ngIf="
+                        loginForm.controls.email.touched &&
+                        loginForm.controls.email.errors && loginForm.controls.email.errors['email']"
+                 class="mt-2 text-sm text-red-600"
+                 translate>
+                Email is invalid
+              </p>
+            <div class="text-red-500 text-sm mb-0 mt-0"
+                 *ngIf="!isValidEmail">
+              {{"Please input correct email address" | translate}}
+            </div>
+
+            <div>
+              <label for="password"
+                     class="block text-sm font-medium leading-6 text-gray-900">{{"Password" | translate}}</label>
+              <div class="mt-2 relative">
+                <input id="password"
+                       name="password"
+                       [type]="hide ? 'password' : 'text'"
+                       autocomplete="current-password"
+                       formControlName="password"
+                       required
+                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <mat-icon matSuffix
+                          class="absolute top-1 right-2 cursor-pointer text-xl text-gray-500"
+                          (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </div>
+                        <p *ngIf="
+                                  loginForm.controls.password.touched &&
+                                  loginForm.controls.password.errors && loginForm.controls.password.errors['required']"
+                           class="mt-2 text-sm text-red-600"
+                           translate>
+                          Password is required
+                        </p>
+
+                        <p *ngIf="
+                                  loginForm.controls.password.touched &&
+                                  loginForm.controls.password.errors && loginForm.controls.password.errors['minlength']"
+                           class="mt-2 text-sm text-red-600"
+                           translate>
+                          Password must be at least 8 characters
+                        </p>
+
+
+              <div class="text-red-500 text-sm mb-0 mt-0"
+                   *ngIf="!isValidPassword">
+                {{"Please input password" | translate}}
+              </div>
+            </div>
+
+            <div class="flex items-center justify-end">
+              <div class="text-sm">
+                <a [routerLink]="['/auth/forgot-password']"
+                   class="font-medium text-indigo-600 hover:text-indigo-500">{{"Forgot your password?" | translate}}</a>
+              </div>
+            </div>
+            <div *ngIf="!currentEnvironment">
+              Account User: linh456@gmail.com / 123123123
+              Account Admin: // admin@vstation.com / vStation@123
+            </div>
+            <div>
+              <button type="button"
+                      (click)="login()"
+                      class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{{"Sign in" | translate}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="relative hidden w-0 flex-1 lg:block">
+    <img class="absolute inset-0 h-full w-full object-cover"
+         src="/assets/shared/images/6500555.jpg"
+         alt="">
+  </div>
+</div>

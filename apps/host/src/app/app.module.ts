@@ -19,7 +19,6 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { AppComponent } from './app.component';
 import { ErrorPageComponent } from './applications/pages/error/error.component';
 import { MaintenancePageComponent } from './applications/pages/maintenance/maintenance.component';
-import { OnboardingPageComponent } from './applications/pages/onboarding/onboarding.component';
 import { PermissionPageComponent } from './applications/pages/permission/permission.component';
 import { AppRoutingModule } from './app.routes';
 
@@ -35,7 +34,6 @@ function initializeApp(injector: Injector) {
 }
 
 const COMPONENT = [
-  OnboardingPageComponent,
   MaintenancePageComponent,
   ErrorPageComponent,
   PermissionPageComponent,

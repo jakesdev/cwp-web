@@ -14,6 +14,7 @@ export class HasLoggedInGuard {
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    console.log('route', route);
     this.helper.tokenGetter = () => {
       const currentUser = this.authService.currentUserValue;
       return currentUser?.token?.refreshToken;
