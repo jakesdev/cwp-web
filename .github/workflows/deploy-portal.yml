@@ -4,6 +4,7 @@ env:
   AWS_REGION_NAME: "ap-southeast-1"
   CLOUDFRONT_DISTRIBUTION_ID: "ETC8MKZSK3F2H"
 
+
 on:
   workflow_dispatch:
     branches:
