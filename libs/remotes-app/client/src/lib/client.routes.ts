@@ -5,20 +5,33 @@ import {
     OnBoardingGuard,
     UserGuard
 } from '@cwp/core/guard';
+import { PageDetailsComponent } from './modules/page-setting/containers/page-details/page-details.component';
+import { PageSettingComponent } from './modules/page-setting/page-setting.component';
 
 export const remotesAppClientRoutes: Route[] = [
     {
         path: '',
+        redirectTo: 'auth/login',
         pathMatch: 'full',
-        redirectTo: '',
     },
     {
-        path: '',
+        path: 'page',
         canActivate: [HasLoggedInGuard, UserGuard],
-        loadChildren: () =>
-            import('./modules/page-setting/page-setting.module').then(
-                (m) => m.ClientPageSettingModule
-            ),
+        component: PageSettingComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: () => import('./modules/page-setting/page/page/page.module').then(m => m.PageModule)
+            },
+            {
+                path: 'editing',
+                loadChildren: () => import('./modules/page-setting/page/page-editing/page-editing.module').then(m => m.PageEditingModule)
+            },
+            {
+                path: ':id',
+                component: PageDetailsComponent,
+            }
+        ]
     },
     {
         path: 'auth',
