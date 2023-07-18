@@ -3,7 +3,7 @@ import {
     HasLoggedInGuard,
     HasNotLoggedInGuard,
     OnBoardingGuard,
-    UserGuard,
+    UserGuard
 } from '@cwp/core/guard';
 
 export const remotesAppClientRoutes: Route[] = [
@@ -76,5 +76,11 @@ export const remotesAppClientRoutes: Route[] = [
             import('./modules/payment/payment.module').then(
                 (m) => m.ClientPaymentModule
             ),
+    },
+    {
+        path: 'chat',
+        canActivate: [HasLoggedInGuard, UserGuard],
+        loadChildren: () =>
+            import('./modules/chat/chat.module').then((m) => m.ClientChatModule),
     },
 ];

@@ -49,6 +49,7 @@
     "ngrx": "^0.0.1-security",
     "ngx-color-picker": "^14.0.0",
     "ngx-permissions": "^15.0.1",
+    "ngx-socket-io": "^4.4.0",
     "primeicons": "^6.0.1",
     "primeng": "^15.3.0",
     "rxjs": "~7.8.0",
