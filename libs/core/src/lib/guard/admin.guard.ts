@@ -36,7 +36,7 @@ export class AdminGuard implements CanActivate {
     }
     else if (currentUser?.user?.role === 'USER') {
       this.notificationService.error('You are not authorized to access this page');
-      this.navigationService.defaultPage();
+      this.navigationService.loginPage();
       return false;
     }
     this.navigationService.loginPage();

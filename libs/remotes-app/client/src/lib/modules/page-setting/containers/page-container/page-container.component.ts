@@ -7,121 +7,124 @@ import { AuthService, NotificationService, PageService } from '@cwp/core/service
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { PageCreateDialogComponent } from '../page-create-dialog/page-create-dialog.component';
 import { PageEditDialogComponent } from '../page-edit-dialog/page-edit-dialog.component';
-interface Card {
-  id: number;
-  title: string;
-  description: string;
-  imageUrl: string;
-  url?: string;
-}
 
 
 @Component({
-  selector: 'cwp-page-container',
-  templateUrl: './page-container.component.html',
-  styleUrls: ['./page-container.component.scss'],
+    selector: 'cwp-page-container',
+    templateUrl: './page-container.component.html',
+    styleUrls: ['./page-container.component.scss'],
 })
 export class PageContainerComponent implements OnInit {
+    //ViewChild
 
-  userProfile!: UserProfileModel | null;
+    //Input
 
-  pages: PageModel[] = [];
-  urlSafe!: SafeResourceUrl;
+    //Output
+    //Variable
+    // model
+    // string
+    // boolean
 
-  limitsPage = 0;
+    userProfile!: UserProfileModel | null;
 
-  loaded = false;
-  constructor(
-    public dialog: MatDialog,
-    private router: Router,
+    pages: PageModel[] = [];
+    urlSafe!: SafeResourceUrl;
 
-    private pageService: PageService,
+    limitsPage = 0;
 
-    private authService: AuthService,
+    loaded = false;
+    constructor(
+        public dialog: MatDialog,
+        private router: Router,
 
-    private notificationService: NotificationService,
+        private _pageService: PageService,
 
-  ) {
-    this.userProfile = this.authService.currentUserValue.user || null;
-  }
-  ngOnInit(): void {
-    this.getPage();
-  }
+        private _authService: AuthService,
 
-  onLoad(e: any) {
-    console.log(e);
-    this.loaded = true;
-  }
+        private _notificationService: NotificationService,
 
-  getPage() {
-    this.pageService.getAllPages().subscribe((res) => {
-      this.pages = res.data.page;
-      this.limitsPage = res.data.user.limitsPage;
+    ) {
+        this.userProfile = this._authService.currentUserValue.user || null;
     }
-    );
-  }
 
-  openNewPage(): void {
-    if (this.limitsPage <= this.pages.length) return this.notificationService.error('You have reached the limit of pages'
-    );
+    ngOnInit(): void {
+        this.getPage();
+    }
 
-    const dialogRef = this.dialog.open(PageCreateDialogComponent, {
-      width: '1000px',
+    onLoad(e: any) {
+        console.log(e);
+        this.loaded = true;
+    }
 
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      this.pageService.createPage({
-        title: result.title,
-        url: result.url,
-        templateId: result.templateId,
-      }).subscribe({
-        next: () => {
-          this.getPage();
-        },
-        error: (err) => {
-          this.notificationService.error(err.message);
+    getPage() {
+        this._pageService.getAllPages().subscribe((res) => {
+            this.pages = res.data.page;
+            this.limitsPage = res.data.user.limitsPage;
         }
-      }
-      );
+        );
     }
-    );
-  }
 
-  openPage(id: string) {
-    this.router.navigate([`/page/${id}`]);
-  }
+    openNewPage(): void {
+        if (this.limitsPage <= this.pages.length) return this._notificationService.error('You have reached the limit of pages'
+        );
 
-  openDialog(id: string) {
-    const dialogRef = this.dialog.open(PageEditDialogComponent, {
-      width: '1000px',
-      data: {
-        id,
-      },
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      this.getPage();
-    }
-    );
-  }
+        const dialogRef = this.dialog.open(PageCreateDialogComponent, {
+            width: '1000px',
 
-  deletePage(id: string) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '500px',
-      data: {
-        id,
-        message: 'Are you sure you want to delete this page?',
-      },
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        this.pageService.deletePage(id).subscribe((res) => {
-          this.getPage();
         });
-      }
+        dialogRef.afterClosed().subscribe((result) => {
+            this._pageService.createPage({
+                title: result.title,
+                url: result.url,
+                templateId: result.templateId,
+            }).subscribe({
+                next: () => {
+                    this.getPage();
+                },
+                error: (err) => {
+                    this._notificationService.error(err.message);
+                }
+            }
+            );
+        }
+        );
     }
-    );
-    // this.pageService.deletePage(id).subscribe((res) => {
-    //   this.getPage();
-    // });
-  }
+
+    openPage(id: string) {
+        this.router.navigate([`/page/${id}`]);
+    }
+
+    openDialog(id: string) {
+        const dialogRef = this.dialog.open(PageEditDialogComponent, {
+            width: '1000px',
+            data: {
+                id,
+            },
+        });
+        dialogRef.afterClosed().subscribe((result) => {
+            this.getPage();
+        }
+        );
+    }
+
+    deletePage(id: string) {
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            width: '500px',
+            data: {
+                id,
+                message: 'Are you sure you want to delete this page?',
+            },
+        });
+        dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+                this._pageService.deletePage(id).subscribe((res) => {
+                    this.getPage();
+                });
+            }
+        }
+        );
+        // this.pageService.deletePage(id).subscribe((res) => {
+        //   this.getPage();
+        // });
+    }
 }

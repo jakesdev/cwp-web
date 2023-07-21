@@ -34,7 +34,7 @@ export class HasLoggedInGuard {
     // return true;
     // }
     this.notificationService.error('You need to login to access this page');
-    this.navigationService.defaultPage();
+    this.navigationService.loginPage();
     // not logged in so redirect to login page with the return url
     return true;
   }

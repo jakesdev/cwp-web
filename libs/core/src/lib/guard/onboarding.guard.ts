@@ -20,7 +20,7 @@ export class OnBoardingGuard {
     }
 
     if (currentUser.user.isFinishedTutorial) {
-      this.navigationService.defaultPage();
+      this.navigationService.loginPage();
       return false;
     }
 

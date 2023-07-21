@@ -10,6 +10,7 @@ import { AppInitService, CoreModule } from '@cwp/core';
 import { appReducers, AuthEffect, metaReducers } from '@cwp/core/data-access';
 import { ErrorInterceptor, JwtInterceptor } from '@cwp/core/interceptor';
 import { NoSanitizePipe } from '@cwp/core/pipe';
+import { RemotesAppClientModule } from '@cwp/remotes-app/client';
 import { AppLayoutModule } from '@cwp/shared/layout';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -17,10 +18,10 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routes';
 import { ErrorPageComponent } from './applications/pages/error/error.component';
 import { MaintenancePageComponent } from './applications/pages/maintenance/maintenance.component';
 import { PermissionPageComponent } from './applications/pages/permission/permission.component';
-import { AppRoutingModule } from './app.routes';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
@@ -71,6 +72,7 @@ const COMPONENT = [
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    RemotesAppClientModule,
     // RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     NgxPermissionsModule.forRoot(),
     CoreModule.forRoot(),

@@ -39,7 +39,7 @@ export class HasNotLoggedInGuard {
     // return true;
     // }
 
-    this.navigationService.defaultPage();
+    this.navigationService.loginPage();
     // not logged in so redirect to login page with the return url
     return true;
   }
