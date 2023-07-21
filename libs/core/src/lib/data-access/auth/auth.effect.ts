@@ -38,7 +38,7 @@ export class AuthEffect {
                 this.router.navigate(['/admin']);
               } else {
                 if (userProfile.isFinishedTutorial) {
-                  this.router.navigate(['/']);
+                  this.router.navigate(['/page']);
                 }
                 this.router.navigate(['/onboarding']);
               }
